@@ -76,7 +76,7 @@ export default defineConfig({
         },
         {
           label: "API Reference",
-          link: "/api-reference/",
+          items: ["api-reference"],
         },
       ],
     }),

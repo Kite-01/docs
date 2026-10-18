@@ -5,7 +5,7 @@ description: Deposit notifiers and gas sponsors, and how to set their keys.
 
 import { Aside } from "@astrojs/starlight/components";
 
-Kite uses outside providers for two jobs. Set their keys under **Providers** in the dashboard; they're stored encrypted with your `KITE_ENCRYPTION_KEY`.
+Kite uses outside providers for two jobs, and every chain needs one of each: a deposit notifier and a gas sponsor. Set their keys under **Providers** in the dashboard; they're stored encrypted with your `KITE_ENCRYPTION_KEY`.
 
 ![QuickNode's provider entry expanded, with its API key field](../../../assets/screenshots/providers-quicknode.png)
 
@@ -29,14 +29,10 @@ Choose which notifier each chain uses in the chain's configuration. A chain can 
 
 ## Gas sponsors
 
-A gas sponsor pays the gas for the operator's settlement transactions, so the operator wallet doesn't need native tokens on that chain.
+A gas sponsor pays the gas for the operator's transactions: settlements, refunds and recoveries. The operator wallet doesn't need native tokens.
 
 | Provider | Keys                      |
 | -------- | ------------------------- |
 | Alchemy  | API key and gas policy ID |
 
-Enable it per chain in the chain's configuration. You can still choose not to use it for a single refund or recovery.
-
-## Without a notifier
-
-A chain without a notifier still works: the server checks open transfers once a minute. Payments just take longer to be noticed.
+Choose it per chain in the chain's configuration. A refund or recovery can [opt out of it](/payments/refunds-and-recovery/), in which case the operator wallet pays.

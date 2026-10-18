@@ -12,7 +12,8 @@ You can run Kite from source with Bun, or as a Docker image. Either way you need
 - [Bun](https://bun.sh) 1.4 or newer, if you run from source
 - PostgreSQL (Kite is tested against Postgres 18)
 - A public URL for the server, so providers can tell it about deposits (`http://localhost:3000` is fine while you try it)
-- A wallet mnemonic for the operator, and a little of each chain's native token in it for gas, unless you use a [gas sponsor](/server/providers/)
+- A wallet mnemonic for the operator
+- Keys for a [deposit notifier and a gas sponsor](/server/providers/); every chain needs both
 
 ## From source
 
@@ -95,4 +96,4 @@ curl -s http://localhost:3000/api/overview/info -H "x-kite-root-key: $KITE_ROOT_
 }
 ```
 
-The operator address is the wallet that will send settlement and refund transactions. Fund it with gas on each chain you enable, unless a gas sponsor pays for it.
+The operator address is the wallet that will send settlement and refund transactions. Each chain's gas sponsor pays their gas. It's also the address your [Kite factory](/contracts/overview/#deploying-a-factory) must be deployed with as operator.

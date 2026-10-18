@@ -7,7 +7,7 @@ import { Aside } from "@astrojs/starlight/components";
 
 ## Mainnets
 
-A server with `KITE_IS_TESTNET` unset or `false` offers these networks: Ethereum, OP Mainnet, BNB Smart Chain, Polygon, Robinhood Chain, Base, Arbitrum One and Monad. Each needs a [Kite factory](/contracts/overview/#deploying-a-factory) deployed on it before it can be configured.
+A server with `KITE_IS_TESTNET` unset or `false` offers these networks: Ethereum, OP Mainnet, BNB Smart Chain, Polygon, Robinhood Chain, Base, Arbitrum One and Monad. Each needs your own [Kite factory](/contracts/overview/#deploying-a-factory) deployed on it before it can be configured.
 
 ## Deploying
 
@@ -25,10 +25,10 @@ Background work, such as settling transfers and delivering webhooks, runs in the
 ## Checklist
 
 - [ ] Strong, unique `KITE_ROOT_KEY` and `KITE_ENCRYPTION_KEY`, kept in a secret manager.
-- [ ] A dedicated operator mnemonic, with gas on each chain or a gas sponsor.
+- [ ] A dedicated operator mnemonic, set as the operator of your Kite factory on each chain.
 - [ ] A settlement address you control on each chain.
 - [ ] Your own RPC URLs on each chain.
-- [ ] A deposit notifier on each chain, and `KITE_PUBLIC_BASE_URL` reachable from the internet.
+- [ ] A deposit notifier and a gas sponsor on each chain, and `KITE_PUBLIC_BASE_URL` reachable from the internet.
 - [ ] Apps use [API keys](/authentication/api-keys/) with only the scopes they need, never the root key.
 - [ ] [Webhooks](/integrate/webhooks/) verified with their signing secret.
 - [ ] `KITE_ENABLE_DASHBOARD=false` if nobody should reach the dashboard from this URL; the checkout stays up.
@@ -57,5 +57,5 @@ Back up the database and keep `KITE_ENCRYPTION_KEY` with it: without the key, th
 ## Monitoring
 
 - `GET /api/overview/info` with the root key answers when the server and database are up.
-- Watch the operator wallet's balance on each chain that has no gas sponsor.
+- Watch your gas sponsor's balance or policy limits, so settlements don't stall.
 - Failed webhook deliveries are listed on each webhook in the dashboard.

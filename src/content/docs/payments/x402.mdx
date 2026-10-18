@@ -9,7 +9,7 @@ description: Gasless wallet payments, at checkout and from your own services.
 
 When a customer chooses **Connect wallet**, checkout asks Kite to pay the link with x402. Kite answers `402` with a `PAYMENT-REQUIRED` header, the customer's wallet signs a transfer authorisation ([EIP-3009](https://eips.ethereum.org/EIPS/eip-3009)), and checkout sends it back in a `PAYMENT-SIGNATURE` header. Kite submits it, moving the customer's tokens into the transfer's address, and settles. The customer pays no gas.
 
-It's offered on chains with a [gas sponsor](/server/providers/#gas-sponsors), for a settlement token that supports EIP-3009, such as USDC.
+It's offered when the chain's settlement token supports EIP-3009, such as USDC.
 
 Once Kite accepts an x402 payment, the transfer is `x402Settled` and settles like any other. If settlement then fails, the funds are held for you to resolve by hand rather than refunded automatically, because the authorisation was already used.
 

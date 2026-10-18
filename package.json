@@ -7,13 +7,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "spec:add": "node scripts/add-spec.mjs",
     "lint": "prettier --check .",
     "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/starlight": "0.42.5",
-    "@scalar/api-reference": "1.72.4",
     "astro": "7.3.5",
     "sharp": "0.35.5"
   },
