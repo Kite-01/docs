@@ -32,4 +32,3 @@ pnpm dev
 - Write for someone setting up or integrating Kite for the first time. Say what to do, then why, briefly.
 - Keep examples runnable: real package names, real headers, real endpoints.
 - Screenshots are PNGs at 2x, taken from a dashboard with realistic data, saved in `src/assets/screenshots`. Don't include real keys or addresses you care about.
-- Don't edit `public/api/*.json` by hand; regenerate them with `pnpm spec:add` (see the [README](README.md#api-reference-versions)).

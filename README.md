@@ -1,8 +1,8 @@
 # Kite docs
 
-The documentation site for [Kite](https://github.com/Kite-01/server): guides for running a server, taking payments, authentication, the npm packages, and a versioned API reference.
+The documentation site for [Kite](https://github.com/Kite-01/server): guides for running a server, taking payments, authentication and the npm packages. Each server serves its own API reference at `/openapi`.
 
-Built with [Astro Starlight](https://starlight.astro.build). The API reference is [Scalar](https://github.com/scalar/scalar), rendered from each server version's OpenAPI spec.
+Built with [Astro Starlight](https://starlight.astro.build).
 
 ## Development
 
@@ -16,17 +16,6 @@ pnpm lint
 ```
 
 Pages live in `src/content/docs` as Markdown or MDX, and the sidebar is in `astro.config.mjs`. Screenshots go in `src/assets/screenshots`.
-
-## API reference versions
-
-Each server release gets its own spec in `public/api`, and the reference has a version switcher. To add a version, point the script at a running server or at the output of `bun run spec` from a server checkout:
-
-```sh
-pnpm spec:add https://pay.example.com/openapi/json
-# or: pnpm spec:add ../server/kite.json
-```
-
-It reads `info.version`, writes `public/api/<version>.json` and lists the version in `src/api-versions.json`, newest first. The newest is shown by default. Running it again for an existing version replaces that spec.
 
 ## Deploying
 

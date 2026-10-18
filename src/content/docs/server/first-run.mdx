@@ -17,7 +17,7 @@ With the server running, everything else happens in the dashboard. This walks th
 
 2. **Add provider keys**
 
-   Under **Providers**, add keys for at least one deposit notifier, QuickNode or Alchemy, so the server hears about payments the moment they land. A gas sponsor is optional. [Providers](/server/providers/) explains each.
+   Under **Providers**, add keys for a deposit notifier, QuickNode or Alchemy, so the server hears about payments the moment they land, and for Alchemy as gas sponsor, which pays the operator's gas. Every chain needs both. [Providers](/server/providers/) explains each.
 
    ![The Providers page: Alchemy as gas sponsor and deposit notifier, and QuickNode as deposit notifier](../../../assets/screenshots/providers.png)
 
@@ -29,7 +29,7 @@ With the server running, everything else happens in the dashboard. This walks th
 
 4. **Configure the chain**
 
-   Open the chain. In **Tokens**, add the tokens customers may pay with, then in **Configuration** set the Kite factory address, the settlement token and the rest. [Chains and tokens](/server/chains-and-tokens/) covers every field.
+   Open the chain. In **Tokens**, add the tokens customers may pay with, then in **Configuration** set your Kite factory's address, the settlement token, a deposit notifier, a gas sponsor and the rest. [Chains and tokens](/server/chains-and-tokens/) covers every field.
 
    ![A configured chain: factory address, settlement and USD-pegged tokens, slippage, settlement address, RPC URLs and providers](../../../assets/screenshots/chain-detail.png)
 
@@ -37,21 +37,17 @@ With the server running, everything else happens in the dashboard. This walks th
 
    ![The Chains list, with Base Sepolia configured and Sepolia still needing configuration](../../../assets/screenshots/chains.png)
 
-5. **Fund the operator**
-
-   The operator wallet sends the settlement and refund transactions. Click the settings button at the top right of the dashboard to see its address, and send it some of the chain's native token for gas. With a gas sponsor on the chain, the sponsor pays instead.
-
-6. **Create an app**
+5. **Create an app**
 
    Under **Apps**, create one for your business or project. Its name, icon and links are shown to customers at checkout. Open it to manage everything that belongs to it.
 
    ![The Apps page listing Acme Store and Northwind Coffee](../../../assets/screenshots/apps.png)
 
-7. **Create an API key**
+6. **Create an API key**
 
    Inside the app, go to **API keys** and create one for your backend. See [API keys](/authentication/api-keys/).
 
-8. **Create a payment link** and open it
+7. **Create a payment link** and open it
 
    Under **Payment links**, create one and use **Open checkout** to see the page your customers get.
 

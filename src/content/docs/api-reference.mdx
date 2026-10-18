@@ -1,0 +1,43 @@
+---
+title: API Reference
+description: Every Kite server serves the reference for its own API.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+Your Kite server documents its own API. Because it's generated from the code that's running, it always matches your server's version: no endpoint you don't have, none missing.
+
+| URL                                  | What it is                                                |
+| ------------------------------------ | --------------------------------------------------------- |
+| `https://<your server>/openapi`      | The interactive reference: every endpoint, with examples. |
+| `https://<your server>/openapi/json` | The OpenAPI spec, for code generators and API tools.      |
+
+The server prints the reference's URL when it starts.
+
+![The API reference served by a Kite server at /openapi](../../assets/screenshots/openapi.png)
+
+## Reading an endpoint
+
+Endpoints are grouped by what they act on: apps, payment links, transfers and so on. Each shows its body, its responses, and a request in the language you pick.
+
+![Create a payment link in the reference: its body fields, a curl example and the response](../../assets/screenshots/openapi-endpoint.png)
+
+Every endpoint needs [authentication](/authentication/overview/). To try requests from the page, choose **rootKey** as the auth type and paste your root key; signed API-key requests are easier to make with the [SDK](/integrate/sdk/), which signs them for you.
+
+<Aside type="caution">
+  The root key can do anything on your server. Only paste it into the reference
+  on a server and browser you trust.
+</Aside>
+
+## Configuring it
+
+The reference is on by default. Two [environment variables](/server/configuration/) control it:
+
+- `KITE_ENABLE_OPENAPI_UI_SPECS=false` turns off both `/openapi` and `/openapi/json`.
+- `KITE_ENABLE_OPENAPI_UI_PROVIDER=swagger` serves Swagger UI instead of Scalar.
+
+To get the spec without running a server, such as in CI, print it from a checkout of the server:
+
+```sh
+bun run spec > kite.json
+```

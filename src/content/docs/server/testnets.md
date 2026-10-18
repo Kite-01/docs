@@ -11,16 +11,16 @@ Run a separate server with `KITE_IS_TESTNET=true` and its own database to try Ki
 
 ## Supported testnets
 
-| Network          | Chain ID | Existing Kite factory                        |
-| ---------------- | -------- | -------------------------------------------- |
-| Base Sepolia     | 84532    | `0x8993cFd318Ded220381f37d6209027D36B6CF117` |
-| Monad Testnet    | 10143    | `0x60c39c24619be51bC7Ef1B82EaE6d922f9F6da1E` |
-| Sepolia          | 11155111 |                                              |
-| Arbitrum Sepolia | 421614   |                                              |
-| OP Sepolia       | 11155420 |                                              |
+| Network          | Chain ID |
+| ---------------- | -------- |
+| Base Sepolia     | 84532    |
+| Monad Testnet    | 10143    |
+| Sepolia          | 11155111 |
+| Arbitrum Sepolia | 421614   |
+| OP Sepolia       | 11155420 |
 
-The listed factories only settle for the operator they were deployed with (see [deployments](/contracts/overview/#deployments)), so for your own server, [deploy a factory](/contracts/overview/#deploying-a-factory) with your operator wallet on each testnet you use.
+As on mainnet, [deploy your own Kite factory](/contracts/overview/#deploying-a-factory) on each testnet you use, with your server's operator wallet as its operator, and set up a deposit notifier and a gas sponsor for each.
 
 ## Getting test tokens
 
-On Base Sepolia, Circle's faucet gives test USDC (`0x036CbD53842c5426634e7929541eC2318f3dCF7e`), and most Base Sepolia faucets give test ETH for the operator's gas.
+On Base Sepolia, Circle's faucet gives test USDC (`0x036CbD53842c5426634e7929541eC2318f3dCF7e`), and most Base Sepolia faucets give test ETH for deploying your factory.

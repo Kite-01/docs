@@ -7,15 +7,15 @@ Kite is a single server you run. It holds your configuration and history in Post
 
 ## The pieces
 
-| Piece               | What it does                                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **API**             | Everything Kite does, over REST under `/api`. Documented in the [API Reference](/api-reference/).                  |
-| **Dashboard**       | A web app for running the server: chains, tokens, apps, keys, payment links, transfers. Sign in with the root key. |
-| **Checkout**        | The page customers pay on, at `/pay/<payment link id>`. It can also open over your own site.                       |
-| **Operator wallet** | A wallet derived from your mnemonic. It sends the transactions that settle and refund payments.                    |
-| **Kite contracts**  | A factory and one contract per payment. See [Contracts](/contracts/overview/).                                     |
-| **Providers**       | QuickNode or Alchemy tell the server when deposits arrive; Alchemy can also pay the operator's gas.                |
-| **Postgres**        | Configuration, apps, payment links, quotes, transfers, events and webhook deliveries.                              |
+| Piece               | What it does                                                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **API**             | Everything Kite does, over REST under `/api`. Documented in the [API Reference](/api-reference/).                   |
+| **Dashboard**       | A web app for running the server: chains, tokens, apps, keys, payment links, transfers. Sign in with the root key.  |
+| **Checkout**        | The page customers pay on, at `/pay/<payment link id>`. It can also open over your own site.                        |
+| **Operator wallet** | A wallet derived from your mnemonic. It sends the transactions that settle and refund payments.                     |
+| **Kite contracts**  | A factory and one contract per payment. See [Contracts](/contracts/overview/).                                      |
+| **Providers**       | QuickNode or Alchemy tell the server when deposits arrive; Alchemy pays the operator's gas. Every chain needs both. |
+| **Postgres**        | Configuration, apps, payment links, quotes, transfers, events and webhook deliveries.                               |
 
 ## Apps
 

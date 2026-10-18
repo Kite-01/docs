@@ -1,6 +1,6 @@
 ---
 title: Contracts
-description: The on-chain side of Kite, its deployments, and deploying your own factory.
+description: The on-chain side of Kite, and deploying your own factory.
 ---
 
 import { Aside } from "@astrojs/starlight/components";
@@ -23,14 +23,9 @@ A transfer's contract can only be driven by the factory, can't be re-initialised
 
 The admin grants the operator role; the operator is your server's operator wallet.
 
-## Deployments
+## One factory per server
 
-| Network       | Chain ID | KiteFactory                                  |
-| ------------- | -------- | -------------------------------------------- |
-| Base Sepolia  | 84532    | `0x8993cFd318Ded220381f37d6209027D36B6CF117` |
-| Monad Testnet | 10143    | `0x60c39c24619be51bC7Ef1B82EaE6d922f9F6da1E` |
-
-Both were deployed with `0xA82474B1d4DDac1ed5e4ed047a4A3caD01C200C8` as admin and operator, so only a server using that operator wallet can settle through them. For your own server, deploy a factory whose operator is your server's operator wallet, or have the admin grant it the operator role.
+A factory only lets its operators settle, refund and recover, so a factory deployed for someone else's server won't work with yours. Deploy your own on every network you enable, with your server's operator wallet as its operator, and set its address in each chain's configuration.
 
 ## Deploying a factory
 

@@ -41,6 +41,7 @@ In the dashboard, choose **Recover**, check the address's balance of the token, 
 Kite also recovers stray tokens on its own, back to the refund address, when a deposit notifier reports them.
 
 <Aside>
-  Both refunds and recoveries can use the chain's gas sponsor, or not, per
-  request.
+  Refunds and recoveries use the chain's gas sponsor by default. Pass
+  `useGasSponsor: false` to have the operator wallet pay the gas instead; it
+  then needs some of the chain's native token.
 </Aside>
