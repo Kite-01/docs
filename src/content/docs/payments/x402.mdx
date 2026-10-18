@@ -1,0 +1,28 @@
+---
+title: x402
+description: Gasless wallet payments, at checkout and from your own services.
+---
+
+[x402](https://www.x402.org) is an open standard for paying over HTTP: a server answers `402 Payment Required` with what it wants, and the client pays by signing an authorisation instead of sending a transaction. Kite uses it in two places.
+
+## At checkout
+
+When a customer chooses **Connect wallet**, checkout asks Kite to pay the link with x402. Kite answers `402` with a `PAYMENT-REQUIRED` header, the customer's wallet signs a transfer authorisation ([EIP-3009](https://eips.ethereum.org/EIPS/eip-3009)), and checkout sends it back in a `PAYMENT-SIGNATURE` header. Kite submits it, moving the customer's tokens into the transfer's address, and settles. The customer pays no gas.
+
+It's offered on chains with a [gas sponsor](/server/providers/#gas-sponsors), for a settlement token that supports EIP-3009, such as USDC.
+
+Once Kite accepts an x402 payment, the transfer is `x402Settled` and settles like any other. If settlement then fails, the funds are held for you to resolve by hand rather than refunded automatically, because the authorisation was already used.
+
+## As a facilitator for your services
+
+Your own API can charge per request with x402 and use Kite as its facilitator. With an API key that has the `x402` scope:
+
+| Endpoint                                   | Use                                                      |
+| ------------------------------------------ | -------------------------------------------------------- |
+| `GET /api/x402/supported`                  | Which networks and schemes this server can settle.       |
+| `POST /api/x402/pay`                       | Open a transfer for a quote, to be paid with x402.       |
+| `GET /api/x402/transfer/{id}/requirements` | The payment requirements to send in your `402` response. |
+| `POST /api/x402/verify`                    | Check a client's payment before doing the work.          |
+| `POST /api/x402/settle`                    | Settle it.                                               |
+
+See the [API Reference](/api-reference/) for the request and response shapes.

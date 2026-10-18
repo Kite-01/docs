@@ -1,0 +1,46 @@
+---
+title: Fees
+description: Take a cut of payments, for the whole server or one app, with conditions.
+---
+
+A fee is taken from a payment when it settles and sent to the fee's address. The customer pays the payment link's price; fees come out of what the merchant receives.
+
+![The Fees page](../../../assets/screenshots/fees.png)
+
+## Server fees and app fees
+
+- **Server fees**, created with the root key outside any app, apply to every app's payments on that chain. Use them to charge the apps you host. Apps can see them but not change them.
+- **App fees**, created inside an app, apply only to that app's payments. Use them to split revenue, for example with a partner.
+
+## Fields
+
+| Field           | Description                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Label**       | Your name for it, such as "Platform fee".                                                                       |
+| **Chain**       | Fees are per chain, and in its settlement token.                                                                |
+| **Type**        | `Fixed`: an amount of the settlement token. `Variable`: a share of the payment in basis points, `100` being 1%. |
+| **Value**       | The amount or the basis points.                                                                                 |
+| **Minimum**     | Optional. The fee is never less than this.                                                                      |
+| **Maximum**     | Optional. The fee is never more than this.                                                                      |
+| **Conditions**  | Optional. When the fee applies; empty means always.                                                             |
+| **Fee address** | Where the fee goes. Defaults to the chain's settlement address.                                                 |
+
+Fixed amounts, minimums and maximums are in the settlement token's smallest unit through the API, and in whole tokens in the dashboard.
+
+## Conditions
+
+A fee can apply only when a payment matches every condition you set:
+
+| Subject        | Can be                                                  |
+| -------------- | ------------------------------------------------------- |
+| Customer ID    | is, is one of                                           |
+| Customer trait | is, is one of                                           |
+| Source token   | is, is one of                                           |
+| Target token   | is, is one of                                           |
+| Source amount  | is, is more than, is at least, is less than, is at most |
+
+For example, charge 1% except for customers whose `tier` trait is `gold`, or a flat fee only on payments under a certain amount.
+
+## Limits
+
+A payment can carry up to 10 fees. A quote is refused if its fees would add up to more than the amount it settles for.
