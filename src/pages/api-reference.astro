@@ -1,0 +1,114 @@
+---
+import versions from "../api-versions.json";
+import icon from "../assets/icon.svg?url";
+
+const sources = versions.map((version, index) => ({
+  title: `v${version}`,
+  slug: version,
+  url: `/api/${version}.json`,
+  default: index === 0,
+}));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API Reference | Kite</title>
+    <meta
+      name="description"
+      content="Every endpoint of a Kite server, for each released version."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="docs-header">
+      <a href="/" class="brand">
+        <img src={icon} alt="" width="22" height="20" />
+        Kite
+      </a>
+      <nav>
+        <a href="/">Guides</a>
+        <a href="/authentication/overview/">Authentication</a>
+        <a href="https://github.com/Kite-01/server">GitHub</a>
+      </nav>
+    </header>
+    <div id="api-reference" data-sources={JSON.stringify(sources)}></div>
+
+    <script>
+      import { createApiReference } from "@scalar/api-reference";
+      import "@scalar/api-reference/style.css";
+
+      const element = document.getElementById("api-reference")!;
+
+      createApiReference(element, {
+        sources: JSON.parse(element.dataset.sources!),
+        theme: "default",
+        showDeveloperTools: "never",
+        showToolbar: "never",
+        agent: { disabled: true },
+        mcp: { disabled: true },
+        defaultHttpClient: { targetKey: "js", clientKey: "fetch" },
+        metaData: { title: "API Reference | Kite" },
+      });
+    </script>
+
+    <style is:global>
+      :root {
+        --scalar-custom-header-height: 52px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--scalar-background-1, #fff);
+      }
+
+      .docs-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--scalar-custom-header-height);
+        padding: 0 16px;
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--scalar-border-color, #e5e5e5);
+        background: var(--scalar-background-1, #fff);
+        color: var(--scalar-color-1, #111);
+        font-family: var(--scalar-font, system-ui, sans-serif);
+        font-size: 14px;
+      }
+
+      .docs-header a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .docs-header .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .dark-mode .docs-header .brand img {
+        filter: invert(1);
+      }
+
+      .docs-header nav {
+        display: flex;
+        gap: 16px;
+        color: var(--scalar-color-2, #555);
+      }
+
+      @media (max-width: 480px) {
+        .docs-header nav a:not(:first-child) {
+          display: none;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+---
+title: Providers
+description: Deposit notifiers and gas sponsors, and how to set their keys.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+Kite uses outside providers for two jobs. Set their keys under **Providers** in the dashboard; they're stored encrypted with your `KITE_ENCRYPTION_KEY`.
+
+![QuickNode's provider entry expanded, with its API key field](../../../assets/screenshots/providers-quicknode.png)
+
+## Deposit notifiers
+
+A deposit notifier watches every pay-in address and calls your server when tokens arrive, so payments settle within seconds. Kite creates the provider's webhooks itself, one per network, the first time a chain needs one.
+
+| Provider  | Key        | Where to get it                           |
+| --------- | ---------- | ----------------------------------------- |
+| QuickNode | API key    | QuickNode dashboard → API keys            |
+| Alchemy   | Auth token | Alchemy dashboard → Webhooks → Auth token |
+
+Callbacks arrive at `KITE_PUBLIC_BASE_URL/callback/...`, so that URL must be reachable from the internet. Each callback is verified with the provider's signature before Kite trusts it.
+
+Choose which notifier each chain uses in the chain's configuration. A chain can use more than one.
+
+<Aside>
+  Changing a notifier's key removes the webhooks made with the old one, and Kite
+  creates new ones as transfers need them.
+</Aside>
+
+## Gas sponsors
+
+A gas sponsor pays the gas for the operator's settlement transactions, so the operator wallet doesn't need native tokens on that chain.
+
+| Provider | Keys                      |
+| -------- | ------------------------- |
+| Alchemy  | API key and gas policy ID |
+
+Enable it per chain in the chain's configuration. You can still choose not to use it for a single refund or recovery.
+
+## Without a notifier
+
+A chain without a notifier still works: the server checks open transfers once a minute. Payments just take longer to be noticed.
