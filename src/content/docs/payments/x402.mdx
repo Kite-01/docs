@@ -3,7 +3,7 @@ title: x402
 description: Gasless wallet payments, at checkout and from your own services.
 ---
 
-[x402](https://www.x402.org) is an open standard for paying over HTTP: a server answers `402 Payment Required` with what it wants, and the client pays by signing an authorisation instead of sending a transaction. Kite uses it in two places.
+[x402](https://www.x402.org) is an open standard for paying over HTTP: a server answers `402 Payment Required` with what it wants, and the client pays by signing an authorisation instead of sending a transaction. Kite uses it in three places.
 
 ## At checkout
 
@@ -12,6 +12,46 @@ When a customer chooses **Connect wallet**, checkout asks Kite to pay the link w
 It's offered when the chain's settlement token supports EIP-3009, such as USDC.
 
 Once Kite accepts an x402 payment, the transfer is `x402Settled` and settles like any other. If settlement then fails, the funds are held for you to resolve by hand rather than refunded automatically, because the authorisation was already used.
+
+## Agents paying a link
+
+A payment link is itself an x402 resource, so an AI agent or any x402 client can pay it with nothing but its URL:
+
+1. The agent fetches `https://<your server>/pay/<id>`. Browsers get the checkout page; any request that doesn't ask for HTML gets `402`, with a `PAYMENT-REQUIRED` header offering the link's amount on every network that takes x402.
+2. It picks one, signs the authorisation, and repeats the same `GET` with a `PAYMENT-SIGNATURE` header.
+3. Kite settles it and answers `200` with a `PAYMENT-RESPONSE` header. The body has the `transferId` and a `status` URL to follow the transfer.
+
+If the signed terms can no longer be taken, for example because they expired or someone else paid that offer first, Kite answers `402` again with fresh terms and the reason in `error`. If settlement is still confirming, it answers `402` with the pending `PAYMENT-RESPONSE`, and repeating the request with the same signature picks it up.
+
+With the official client, in TypeScript:
+
+```ts
+import { x402Client, x402HTTPClient } from "@x402/core/client";
+import { registerExactEvmScheme } from "@x402/evm/exact/client";
+import { privateKeyToAccount } from "viem/accounts";
+
+const http = new x402HTTPClient(
+  registerExactEvmScheme(
+    new x402Client().setSpendControls({ maxAmountPerPayment: "$50" }),
+    { signer: privateKeyToAccount(process.env.AGENT_KEY as `0x${string}`) },
+  ),
+);
+
+const url = "https://pay.example.com/pay/<payment link id>";
+const offered = await fetch(url);
+const required = http.getPaymentRequiredResponse(
+  (name) => offered.headers.get(name),
+  await offered.json(),
+);
+const payment = await http.createPaymentPayload(required);
+const paid = await fetch(url, {
+  headers: http.encodePaymentSignatureHeader(payment),
+});
+```
+
+x402 clients only pay well-known assets such as USDC, up to $1 a payment, unless the agent raises its own limits as above.
+
+Each offer is a transfer opened for x402 agents and reused while it has time left, so asking for the price doesn't open a transfer per request.
 
 ## As a facilitator for your services
 
