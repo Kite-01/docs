@@ -70,6 +70,7 @@ const { data: link } = await kite.paymentLinks.create({
     title: "Team starter pack",
     currency: "USD",
     amount: "129",
+    usage: "OneTime",
     lineItems: [
       { name: "Team seat", price: "39", quantity: 3 },
       { name: "Onboarding call", price: "12", quantity: 1 },

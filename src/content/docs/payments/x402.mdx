@@ -5,13 +5,12 @@ description: Gasless wallet payments, at checkout and from your own services.
 
 [x402](https://www.x402.org) is an open standard for paying over HTTP: a server answers `402 Payment Required` with what it wants, and the client pays by signing an authorisation instead of sending a transaction. Kite uses it in two places.
 
-## At checkout
+### At checkout: x402 on payment links
 
-When a customer chooses **Connect wallet**, checkout asks Kite to pay the link with x402. Kite answers `402` with a `PAYMENT-REQUIRED` header, the customer's wallet signs a transfer authorisation ([EIP-3009](https://eips.ethereum.org/EIPS/eip-3009)), and checkout sends it back in a `PAYMENT-SIGNATURE` header. Kite submits it, moving the customer's tokens into the transfer's address, and settles. The customer pays no gas.
+A payment link at `/pay/<id>` is also an x402 resource. When an agent (or any HTTP client) fetches it:
 
-It's offered when the chain's settlement token supports EIP-3009, such as USDC.
-
-Once Kite accepts an x402 payment, the transfer is `x402Settled` and settles like any other. If settlement then fails, the funds are held for you to resolve by hand rather than refunded automatically, because the authorisation was already used.
+- **With `Accept: application/json`** (or any non-HTML accept header): Kite returns a `402 Payment Required` response with the full x402 body — `accepts` array with payment requirements for every chain that supports x402, plus `PAYMENT-REQUIRED` header. The agent picks one, signs, and repeats the request with a `PAYMENT-SIGNATURE` header to pay.
+- **With `Accept: text/html`** (browsers): Kite serves the checkout page instead.
 
 ## As a facilitator for your services
 
