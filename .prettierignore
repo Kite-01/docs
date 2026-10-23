@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+.source
+pnpm-lock.yaml
+content/docs/api-reference/*/
+openapi/kite.json

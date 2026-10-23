@@ -1,0 +1,12 @@
+{
+  "title": "Payments",
+  "pages": [
+    "apps",
+    "payment-links",
+    "checkout",
+    "transfers",
+    "fees",
+    "refunds-and-recovery",
+    "x402"
+  ]
+}

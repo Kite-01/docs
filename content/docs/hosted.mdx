@@ -1,0 +1,51 @@
+---
+title: Hosted Kite
+description: Kite's own testnet and mainnet instances, for businesses that would rather not run a server.
+---
+
+Kite runs two instances of its server for businesses to use directly. They have the same dashboard, checkout and API as a server you run yourself, with Kite operating the chains and paying you out.
+
+| Instance | Address                        | For                                                          |
+| -------- | ------------------------------ | ------------------------------------------------------------ |
+| Testnet  | `https://testnet.usekite.site` | Trying Kite and building your integration, with test tokens. |
+| Mainnet  | `https://mainnet.usekite.site` | Taking real payments.                                        |
+
+You sign in to an instance once you have an account on it. Each instance is separate: an app, its API keys and its webhooks on testnet don't exist on mainnet, so you set them up again when you move over.
+
+## Start on testnet
+
+The testnet instance only offers test networks, and test tokens can never pay a payment link on mainnet. Use it to:
+
+1. Create an app, a payment link and an [API key](/authentication/api-keys/).
+2. Pay the link with test tokens, from a wallet or by sending to the address on the checkout.
+3. Point a [webhook](/integrate/webhooks/) at your backend and check it fulfils the order when the transfer settles.
+
+When that works end to end, repeat the setup on mainnet and switch your backend's base URL and keys.
+
+## Getting paid
+
+Customers pay in any token the instance supports. Every payment settles in USDC, which Kite holds and pays out to you on your settlement schedule.
+
+This is the difference from running your own server, where each payment settles straight to a wallet you set. See [How Kite works](/how-kite-works/).
+
+## Pricing
+
+The hosted instances charge 1.5% of each payment, never more than $10. Current pricing is always on [usekite.site](https://usekite.site/#pricing).
+
+## Using the API
+
+Point the [SDK](/integrate/sdk/) or your own client at the instance's address:
+
+```ts
+import { Kite } from "@kite-01/sdk";
+
+export const kite = new Kite({
+  baseUrl: "https://testnet.usekite.site",
+  auth: {
+    apiKeyId: process.env.KITE_API_KEY_ID!,
+    privateKey: process.env.KITE_PRIVATE_KEY!,
+  },
+});
+```
+
+Checkout pages are on the same address, at `/pay/<payment link id>`.

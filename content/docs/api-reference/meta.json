@@ -1,0 +1,22 @@
+{
+  "title": "API Reference",
+  "pages": [
+    "index",
+    "payment-links",
+    "checkout",
+    "transfers",
+    "quotes",
+    "customers",
+    "webhooks",
+    "x402",
+    "api-keys",
+    "apps",
+    "fees",
+    "chains",
+    "tokens",
+    "price-feeds",
+    "rates",
+    "overview",
+    "kv"
+  ]
+}

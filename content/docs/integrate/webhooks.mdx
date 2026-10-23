@@ -1,0 +1,142 @@
+---
+title: Webhooks
+description: Get told when payments settle, and check the message really came from your server.
+---
+
+A webhook is a URL on your backend that Kite sends events to: every transfer status change, deposit, recovery and excess refund in an app.
+
+## Adding a webhook
+
+Inside an app, open **Webhooks** and click **New webhook**. Give it a label and your endpoint's URL, choose which events it gets, and how hard to retry.
+
+![Adding a webhook: label, endpoint URL, events and retries](/screenshots/webhook-new.png)
+
+Copy the **signing key** it shows: you need it to verify deliveries, and it's shown once.
+
+![The Webhooks page, with each webhook's events and deliveries](/screenshots/webhooks.png)
+
+## What's sent
+
+Each delivery is a `POST` with a JSON body:
+
+```json
+{
+  "id": "4f1c…",
+  "eventId": "9b2e…",
+  "webhookId": "71d0…",
+  "category": "Transfer",
+  "previous": { "status": "Processing" },
+  "current": { "status": "Settled" },
+  "data": {
+    "id": "7f3c2a10-…",
+    "status": "Settled",
+    "payinAddress": "0x…",
+    "settlementBlockchainHash": "0x…",
+    "quote": {
+      "sourceAmount": "49000000",
+      "sourceToken": { "symbol": "USDC", "decimals": 6 },
+      "customer": null,
+      "paymentLink": {
+        "id": "d097df9a-…",
+        "title": "Pro plan",
+        "reference": "order-2041",
+        "meta": null
+      }
+    }
+  }
+}
+```
+
+| Field                 | Description                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------ |
+| `id`                  | This delivery. Each retry has a new one.                                                   |
+| `eventId`             | The event. The same across retries: use it to ignore repeats.                              |
+| `category`            | `Transfer`, `Deposit`, `Recovery` or `ExcessRefund`.                                       |
+| `previous`, `current` | The status before and after.                                                               |
+| `data`                | For transfers, the transfer with its quote, the quote's tokens, customer and payment link. |
+
+And these headers:
+
+| Header             | Value                                                                      |
+| ------------------ | -------------------------------------------------------------------------- |
+| `X-Kite-Signature` | Hex HMAC-SHA256 of `t=<timestamp>&<raw body>`, keyed with the signing key. |
+| `X-Kite-Timestamp` | Unix seconds when it was sent.                                             |
+| `X-Kite-Event-Id`  | The event's ID.                                                            |
+
+## Verifying with the SDK
+
+Pass the body exactly as it arrived, before any JSON parsing:
+
+<Tabs items={["Express", "Fetch handlers"]}>
+  <Tab value="Express">
+```ts
+import express from "express";
+import { verifyWebhook } from "@kite-01/sdk";
+
+app.post(
+"/kite/webhooks",
+express.raw({ type: "application/json" }),
+async (req, res) => {
+const event = await verifyWebhook({
+body: req.body,
+headers: req.headers,
+secret: process.env.KITE_WEBHOOK_SECRET!,
+});
+
+    if (event.category === "Transfer" && event.current.status === "Settled") {
+      const transfer = event.data as {
+        quote: { paymentLink: { reference: string | null } | null };
+      };
+      await fulfil(transfer.quote.paymentLink?.reference);
+    }
+
+    res.sendStatus(200);
+
+},
+);
+
+````
+  </Tab>
+  <Tab value="Fetch handlers">
+```ts
+import { verifyWebhook } from "@kite-01/sdk";
+
+export const POST = async (request: Request) => {
+  const event = await verifyWebhook({
+    body: await request.text(),
+    headers: request.headers,
+    secret: process.env.KITE_WEBHOOK_SECRET!,
+  });
+
+  // handle event…
+  return new Response(null, { status: 200 });
+};
+````
+
+  </Tab>
+</Tabs>
+
+`verifyWebhook` throws a `WebhookVerificationError` when the signature doesn't match or the delivery is more than 5 minutes old (`tolerance` changes that). Answer with a `4xx` then.
+
+## Verifying without the SDK
+
+```python
+import hashlib, hmac, time
+
+def verify(body: bytes, signature: str, timestamp: str, secret: str) -> bool:
+    if abs(time.time() - int(timestamp)) > 300:
+        return False
+    expected = hmac.new(
+        secret.encode(), f"t={timestamp}&".encode() + body, hashlib.sha256
+    ).hexdigest()
+    return hmac.compare_digest(expected, signature)
+```
+
+## Retries
+
+Answer with any `2xx` within the webhook's timeout to acknowledge a delivery. Anything else is retried, up to the webhook's maximum retries, with its retry interval between attempts. Every attempt, with the response your endpoint gave, is listed under the webhook in the dashboard.
+
+<Callout type="info">
+  Do slow work after answering. Acknowledge first, then fulfil the order from a
+  queue, keyed by `eventId` so a retry never fulfils twice.
+</Callout>

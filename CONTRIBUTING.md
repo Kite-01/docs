@@ -14,7 +14,7 @@ pnpm dev
 ## Making a change
 
 1. Fork the repo and branch from `main`.
-2. Edit or add pages in `src/content/docs`. A new page also needs an entry in the sidebar in `astro.config.mjs`.
+2. Edit or add pages in `content/docs`. A new page also needs an entry in its folder's `meta.json`, which orders the sidebar.
 3. Check what you write against the code. If a guide describes behaviour, it should match the [server](https://github.com/Kite-01/server) or [packages](https://github.com/Kite-01/monorepo) as they are on `main`.
 4. Run the checks; both must pass:
 
@@ -31,4 +31,4 @@ pnpm dev
 
 - Write for someone setting up or integrating Kite for the first time. Say what to do, then why, briefly.
 - Keep examples runnable: real package names, real headers, real endpoints.
-- Screenshots are PNGs at 2x, taken from a dashboard with realistic data, saved in `src/assets/screenshots`. Don't include real keys or addresses you care about.
+- Screenshots are PNGs at 2x in `public/screenshots`, taken by `pnpm screenshots` from a seeded throwaway server. Add new captures to `scripts/screenshots/capture.mjs` rather than taking them by hand, so they can all be retaken together.

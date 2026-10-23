@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "index",
+    "how-kite-works",
+    "hosted",
+    "---Run a server---",
+    "...server",
+    "---Payments---",
+    "...payments",
+    "---Authentication---",
+    "...authentication",
+    "---Integrate---",
+    "...integrate",
+    "---Contracts---",
+    "...contracts",
+    "---Reference---",
+    "api-reference"
+  ]
+}

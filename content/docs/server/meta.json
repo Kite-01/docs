@@ -1,0 +1,12 @@
+{
+  "title": "Run a server",
+  "pages": [
+    "install",
+    "configuration",
+    "first-run",
+    "providers",
+    "chains-and-tokens",
+    "testnets",
+    "production"
+  ]
+}

@@ -1,0 +1,65 @@
+---
+title: First run
+description: Set up a new Kite server from the dashboard, from sign-in to a payable link.
+---
+
+With the server running, everything else happens in the dashboard. This walks through it in order. By the end you'll have a chain customers can pay on, an app, an API key and a payment link.
+
+<div className="fd-steps">
+
+1. **Sign in**
+
+   Open your server's URL and sign in with your `KITE_ROOT_KEY`. Tick **Remember me** to stay signed in on this browser.
+
+   ![The sign-in screen, asking for the root key](/screenshots/login.png)
+
+2. **Add provider keys**
+
+   Under **Providers**, add keys for a deposit notifier, QuickNode or Alchemy, so the server hears about payments the moment they land, and for Alchemy as gas sponsor, which pays the operator's gas. Every chain needs both. [Providers](/server/providers/) explains each.
+
+   ![The Providers page: Alchemy as gas sponsor and deposit notifier, and QuickNode as deposit notifier](/screenshots/providers.png)
+
+3. **Add a chain**
+
+   Under **Chains**, click **Add chain** and pick a network. The list only shows networks your server supports; a [testnet server](/server/testnets/) shows testnets.
+
+   ![The Add chain dialog with a network picker](/screenshots/chain-add.png)
+
+4. **Configure the chain**
+
+   Open the chain. In **Tokens**, add the tokens customers may pay with, then in **Configuration** set your Kite factory's address, the settlement token, a deposit notifier, a gas sponsor and the rest. [Chains and tokens](/server/chains-and-tokens/) covers every field.
+
+   ![A configured chain: factory address, settlement and USD-pegged tokens, slippage, settlement address, RPC URLs and providers](/screenshots/chain-detail.png)
+
+   The chain shows as **Configured** once it has everything it needs.
+
+   ![The Chains list, with Base Sepolia configured and Sepolia still needing configuration](/screenshots/chains.png)
+
+5. **Create an app**
+
+   Under **Apps**, create one for your business or project. Its name, icon and links are shown to customers at checkout. Open it to manage everything that belongs to it.
+
+   ![The Apps page listing Acme Store and Northwind Coffee](/screenshots/apps.png)
+
+6. **Create an API key**
+
+   Inside the app, go to **API keys** and create one for your backend. See [API keys](/authentication/api-keys/).
+
+7. **Create a payment link** and open it
+
+   Under **Payment links**, create one and use **Open checkout** to see the page your customers get.
+
+   ![Checkout for the Team starter pack: line items and total on the left, payment options on the right](/screenshots/checkout-method.png)
+
+</div>
+
+<Callout type="info">
+  Inside an app, a banner reminds you which app you're changing. **Back to
+  apps** returns to the server-wide pages.
+</Callout>
+
+## The overview
+
+The dashboard's home shows the amount processed, settled transfers, customers, volume over time, top tokens and recent transfers, for the whole server or, inside an app, for that app.
+
+![The overview: amount processed, settled transfers, customers, volume chart, top tokens and recent transfers](/screenshots/overview.png)

@@ -1,0 +1,68 @@
+---
+title: Contracts
+description: The on-chain side of Kite, and deploying your own factory.
+---
+
+Every Kite payment runs through its own contract. A **KiteFactory** on each network deploys them; Kite's server only ever asks the factory to act, through the operator wallet. The source is at [Kite-01/contracts](https://github.com/Kite-01/contracts).
+
+## How a transfer's contract works
+
+A transfer's terms (who's paid, in which token, the minimum to receive, fees, the refund address, the expiry and the swap route) determine its contract's address. Kite computes that address before anything exists, and that's where the customer pays.
+
+| Factory call                   | Who can call it               | What happens                                                                                                             |
+| ------------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `predictAddress(transfer)`     | anyone                        | Returns the address to pay. Nothing is deployed.                                                                         |
+| `settle(transfer)`             | operator                      | Deploys the contract if needed and settles it in one transaction: swap, pay fees, send the rest, return any overpayment. |
+| `refund(transfer)`             | operator; anyone after expiry | Returns what the contract holds to the refund address.                                                                   |
+| `recover(transfer, token, to)` | operator                      | Sends out a token that isn't the payment's, or any token once the transfer has closed.                                   |
+| `deploy(transfer)`             | operator                      | Deploys the contract without settling.                                                                                   |
+
+A transfer's contract can only be driven by the factory, can't be re-initialised, and settles or refunds exactly once. A refund the refund address can't accept, such as a contract that rejects ETH, doesn't block anything: the amount stays for the operator to recover, and the `Refunded` event reports what was actually sent.
+
+The admin grants the operator role; the operator is your server's operator wallet.
+
+## One factory per server
+
+A factory only lets its operators settle, refund and recover, so a factory deployed for someone else's server won't work with yours. Deploy your own on every network you enable, with your server's operator wallet as its operator, and set its address in each chain's configuration.
+
+## Deploying a factory
+
+You need Node.js 22.13+, the contracts repository, an RPC URL for the network and a funded deployer key.
+
+```sh
+git clone https://github.com/Kite-01/contracts
+cd contracts
+npm install
+```
+
+Set the admin and operator in `ignition/parameters/KiteFactory.json`. The operator is the address your server shows as its operator, under the settings button in the dashboard:
+
+```json
+{
+  "KiteFactoryModule": {
+    "admin": "0xYourAdminAddress",
+    "operator": "0xYourServersOperatorAddress"
+  }
+}
+```
+
+Then deploy, with `FORK_URL` set to the network's RPC URL, `PRIVATE_KEY` to the deployer's key and, to verify the contract, `ETHERSCAN_API_KEY`:
+
+```sh
+npm run deploy-factory:mainnet
+```
+
+Despite the script's name, it deploys to whichever network `FORK_URL` points at. Use the factory address it prints in the chain's [configuration](/server/chains-and-tokens/#configuration).
+
+<Callout type="warn">
+  The admin can grant and revoke the operator role. Keep it on a separate wallet
+  from the operator, ideally a multisig.
+</Callout>
+
+## Using the contracts from code
+
+The ABIs, Solidity sources and TypeChain bindings are published as `@kite-01/contracts`:
+
+```ts
+import { KiteFactory__factory } from "@kite-01/contracts/typechain/factories/contracts/KiteFactory__factory.js";
+```

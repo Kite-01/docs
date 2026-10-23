@@ -1,0 +1,52 @@
+---
+title: x402
+description: Gasless payments for agents and other HTTP clients, on payment links and on your own API.
+---
+
+[x402](https://www.x402.org) is an open standard for paying over HTTP: a server answers `402 Payment Required` with what it wants, and the client pays by signing an authorisation instead of sending a transaction. Kite uses it in two places.
+
+## On payment links
+
+A payment link at `/pay/<id>` answers two kinds of visitor differently:
+
+- **A browser** gets the checkout page.
+- **An HTTP client**, such as an agent or `curl`, gets the x402 response: `402 Payment Required`, with the requirements in the body and in the `PAYMENT-REQUIRED` header.
+
+```http
+HTTP/1.1 402 Payment Required
+PAYMENT-REQUIRED: eyJ4NDAyVmVyc2lvbiI6Mi…
+
+{
+  "x402Version": 2,
+  "resource": { "url": "https://pay.example.com/pay/7f3a", "description": "Pro plan" },
+  "accepts": [
+    {
+      "scheme": "exact",
+      "network": "eip155:84532",
+      "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+      "amount": "49000000",
+      "payTo": "0x9Edb…F8E1",
+      "maxTimeoutSeconds": 300,
+      "extra": { "name": "USD Coin", "version": "2" }
+    }
+  ]
+}
+```
+
+`accepts` lists one requirement for every chain that takes x402. The client picks one, signs an authorisation for that amount, and repeats the request with a `PAYMENT-SIGNATURE` header. Kite submits it and settles the payment, so the payer needs no gas. The response carries `PAYMENT-RESPONSE` and `X-Kite-Transfer-Id`, and the payment is an ordinary transfer from then on: it shows in the dashboard and fires the same webhooks.
+
+The checkout page itself doesn't use x402. Customers paying from a connected wallet send an ordinary token transfer; see [Checkout](/payments/checkout/).
+
+## As a facilitator for your services
+
+Your own API can charge per request with x402 and use Kite as its facilitator. With an API key that has the `x402` scope:
+
+| Endpoint                                   | Use                                                      |
+| ------------------------------------------ | -------------------------------------------------------- |
+| `GET /api/x402/supported`                  | Which networks and schemes this server can settle.       |
+| `POST /api/x402/pay`                       | Open a transfer for a quote, to be paid with x402.       |
+| `GET /api/x402/transfer/{id}/requirements` | The payment requirements to send in your `402` response. |
+| `POST /api/x402/verify`                    | Check a client's payment before doing the work.          |
+| `POST /api/x402/settle`                    | Settle it.                                               |
+
+See the [API Reference](/api-reference/) for the request and response shapes.

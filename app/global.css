@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+@import "fumadocs-openapi/css/preset.css";
+
+@font-face {
+  font-family: "Bricolage";
+  src: url("/fonts/bricolage.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/dm-sans.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+/* Kite's colours: the brand blue on a near-white ground, and the website's night blue in dark mode. */
+:root {
+  --font-text: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage", ui-sans-serif, system-ui, sans-serif;
+  --color-fd-primary: #1677b5;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-ring: #2f9bde;
+}
+.dark {
+  --color-fd-background: #0a2333;
+  --color-fd-foreground: #f2f7fb;
+  --color-fd-muted: #0f3249;
+  --color-fd-muted-foreground: #b9cfde;
+  --color-fd-card: #0c2a3d;
+  --color-fd-card-foreground: #f2f7fb;
+  --color-fd-popover: #0c2a3d;
+  --color-fd-popover-foreground: #f2f7fb;
+  --color-fd-secondary: #0f3249;
+  --color-fd-secondary-foreground: #f2f7fb;
+  --color-fd-accent: #13405e;
+  --color-fd-accent-foreground: #f2f7fb;
+  --color-fd-border: #1b4560;
+  --color-fd-primary: #2f9bde;
+  --color-fd-primary-foreground: #0c2a3d;
+}
+
+body {
+  font-family: var(--font-text);
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Screenshots sit on the page with a quiet edge. */
+.prose img {
+  border-radius: 10px;
+  border: 1px solid var(--color-fd-border);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
