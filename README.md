@@ -1,0 +1,3 @@
+# kite
+
+Scalar Docs project
