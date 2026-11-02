@@ -242,5 +242,8 @@
         "filepath": "openapi/kite.json"
       }
     }
+  },
+  "siteConfig": {
+    "customDomain": "docs.usekite.site"
   }
 }
