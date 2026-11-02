@@ -2,14 +2,31 @@
   "$schema": "https://cdn.scalar.com/schema/scalar-config-next.json",
   "scalar": "2.0.0",
   "info": {
-    "title": "Kite"
+    "title": "Kite",
+    "description": "Crypto payment links, checkout and on-chain settlement that you can run yourself."
+  },
+  "assetsDir": "docs/assets",
+  "siteConfig": {
+    "logo": {
+      "darkMode": "docs/assets/icon-dark.svg",
+      "lightMode": "docs/assets/icon.svg"
+    },
+    "head": {
+      "links": [
+        {
+          "rel": "icon",
+          "type": "image/svg+xml",
+          "href": "/favicon.svg"
+        }
+      ]
+    }
   },
   "navigation": {
     "header": [
       {
         "type": "link",
         "title": "Documentation",
-        "to": "/introduction",
+        "to": "/",
         "align": "start"
       },
       {
@@ -20,8 +37,8 @@
       },
       {
         "type": "link",
-        "title": "Support",
-        "to": "https://scalar.com",
+        "title": "GitHub",
+        "to": "https://github.com/Kite-01/server",
         "style": "button",
         "newTab": true,
         "align": "end"
@@ -32,24 +49,197 @@
         "type": "group",
         "title": "Documentation",
         "children": {
-          "/introduction": {
+          "/": {
             "type": "page",
-            "title": "Getting Started",
-            "filepath": "docs/introduction.md"
+            "title": "Introduction",
+            "filepath": "docs/index.md",
+            "description": "Crypto payment links and checkout that agents can pay too, settled on-chain."
           },
-          "/components": {
+          "/how-kite-works": {
             "type": "page",
-            "title": "Components",
-            "filepath": "docs/components.md"
+            "title": "How Kite works",
+            "filepath": "docs/how-kite-works.md",
+            "description": "The pieces of a Kite deployment and the life of a payment."
+          },
+          "/hosted": {
+            "type": "page",
+            "title": "Hosted Kite",
+            "filepath": "docs/hosted.md",
+            "description": "Kite's own testnet and mainnet instances, for businesses that would rather not run a server."
+          },
+          "/server": {
+            "type": "group",
+            "title": "Run a server",
+            "mode": "flat",
+            "children": {
+              "/install": {
+                "type": "page",
+                "title": "Install",
+                "filepath": "docs/server/install.md",
+                "description": "Get a Kite server running locally or on a machine of your own."
+              },
+              "/configuration": {
+                "type": "page",
+                "title": "Configuration",
+                "filepath": "docs/server/configuration.md",
+                "description": "Every environment variable a Kite server reads."
+              },
+              "/first-run": {
+                "type": "page",
+                "title": "First run",
+                "filepath": "docs/server/first-run.md",
+                "description": "Set up a new Kite server from the dashboard, from sign-in to a payable link."
+              },
+              "/providers": {
+                "type": "page",
+                "title": "Providers",
+                "filepath": "docs/server/providers.md",
+                "description": "Deposit notifiers, gas sponsors and payouts, and how to set their keys."
+              },
+              "/chains-and-tokens": {
+                "type": "page",
+                "title": "Chains and tokens",
+                "filepath": "docs/server/chains-and-tokens.md",
+                "description": "Enable a network, list the tokens customers can pay with, and configure settlement."
+              },
+              "/testnets": {
+                "type": "page",
+                "title": "Testnets",
+                "filepath": "docs/server/testnets.md",
+                "description": "Try Kite with test tokens, on a server that can never take real payments."
+              },
+              "/production": {
+                "type": "page",
+                "title": "Running in production",
+                "filepath": "docs/server/production.md",
+                "description": "Deploying, securing, upgrading and backing up a Kite server."
+              }
+            }
+          },
+          "/payments": {
+            "type": "group",
+            "title": "Payments",
+            "mode": "flat",
+            "children": {
+              "/apps": {
+                "type": "page",
+                "title": "Apps",
+                "filepath": "docs/payments/apps.md",
+                "description": "Separate businesses or projects on one server, and the chains each one accepts."
+              },
+              "/payment-links": {
+                "type": "page",
+                "title": "Payment links",
+                "filepath": "docs/payments/payment-links.md",
+                "description": "What a customer pays, in which currency, and how you match it to your order."
+              },
+              "/checkout": {
+                "type": "page",
+                "title": "Checkout",
+                "filepath": "docs/payments/checkout.md",
+                "description": "What your customers see, and the ways they can pay."
+              },
+              "/transfers": {
+                "type": "page",
+                "title": "Transfers",
+                "filepath": "docs/payments/transfers.md",
+                "description": "A payment's journey from opened to settled, and every status along the way."
+              },
+              "/payouts": {
+                "type": "page",
+                "title": "Payouts",
+                "filepath": "docs/payments/payouts.md",
+                "description": "Receive every payment as one token on one chain, through NEAR Intents."
+              },
+              "/fees": {
+                "type": "page",
+                "title": "Fees",
+                "filepath": "docs/payments/fees.md",
+                "description": "Take a cut of payments, for the whole server or one app, with conditions."
+              },
+              "/refunds-and-recovery": {
+                "type": "page",
+                "title": "Refunds and recovery",
+                "filepath": "docs/payments/refunds-and-recovery.md",
+                "description": "Getting funds back to customers, automatically and by hand."
+              },
+              "/x402": {
+                "type": "page",
+                "title": "x402",
+                "filepath": "docs/payments/x402.md",
+                "description": "Gasless payments for agents and other HTTP clients, on payment links and on your own API."
+              }
+            }
+          },
+          "/authentication": {
+            "type": "group",
+            "title": "Authentication",
+            "mode": "flat",
+            "children": {
+              "/overview": {
+                "type": "page",
+                "title": "Overview",
+                "filepath": "docs/authentication/overview.md",
+                "description": "The two ways to authenticate to a Kite server, and which routes need neither."
+              },
+              "/api-keys": {
+                "type": "page",
+                "title": "API keys",
+                "filepath": "docs/authentication/api-keys.md",
+                "description": "Create, scope, rotate and revoke the keys your applications use."
+              },
+              "/signing-requests": {
+                "type": "page",
+                "title": "Signing requests",
+                "filepath": "docs/authentication/signing-requests.md",
+                "description": "How an API key signs a request, for when you're not using the SDK."
+              }
+            }
+          },
+          "/integrate": {
+            "type": "group",
+            "title": "Integrate",
+            "mode": "flat",
+            "children": {
+              "/overview": {
+                "type": "page",
+                "title": "Taking payments from your app",
+                "filepath": "docs/integrate/overview.md",
+                "description": "The usual integration, in three parts."
+              },
+              "/sdk": {
+                "type": "page",
+                "title": "@kite-01/sdk",
+                "filepath": "docs/integrate/sdk.md",
+                "description": "The typed, signed client for a Kite server."
+              },
+              "/webhooks": {
+                "type": "page",
+                "title": "Webhooks",
+                "filepath": "docs/integrate/webhooks.md",
+                "description": "Get told when payments settle, and check the message really came from your server."
+              }
+            }
+          },
+          "/contracts": {
+            "type": "group",
+            "title": "Contracts",
+            "mode": "flat",
+            "children": {
+              "/overview": {
+                "type": "page",
+                "title": "Overview",
+                "filepath": "docs/contracts/overview.md",
+                "description": "The on-chain side of Kite, and deploying your own factory."
+              }
+            }
           }
         }
       },
       "/api-reference": {
         "type": "openapi",
         "title": "API Reference",
-        "namespace": "default-team-fn99d",
-        "slug": "kite",
-        "mode": "folder"
+        "filepath": "openapi/kite.json"
       }
     }
   }
