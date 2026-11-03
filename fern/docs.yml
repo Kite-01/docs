@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
+instances:
+  - url: kite.docs.buildwithfern.com
+
+title: Kite
+
+logo:
+  light: assets/icon.svg
+  dark: assets/icon-dark.svg
+favicon: assets/favicon.svg
+
+colors:
+  accent-primary:
+    light: "#2f9bde"
+    dark: "#2f9bde"
+
+navbar-links:
+  - type: github
+    value: https://github.com/Kite-01/server
+
+tabs:
+  docs:
+    display-name: Documentation
+    skip-slug: true
+  api:
+    display-name: API Reference
+    slug: api-reference
+
+navigation:
+  - tab: docs
+    layout:
+      - section: Getting started
+        skip-slug: true
+        contents:
+          - page: Introduction
+            path: pages/index.mdx
+          - page: How Kite works
+            path: pages/how-kite-works.mdx
+          - page: Hosted Kite
+            slug: hosted
+            path: pages/hosted.mdx
+      - section: Run a server
+        slug: server
+        contents:
+          - page: Install
+            path: pages/server/install.mdx
+          - page: Configuration
+            path: pages/server/configuration.mdx
+          - page: First run
+            path: pages/server/first-run.mdx
+          - page: Providers
+            path: pages/server/providers.mdx
+          - page: Chains and tokens
+            path: pages/server/chains-and-tokens.mdx
+          - page: Testnets
+            path: pages/server/testnets.mdx
+          - page: Running in production
+            slug: production
+            path: pages/server/production.mdx
+      - section: Payments
+        contents:
+          - page: Apps
+            path: pages/payments/apps.mdx
+          - page: Payment links
+            path: pages/payments/payment-links.mdx
+          - page: Checkout
+            path: pages/payments/checkout.mdx
+          - page: Transfers
+            path: pages/payments/transfers.mdx
+          - page: Payouts
+            path: pages/payments/payouts.mdx
+          - page: Fees
+            path: pages/payments/fees.mdx
+          - page: Refunds and recovery
+            path: pages/payments/refunds-and-recovery.mdx
+          - page: x402
+            slug: x402
+            path: pages/payments/x402.mdx
+      - section: Authentication
+        contents:
+          - page: Overview
+            path: pages/authentication/overview.mdx
+          - page: API keys
+            path: pages/authentication/api-keys.mdx
+          - page: Signing requests
+            path: pages/authentication/signing-requests.mdx
+      - section: Integrate
+        contents:
+          - page: Taking payments from your app
+            slug: overview
+            path: pages/integrate/overview.mdx
+          - page: "@kite-01/sdk"
+            slug: sdk
+            path: pages/integrate/sdk.mdx
+          - page: Webhooks
+            path: pages/integrate/webhooks.mdx
+      - section: Contracts
+        contents:
+          - page: Overview
+            path: pages/contracts/overview.mdx
+  - tab: api
+    layout:
+      - api: API Reference
+        skip-slug: true
+        summary: pages/api-reference.mdx
+        specs:
+          - type: openapi
+            path: openapi/kite.json

@@ -1,0 +1,10 @@
+---
+title: API Reference
+description: Every endpoint of a Kite server, with its request and response.
+---
+
+Every endpoint of a Kite server, with its request and response. Choose a server to try requests against: the hosted testnet or mainnet, or your own.
+
+Every endpoint needs [authentication](/authentication/overview), except checkout's. To try requests from here, choose **x-kite-root-key** and paste your root key. It can do anything on your server, so only do that on a server and browser you trust. Signed API-key requests are easier to make with [`@kite-01/sdk`](/integrate/sdk), which signs them for you.
+
+Each Kite server also serves this reference for its own version at `/openapi`, with the spec at `/openapi/json`, so it always matches what's running. `KITE_ENABLE_OPENAPI_UI_SPECS=false` turns both off, and `KITE_ENABLE_OPENAPI_UI_PROVIDER=swagger` serves Swagger UI instead.

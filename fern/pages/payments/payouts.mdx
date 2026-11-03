@@ -1,0 +1,57 @@
+---
+title: Payouts
+description: Receive every payment as one token on one chain, through NEAR Intents.
+---
+
+By default, a payment settles to the app's address on the chain it was paid on. An app that takes payments on several chains ends up with money on each of them. A payout delivers every payment as one token on one chain instead, such as USDC on NEAR, through [NEAR Intents](https://docs.near-intents.org/).
+
+## Setting a payout
+
+Under **Apps**, create or edit the app, then open **Additional information**:
+
+![Editing an app, with its payout token and address under Additional information](/assets/screenshots/app-edit.png)
+
+- **Payout token**: the token to receive, grouped by the chain it's on.
+- **Payout address**: an address on that token's chain, such as `shop.near` on NEAR.
+
+Set both, or neither. Kite checks the destination when you save, with a trial quote that moves no money, and 1Click refuses an address it can't deliver to.
+
+Through the API, set `payoutAsset` and `payoutAddress` on `POST /api/apps` or `PATCH /api/apps`. `GET /api/tokens/payouts` lists the tokens NEAR Intents can deliver, with each one's `assetId`.
+
+## What happens to a payment
+
+1. **The transfer opens.** Kite asks NEAR Intents' 1Click API for a quote that converts the paying chain's settlement token into the payout token, delivered to the payout address. Refunds go to the app's address on the paying chain.
+2. **The customer pays.** The payment's contract settles straight into the quote's deposit address. Kite never holds the money: the contract pays NEAR Intents, and NEAR Intents pays you.
+3. **NEAR Intents delivers.** Kite follows the payout until it's delivered, refunded or failed, and writes each outcome to the transfer's timeline.
+
+When there's nothing to convert, because the payout token is the paying chain's settlement token, the payment settles straight to the payout address.
+
+## When a payment isn't paid out
+
+A payment settles to the app's address on the paying chain, as it would without a payout, when:
+
+- NEAR Intents doesn't support the paying chain or its settlement token. The chains it supports are listed under `descriptors` in the server's [chain registry](https://github.com/Kite-01/server/blob/main/src/shared/chains/registry.ts);
+- 1Click can't quote the payment when the transfer opens.
+
+A deposit address is valid for a day. If a payment would settle into one less than 30 minutes before its deadline, Kite doesn't send it: the transfer fails and the customer is refunded.
+
+## Following a payout
+
+A paid-out transfer shows its payout on the transfer's page: the destination, the status and, once delivered, the delivery transaction.
+
+![A settled transfer paid out as USDC on NEAR, with the delivery transaction](/assets/screenshots/transfer-payout.png)
+
+| Status       | Meaning                                                               |
+| ------------ | --------------------------------------------------------------------- |
+| `Pending`    | NEAR Intents hasn't seen the deposit yet.                             |
+| `Processing` | NEAR Intents has the deposit and is converting it.                    |
+| `Delivered`  | The payout token reached the payout address.                          |
+| `Refunded`   | NEAR Intents sent the funds back to the app's address on the paying chain. |
+| `Failed`     | NEAR Intents couldn't deliver.                                        |
+
+Payout steps are written to the transfer's timeline, but they don't send webhook events. Your webhooks hear about the transfer settling, as for any payment.
+
+## Fees and limits
+
+- Without a NEAR Intents API key, 1Click charges an extra fee on every payout. Set a key under **Providers**; see [Providers](/server/providers#payouts).
+- NEAR Intents has no testnet, so payouts only happen on mainnet servers.

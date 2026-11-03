@@ -1,0 +1,44 @@
+---
+title: Providers
+description: Deposit notifiers, gas sponsors and payouts, and how to set their keys.
+---
+
+Kite can use outside providers for three jobs: watching for deposits, paying the operator's gas, and delivering payouts. Each is optional. Set their keys under **Providers** in the dashboard; they're stored encrypted with your `KITE_ENCRYPTION_KEY`.
+
+| Provider     | Job              | Keys                      |
+| ------------ | ---------------- | ------------------------- |
+| QuickNode    | Deposit notifier | API key                   |
+| Alchemy      | Deposit notifier | Auth token                |
+| Alchemy      | Gas sponsor      | API key and gas policy ID |
+| thirdweb     | Gas sponsor      | Secret key                |
+| NEAR Intents | Payouts          | API key (optional)        |
+
+![QuickNode's provider entry expanded, with its API key field](/assets/screenshots/providers-quicknode.png)
+
+Which providers support which chain is listed under `descriptors` in the server's [chain registry](https://github.com/Kite-01/server/blob/main/src/shared/chains/registry.ts).
+
+## Deposit notifiers
+
+A deposit notifier watches every pay-in address and calls your server when tokens arrive, so payments settle within seconds. Kite creates the provider's webhooks itself, one per network, the first time a chain needs one.
+
+- Callbacks arrive at `KITE_PUBLIC_BASE_URL/callback/...`, so that URL must be reachable from the internet. Each callback is checked against the provider's signature before Kite trusts it.
+- Choose the notifiers in each chain's configuration. A chain can use more than one, but only providers that support it: configuring a chain with one that doesn't is refused.
+- **On a chain without a notifier**, Kite finds deposits by checking the pay-in addresses' balances every minute. Payments still settle, but deposit webhooks aren't sent, and tokens sent by mistake aren't recovered automatically.
+
+<Info>
+
+Changing a notifier's key makes Kite forget the webhooks it made with the old key, and it creates new ones as transfers need them.
+
+</Info>
+
+## Gas sponsors
+
+A gas sponsor pays the gas for the operator's transactions: settlements, refunds and recoveries.
+
+- Choose it in the chain's configuration. Kite checks that the provider can sponsor gas on that chain before saving.
+- **On a chain without a gas sponsor**, the operator wallet pays the gas, so it needs some of the chain's native token.
+- A refund or recovery can also [opt out](/payments/refunds-and-recovery) of the sponsor, and the operator wallet pays.
+
+## Payouts
+
+[NEAR Intents](https://docs.near-intents.org/) converts and delivers [payouts](/payments/payouts). It works without a key, but 1Click charges an extra fee on every payout then. Get a key from the [NEAR Intents partner portal](https://partners.near-intents.org).

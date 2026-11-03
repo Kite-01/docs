@@ -1,0 +1,77 @@
+---
+title: Taking payments from your app
+description: The usual integration, in three parts.
+---
+
+Most integrations look the same: your backend decides what's owed, the customer pays on the checkout, and your backend hears when it's paid.
+
+<Steps>
+
+<Step title="Your backend creates a payment link">
+
+Create one for the order with [`@kite-01/sdk`](/integrate/sdk), with your order ID as its `reference`.
+
+```ts
+const { data: link } = await kite.paymentLinks.create({
+  body: {
+    title: "Pro plan",
+    currency: "USD",
+    amount: "49",
+    reference: order.id,
+  },
+});
+```
+
+</Step>
+
+<Step title="The customer pays on the checkout">
+
+Send them to `/pay/<id>` on your Kite server, or on the [hosted instance](/hosted) you use. To keep them on your page, show it in an iframe instead; see [Checkout](/payments/checkout#on-your-own-page).
+
+```ts
+return Response.redirect(`https://pay.example.com/pay/${link.id}`);
+```
+
+![The checkout for a $49 Pro plan, asking how the customer would like to pay](/assets/screenshots/checkout-method-single.png)
+
+</Step>
+
+<Step title="Kite calls your webhook">
+
+When the payment settles, Kite calls your webhook. Your backend [verifies it](/integrate/webhooks), reads the `reference`, and fulfils the order.
+
+</Step>
+
+</Steps>
+
+The price is always set on your server, where customers can't change it. The browser only opens a link that already exists, and only a verified webhook marks an order paid.
+
+Agents can pay the same link: it's also an [x402](/payments/x402) resource, so an agent pays it over HTTP and your webhook hears about it like any other payment.
+
+<CardGroup cols={2}>
+
+<Card title="@kite-01/sdk" href="/integrate/sdk">
+
+Signed, typed calls to Kite.
+
+</Card>
+
+<Card title="Webhooks" href="/integrate/webhooks">
+
+Know when payments settle.
+
+</Card>
+
+<Card title="Checkout" href="/payments/checkout">
+
+What your customers see.
+
+</Card>
+
+<Card title="API Reference" href="/api-reference">
+
+Every endpoint.
+
+</Card>
+
+</CardGroup>
