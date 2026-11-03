@@ -2,7 +2,7 @@
 
 The documentation for [Kite](https://github.com/Kite-01/server): the hosted instances, running your own server, taking payments, authentication, the SDK, and the full API reference.
 
-Built with [Fern](https://buildwithfern.com). The Fern Dashboard publishes it from this repository on every push.
+Built with [Fern](https://buildwithfern.com). `.github/workflows/publish-docs.yml` publishes it on every push to `main`, with a Fern API key in the `FERN_TOKEN` repository secret.
 
 ## Layout
 
