@@ -6,6 +6,7 @@ description: Try Kite with test tokens, on a server that can never take real pay
 Run a separate server with `KITE_IS_TESTNET=true` and its own database to try Kite without real funds.
 
 - A testnet server only offers testnets when you add a chain, and a mainnet server only offers mainnets. Test tokens can never pay a real payment link.
+- Every page of a testnet server, the checkout and sign-in included, shows a banner saying it's a testnet instance, with **Learn more** explaining that its funds have no real value.
 - Switching the flag on an existing database hides the other kind of chains rather than deleting them.
 - Everything else works the same: providers, the dashboard, the API, webhooks and the packages. The exception is [payouts](/payments/payouts): NEAR Intents has no testnet, so a testnet server settles every payment on the chain it was paid on.
 

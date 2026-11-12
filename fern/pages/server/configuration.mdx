@@ -9,6 +9,9 @@ Kite reads its settings from environment variables, or from a `.env` file in the
 | --------------------------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------ |
 | `KITE_PUBLIC_BASE_URL`            | yes      |          | The public URL of this server. Providers send deposit callbacks to it, and checkout links are built from it. |
 | `KITE_PG_DB_URL`                  | yes      |          | Postgres connection URL, such as `postgres://user:password@host:5432/kite`.                                  |
+| `KITE_PG_DB_CERTIFICATE`          | no       |          | CA certificate, in PEM, to verify Postgres over TLS. See [Managed Postgres](#managed-postgres).              |
+| `KITE_PG_POOL_MAX`                | no       | `10`     | Most connections the server holds for its queries.                                                           |
+| `KITE_PG_BOSS_POOL_MAX`           | no       | `20`     | Most connections the job queue holds, plus one it keeps for notifications.                                   |
 | `KITE_ENCRYPTION_KEY`             | yes      |          | 32 random bytes, base64. Encrypts provider keys and webhook secrets at rest.                                 |
 | `KITE_OPERATOR_MNEMONIC`          | yes      |          | BIP-39 mnemonic of the operator wallet, which settles and refunds transfers.                                 |
 | `KITE_ROOT_KEY`                   | yes      |          | At least 16 characters. Signs you into the dashboard and grants full API access.                             |
@@ -17,6 +20,13 @@ Kite reads its settings from environment variables, or from a `.env` file in the
 | `KITE_ENABLE_OPENAPI_UI_SPECS`    | no       | `true`   | Serve the interactive API docs at `/openapi` and the spec at `/openapi/json`.                                |
 | `KITE_ENABLE_OPENAPI_UI_PROVIDER` | no       | `scalar` | `scalar` or `swagger`.                                                                                       |
 | `KITE_IS_TESTNET`                 | no       | `false`  | Run on testnets instead of mainnets. See [Testnets](/server/testnets).                                       |
+
+## Managed Postgres
+
+Hosted databases usually require TLS and allow few connections.
+
+- **TLS**: set `KITE_PG_DB_CERTIFICATE` to your provider's CA certificate, such as Aiven's `ca.pem`, and leave `sslmode` out of `KITE_PG_DB_URL`. Kite then verifies the database against that certificate. Without the variable, the URL's `sslmode` decides. Where a host only takes one-line values, write the certificate's line breaks as `\n`.
+- **Connections**: each running server holds up to `KITE_PG_POOL_MAX + KITE_PG_BOSS_POOL_MAX + 1` connections, and while a deploy replaces it, the old and new servers run together for a moment. Size the pools so twice that fits under your database's limit. With a limit of 20, for example, set both to `3`. Queries and jobs wait for a free connection rather than fail.
 
 ## Generating secrets
 
