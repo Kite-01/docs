@@ -54,47 +54,26 @@
             "type": "string"
           },
           "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "websiteUrl": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "termsOfServiceUrl": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "privacyPolicyUrl": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "payoutAsset": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "payoutAddress": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -110,12 +89,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/AppPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -138,19 +112,16 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/AppChain",
         "type": "object",
-        "required": [
-          "chainId",
-          "address",
-          "createdAt",
-          "updatedAt"
-        ],
+        "required": ["chainId", "address", "createdAt", "updatedAt"],
         "properties": {
           "chainId": {
             "format": "uuid",
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "createdAt": {
@@ -167,9 +138,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/AppChainList",
         "type": "object",
-        "required": [
-          "data"
-        ],
+        "required": ["data"],
         "properties": {
           "data": {
             "type": "array",
@@ -233,6 +202,7 @@
                 "quotes:write",
                 "Transfer:Read",
                 "Transfer:Write",
+                "Transfer:Recover",
                 "Webhook:Read",
                 "Webhook:Write",
                 "Webhook:Delete",
@@ -242,24 +212,15 @@
           },
           "lastUsedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "revokedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "expiresAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -275,12 +236,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/ApiKeyPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -324,10 +280,7 @@
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -364,10 +317,7 @@
             "type": "string"
           },
           "rpcUrls": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": ["array", "null"],
             "items": {
               "type": "string"
             }
@@ -376,7 +326,9 @@
             "type": "integer"
           },
           "kiteFactoryAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "usdPeggedTokenId": {
@@ -416,10 +368,7 @@
           "maxGasPrice": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -463,10 +412,7 @@
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -503,6 +449,7 @@
           "id",
           "caip2Id",
           "name",
+          "icon",
           "settlementToken",
           "usdPeggedToken"
         ],
@@ -517,6 +464,9 @@
           "name": {
             "type": "string"
           },
+          "icon": {
+            "type": "string"
+          },
           "settlementToken": {
             "$ref": "#/components/schemas/Token"
           },
@@ -529,9 +479,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/ConfiguredChainList",
         "type": "object",
-        "required": [
-          "data"
-        ],
+        "required": ["data"],
         "properties": {
           "data": {
             "type": "array",
@@ -550,6 +498,7 @@
           "name",
           "chainId",
           "testnet",
+          "beta",
           "nativeCurrency",
           "confirmations"
         ],
@@ -561,19 +510,18 @@
             "type": "string"
           },
           "chainId": {
-            "type": "integer"
+            "type": ["integer", "null"]
           },
           "testnet": {
+            "type": "boolean"
+          },
+          "beta": {
             "type": "boolean"
           },
           "nativeCurrency": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "name",
-              "symbol",
-              "decimals"
-            ],
+            "required": ["name", "symbol", "decimals"],
             "properties": {
               "name": {
                 "type": "string"
@@ -589,10 +537,7 @@
           "blockExplorer": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "name",
-              "url"
-            ],
+            "required": ["name", "url"],
             "properties": {
               "name": {
                 "type": "string"
@@ -644,7 +589,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "symbol": {
@@ -657,35 +604,23 @@
             "type": "string"
           },
           "version": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "supportsEIP3009": {
             "type": "boolean"
           },
           "nearIntentsAssetId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "listed": {
             "type": "boolean"
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -728,7 +663,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "symbol": {
@@ -741,35 +678,23 @@
             "type": "string"
           },
           "version": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "supportsEIP3009": {
             "type": "boolean"
           },
           "nearIntentsAssetId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "listed": {
             "type": "boolean"
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -788,12 +713,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/TokenPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -838,16 +758,10 @@
             "type": "string"
           },
           "name": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "traits": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "patternProperties": {
               "^(.*)$": {}
             }
@@ -866,12 +780,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/CustomerPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -915,10 +824,7 @@
           },
           "appId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "chainId": {
             "format": "uuid",
@@ -929,10 +835,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "Fixed",
-              "Variable"
-            ]
+            "enum": ["Fixed", "Variable"]
           },
           "value": {
             "pattern": "^[0-9]+$",
@@ -942,18 +845,12 @@
           "minAmountToCharge": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "maxAmountToCharge": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "condition": {
             "type": "object",
@@ -962,11 +859,10 @@
             }
           },
           "feeAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
-            "type": [
-              "string",
-              "null"
-            ]
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -1004,10 +900,7 @@
           },
           "appId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "chainId": {
             "format": "uuid",
@@ -1018,10 +911,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "Fixed",
-              "Variable"
-            ]
+            "enum": ["Fixed", "Variable"]
           },
           "value": {
             "pattern": "^[0-9]+$",
@@ -1031,18 +921,12 @@
           "minAmountToCharge": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "maxAmountToCharge": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "condition": {
             "type": "object",
@@ -1051,11 +935,10 @@
             }
           },
           "feeAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
-            "type": [
-              "string",
-              "null"
-            ]
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -1074,12 +957,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/FeePage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -1136,30 +1014,17 @@
           },
           "usage": {
             "type": "string",
-            "enum": [
-              "OneTime",
-              "Reusable"
-            ]
+            "enum": ["OneTime", "Reusable"]
           },
           "lineItems": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": ["array", "null"],
             "items": {
               "additionalProperties": false,
               "type": "object",
-              "required": [
-                "name",
-                "price",
-                "quantity"
-              ],
+              "required": ["name", "price", "quantity"],
               "properties": {
                 "image": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "name": {
                   "type": "string"
@@ -1174,25 +1039,16 @@
             }
           },
           "reference": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "meta": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "patternProperties": {
               "^(.*)$": {}
             }
           },
           "returnUrl": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -1208,12 +1064,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/PaymentLinkPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -1262,7 +1113,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "decimals": {
@@ -1310,7 +1163,9 @@
             "type": "string"
           },
           "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "decimals": {
@@ -1328,10 +1183,7 @@
             "$ref": "#/components/schemas/Chain"
           },
           "rate": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           }
         }
       },
@@ -1360,6 +1212,7 @@
           "targetUsdAmount",
           "rate",
           "uniswapPoolFeeTier",
+          "swapPool",
           "reference",
           "meta",
           "expiresAt",
@@ -1381,17 +1234,11 @@
           },
           "paymentLinkId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "customerId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "sourceTokenId": {
             "format": "uuid",
@@ -1421,22 +1268,16 @@
             "type": "string"
           },
           "uniswapPoolFeeTier": {
-            "type": [
-              "integer",
-              "null"
-            ]
+            "type": ["integer", "null"]
+          },
+          "swapPool": {
+            "type": ["string", "null"]
           },
           "reference": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "meta": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "patternProperties": {
               "^(.*)$": {}
             }
@@ -1480,10 +1321,7 @@
           },
           "feeId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "label": {
             "type": "string"
@@ -1494,14 +1332,13 @@
             "type": "string"
           },
           "feeAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "blockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -1527,6 +1364,7 @@
           "targetUsdAmount",
           "rate",
           "uniswapPoolFeeTier",
+          "swapPool",
           "reference",
           "meta",
           "expiresAt",
@@ -1554,17 +1392,11 @@
           },
           "paymentLinkId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "customerId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "sourceTokenId": {
             "format": "uuid",
@@ -1594,22 +1426,16 @@
             "type": "string"
           },
           "uniswapPoolFeeTier": {
-            "type": [
-              "integer",
-              "null"
-            ]
+            "type": ["integer", "null"]
+          },
+          "swapPool": {
+            "type": ["string", "null"]
           },
           "reference": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "meta": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "patternProperties": {
               "^(.*)$": {}
             }
@@ -1667,12 +1493,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/QuotePage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -1732,7 +1553,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -1741,103 +1564,286 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": ["object", "null"],
+                    "required": ["router", "pool", "wrap"],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["Dcl"],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["RefV1"],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -1854,60 +1860,33 @@
             ]
           },
           "settlementBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "refundBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Payer": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationNonce": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettlementCallId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402BlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402LeaseExpiresAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettledAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Offer": {
             "type": "boolean"
@@ -1926,13 +1905,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/TransferTimelineEntry",
         "type": "object",
-        "required": [
-          "id",
-          "transferId",
-          "eventId",
-          "description",
-          "createdAt"
-        ],
+        "required": ["id", "transferId", "eventId", "description", "createdAt"],
         "properties": {
           "id": {
             "format": "uuid",
@@ -1944,10 +1917,7 @@
           },
           "eventId": {
             "format": "uuid",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "description": {
             "type": "string"
@@ -1986,7 +1956,9 @@
             "type": "string"
           },
           "depositAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "destinationAsset": {
@@ -2002,7 +1974,9 @@
             "type": "string"
           },
           "refundTo": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "deadline": {
@@ -2011,47 +1985,26 @@
           },
           "status": {
             "type": "string",
-            "enum": [
-              "Pending",
-              "Processing",
-              "Delivered",
-              "Refunded",
-              "Failed"
-            ]
+            "enum": ["Pending", "Processing", "Delivered", "Refunded", "Failed"]
           },
           "amountOut": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "refundedAmount": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "blockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "explorerUrl": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "reason": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -2088,10 +2041,7 @@
             "type": "integer"
           },
           "contractAddress": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           }
         }
       },
@@ -2099,9 +2049,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/PayoutTokenList",
         "type": "object",
-        "required": [
-          "data"
-        ],
+        "required": ["data"],
         "properties": {
           "data": {
             "type": "array",
@@ -2155,7 +2103,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2164,103 +2114,286 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": ["object", "null"],
+                    "required": ["router", "pool", "wrap"],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["Dcl"],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["RefV1"],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -2277,60 +2410,33 @@
             ]
           },
           "settlementBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "refundBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Payer": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationNonce": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettlementCallId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402BlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402LeaseExpiresAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettledAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Offer": {
             "type": "boolean"
@@ -2409,7 +2515,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2418,103 +2526,286 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": ["object", "null"],
+                    "required": ["router", "pool", "wrap"],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["Dcl"],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["RefV1"],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -2531,60 +2822,33 @@
             ]
           },
           "settlementBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "refundBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Payer": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationNonce": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettlementCallId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402BlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402LeaseExpiresAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettledAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Offer": {
             "type": "boolean"
@@ -2619,21 +2883,14 @@
           "app": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "id",
-              "icon",
-              "name"
-            ],
+            "required": ["id", "icon", "name"],
             "properties": {
               "id": {
                 "format": "uuid",
                 "type": "string"
               },
               "icon": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": ["string", "null"]
               },
               "name": {
                 "type": "string"
@@ -2646,12 +2903,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/TransferPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -2712,7 +2964,9 @@
             "type": "string"
           },
           "settlementRecipient": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2721,103 +2975,286 @@
             "type": "string"
           },
           "refundAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "kiteTransferInput": {
-            "additionalProperties": false,
-            "type": "object",
-            "required": [
-              "id",
-              "payInTokenAddress",
-              "amountIn",
-              "settlementTokenAddress",
-              "settlementRecipient",
-              "minAmountOut",
-              "fees",
-              "refundAddress",
-              "expiresAt",
-              "routerAddress",
-              "poolFeeTier",
-              "implementation"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "payInTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "amountIn": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "settlementTokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "settlementRecipient": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "minAmountOut": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "additionalProperties": false,
-                  "type": "object",
-                  "required": [
-                    "id",
-                    "recipient",
-                    "amount"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "recipient": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
-                      "type": "string"
-                    },
-                    "amount": {
-                      "pattern": "^[0-9]+$",
-                      "maxLength": 78,
-                      "type": "string"
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/EvmKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "payInTokenAddress",
+                  "amountIn",
+                  "settlementTokenAddress",
+                  "settlementRecipient",
+                  "minAmountOut",
+                  "fees",
+                  "refundAddress",
+                  "expiresAt",
+                  "routerAddress",
+                  "poolFeeTier",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "payInTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "amountIn": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlementTokenAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "settlementRecipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "minAmountOut": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
                     }
+                  },
+                  "refundAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "routerAddress": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "poolFeeTier": {
+                    "type": "integer"
+                  },
+                  "implementation": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
                   }
                 }
               },
-              "refundAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "expiresAt": {
-                "pattern": "^[0-9]+$",
-                "maxLength": 78,
-                "type": "string"
-              },
-              "routerAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
-              },
-              "poolFeeTier": {
-                "type": "integer"
-              },
-              "implementation": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string"
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/NearKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "pay_in",
+                  "amount_in",
+                  "settlement_token",
+                  "settlement_recipient",
+                  "min_amount_out",
+                  "fees",
+                  "refund_account",
+                  "expires_at",
+                  "swap",
+                  "implementation"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "pay_in": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "amount_in": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settlement_token": {
+                    "anyOf": [
+                      {
+                        "const": "Native",
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "type": "object",
+                        "required": ["Token"],
+                        "properties": {
+                          "Token": {
+                            "minLength": 2,
+                            "maxLength": 64,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "settlement_recipient": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "min_amount_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["id", "recipient", "amount"],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 64,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund_account": {
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "swap": {
+                    "additionalProperties": false,
+                    "type": ["object", "null"],
+                    "required": ["router", "pool", "wrap"],
+                    "properties": {
+                      "router": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      },
+                      "pool": {
+                        "anyOf": [
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["Dcl"],
+                            "properties": {
+                              "Dcl": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          {
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": ["RefV1"],
+                            "properties": {
+                              "RefV1": {
+                                "pattern": "^[0-9]+$",
+                                "maxLength": 78,
+                                "type": "string"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "wrap": {
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "implementation": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "status": {
             "type": "string",
@@ -2834,60 +3271,33 @@
             ]
           },
           "settlementBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "refundBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Payer": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationNonce": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402AuthorizationHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettlementCallId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402BlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402LeaseExpiresAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402SettledAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "x402Offer": {
             "type": "boolean"
@@ -2915,11 +3325,15 @@
                 "type": "string"
               },
               "address": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "minLength": 2,
+                "maxLength": 64,
+                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                 "type": "string"
               },
               "tokenAddress": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
+                "minLength": 2,
+                "maxLength": 64,
+                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                 "type": "string"
               },
               "amount": {
@@ -2972,12 +3386,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "Transfer",
-                "Deposit",
-                "Recovery",
-                "ExcessRefund"
-              ]
+              "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
             }
           },
           "signingKeyHint": {
@@ -2994,10 +3403,7 @@
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -3013,12 +3419,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/WebhookPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -3075,12 +3476,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [
-                "Transfer",
-                "Deposit",
-                "Recovery",
-                "ExcessRefund"
-              ]
+              "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
             }
           },
           "signingKeyHint": {
@@ -3097,10 +3493,7 @@
           },
           "deletedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -3151,22 +3544,13 @@
             "type": "integer"
           },
           "error": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "httpResponseCode": {
-            "type": [
-              "integer",
-              "null"
-            ]
+            "type": ["integer", "null"]
           },
           "httpResponseHeaders": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": ["object", "null"],
             "patternProperties": {
               "^(.*)$": {
                 "type": "string"
@@ -3174,10 +3558,7 @@
             }
           },
           "httpResponseBody": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "startedAt": {
             "format": "date-time",
@@ -3185,17 +3566,11 @@
           },
           "completedAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "nextRetryAt": {
             "format": "date-time",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -3211,12 +3586,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/WebhookDeliveryPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -3255,10 +3625,7 @@
             "type": "string"
           },
           "sourceId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "appId": {
             "format": "uuid",
@@ -3266,18 +3633,10 @@
           },
           "category": {
             "type": "string",
-            "enum": [
-              "Transfer",
-              "Deposit",
-              "Recovery",
-              "ExcessRefund"
-            ]
+            "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
           },
           "previousCategoryStatus": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "currentCategoryStatus": {
             "type": "string"
@@ -3293,12 +3652,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/EventPage",
         "type": "object",
-        "required": [
-          "data",
-          "page",
-          "pageSize",
-          "total"
-        ],
+        "required": ["data", "page", "pageSize", "total"],
         "properties": {
           "data": {
             "type": "array",
@@ -3321,29 +3675,17 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/KvEntry",
         "type": "object",
-        "required": [
-          "key",
-          "type",
-          "value",
-          "createdAt",
-          "updatedAt"
-        ],
+        "required": ["key", "type", "value", "createdAt", "updatedAt"],
         "properties": {
           "key": {
             "type": "string"
           },
           "type": {
             "type": "string",
-            "enum": [
-              "String",
-              "SecureString"
-            ]
+            "enum": ["String", "SecureString"]
           },
           "value": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "createdAt": {
             "format": "date-time",
@@ -3366,12 +3708,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/ProviderStatus",
         "type": "object",
-        "required": [
-          "provider",
-          "action",
-          "configured",
-          "keys"
-        ],
+        "required": ["provider", "action", "configured", "keys"],
         "properties": {
           "provider": {
             "type": "string",
@@ -3385,11 +3722,7 @@
           },
           "action": {
             "type": "string",
-            "enum": [
-              "GasSponsor",
-              "OnchainNotifier",
-              "Payout"
-            ]
+            "enum": ["GasSponsor", "OnchainNotifier", "Payout"]
           },
           "configured": {
             "type": "boolean"
@@ -3399,12 +3732,7 @@
             "items": {
               "additionalProperties": false,
               "type": "object",
-              "required": [
-                "key",
-                "type",
-                "required",
-                "set"
-              ],
+              "required": ["key", "type", "required", "set"],
               "properties": {
                 "key": {
                   "type": "string",
@@ -3423,10 +3751,7 @@
                 },
                 "type": {
                   "type": "string",
-                  "enum": [
-                    "String",
-                    "SecureString"
-                  ]
+                  "enum": ["String", "SecureString"]
                 },
                 "required": {
                   "type": "boolean"
@@ -3450,11 +3775,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/SystemInfo",
         "type": "object",
-        "required": [
-          "version",
-          "operators",
-          "chains"
-        ],
+        "required": ["version", "operators", "chains"],
         "properties": {
           "version": {
             "type": "string"
@@ -3464,14 +3785,11 @@
             "items": {
               "additionalProperties": false,
               "type": "object",
-              "required": [
-                "chainType",
-                "address"
-              ],
+              "required": ["chainType", "address"],
               "properties": {
                 "chainType": {
-                  "const": "Evm",
-                  "type": "string"
+                  "type": "string",
+                  "enum": ["Evm", "Near"]
                 },
                 "address": {
                   "type": "string"
@@ -3511,14 +3829,13 @@
                   "type": "boolean"
                 },
                 "operatorAddress": {
-                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                  "minLength": 2,
+                  "maxLength": 64,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 },
                 "explorerUrl": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 }
               }
             }
@@ -3553,30 +3870,20 @@
           "customers": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "total",
-              "change"
-            ],
+            "required": ["total", "change"],
             "properties": {
               "total": {
                 "type": "integer"
               },
               "change": {
-                "type": [
-                  "number",
-                  "null"
-                ]
+                "type": ["number", "null"]
               }
             }
           },
           "amountProcessed": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "amount",
-              "count",
-              "change"
-            ],
+            "required": ["amount", "count", "change"],
             "properties": {
               "amount": {
                 "type": "string"
@@ -3585,10 +3892,7 @@
                 "type": "integer"
               },
               "change": {
-                "type": [
-                  "number",
-                  "null"
-                ]
+                "type": ["number", "null"]
               }
             }
           },
@@ -3597,11 +3901,7 @@
             "items": {
               "additionalProperties": false,
               "type": "object",
-              "required": [
-                "bucket",
-                "amount",
-                "count"
-              ],
+              "required": ["bucket", "amount", "count"],
               "properties": {
                 "bucket": {
                   "type": "string"
@@ -3645,16 +3945,15 @@
                   "type": "string"
                 },
                 "icon": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "decimals": {
                   "type": "integer"
                 },
                 "address": {
-                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                  "minLength": 2,
+                  "maxLength": 64,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 },
                 "chainId": {
@@ -3662,16 +3961,10 @@
                   "type": "string"
                 },
                 "chainName": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "chainIcon": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": ["string", "null"]
                 },
                 "volume": {
                   "type": "integer"
@@ -3688,22 +3981,14 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/x402Supported",
         "type": "object",
-        "required": [
-          "kinds",
-          "extensions",
-          "signers"
-        ],
+        "required": ["kinds", "extensions", "signers"],
         "properties": {
           "kinds": {
             "type": "array",
             "items": {
               "additionalProperties": false,
               "type": "object",
-              "required": [
-                "x402Version",
-                "scheme",
-                "network"
-              ],
+              "required": ["x402Version", "scheme", "network"],
               "properties": {
                 "x402Version": {
                   "type": "integer"
@@ -3733,7 +4018,9 @@
               "^(.*)$": {
                 "type": "array",
                 "items": {
-                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                  "minLength": 2,
+                  "maxLength": 64,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 }
               }
@@ -3763,7 +4050,9 @@
             "type": "string"
           },
           "asset": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "amount": {
@@ -3772,7 +4061,9 @@
             "type": "string"
           },
           "payTo": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "maxTimeoutSeconds": {
@@ -3781,10 +4072,6 @@
           "extra": {
             "additionalProperties": false,
             "type": "object",
-            "required": [
-              "name",
-              "version"
-            ],
             "properties": {
               "name": {
                 "type": "string"
@@ -3800,9 +4087,7 @@
         "additionalProperties": true,
         "$id": "#/components/schemas/x402VerifyResult",
         "type": "object",
-        "required": [
-          "isValid"
-        ],
+        "required": ["isValid"],
         "properties": {
           "isValid": {
             "type": "boolean"
@@ -3840,11 +4125,7 @@
         "additionalProperties": true,
         "$id": "#/components/schemas/x402SettleResult",
         "type": "object",
-        "required": [
-          "success",
-          "transaction",
-          "network"
-        ],
+        "required": ["success", "transaction", "network"],
         "properties": {
           "success": {
             "type": "boolean"
@@ -3891,11 +4172,7 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/Checkout",
         "type": "object",
-        "required": [
-          "paymentLink",
-          "app",
-          "chains"
-        ],
+        "required": ["paymentLink", "app", "chains"],
         "properties": {
           "paymentLink": {
             "additionalProperties": false,
@@ -3925,30 +4202,17 @@
               },
               "usage": {
                 "type": "string",
-                "enum": [
-                  "OneTime",
-                  "Reusable"
-                ]
+                "enum": ["OneTime", "Reusable"]
               },
               "lineItems": {
-                "type": [
-                  "array",
-                  "null"
-                ],
+                "type": ["array", "null"],
                 "items": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "name",
-                    "price",
-                    "quantity"
-                  ],
+                  "required": ["name", "price", "quantity"],
                   "properties": {
                     "image": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": ["string", "null"]
                     },
                     "name": {
                       "type": "string"
@@ -3963,10 +4227,7 @@
                 }
               },
               "returnUrl": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": ["string", "null"]
               }
             }
           },
@@ -3985,28 +4246,16 @@
                 "type": "string"
               },
               "icon": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": ["string", "null"]
               },
               "websiteUrl": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": ["string", "null"]
               },
               "termsOfServiceUrl": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": ["string", "null"]
               },
               "privacyPolicyUrl": {
-                "type": [
-                  "string",
-                  "null"
-                ]
+                "type": ["string", "null"]
               }
             }
           },
@@ -4019,6 +4268,7 @@
                 "id",
                 "caip2Id",
                 "name",
+                "chainType",
                 "chainId",
                 "testnet",
                 "icon",
@@ -4038,8 +4288,12 @@
                 "name": {
                   "type": "string"
                 },
+                "chainType": {
+                  "type": "string",
+                  "enum": ["Evm", "Near"]
+                },
                 "chainId": {
-                  "type": "integer"
+                  "type": ["integer", "null"]
                 },
                 "testnet": {
                   "type": "boolean"
@@ -4050,11 +4304,7 @@
                 "nativeCurrency": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "name",
-                    "symbol",
-                    "decimals"
-                  ],
+                  "required": ["name", "symbol", "decimals"],
                   "properties": {
                     "name": {
                       "type": "string"
@@ -4070,10 +4320,7 @@
                 "blockExplorer": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "name",
-                    "url"
-                  ],
+                  "required": ["name", "url"],
                   "properties": {
                     "name": {
                       "type": "string"
@@ -4102,7 +4349,9 @@
                   ],
                   "properties": {
                     "address": {
-                      "pattern": "^0x[0-9a-fA-F]{40}$",
+                      "minLength": 2,
+                      "maxLength": 64,
+                      "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                       "type": "string"
                     },
                     "symbol": {
@@ -4115,10 +4364,7 @@
                       "type": "integer"
                     },
                     "icon": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": ["string", "null"]
                     },
                     "x402": {
                       "type": "boolean"
@@ -4140,7 +4386,9 @@
                     ],
                     "properties": {
                       "address": {
-                        "pattern": "^0x[0-9a-fA-F]{40}$",
+                        "minLength": 2,
+                        "maxLength": 64,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                         "type": "string"
                       },
                       "symbol": {
@@ -4153,10 +4401,7 @@
                         "type": "integer"
                       },
                       "icon": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "type": ["string", "null"]
                       },
                       "x402": {
                         "type": "boolean"
@@ -4203,26 +4448,19 @@
             ]
           },
           "payinAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "minLength": 2,
+            "maxLength": 64,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
           "x402BlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "settlementBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "refundBlockchainHash": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "expiresAt": {
             "format": "date-time",
@@ -4246,9 +4484,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "List apps",
         "parameters": [
           {
@@ -4323,18 +4559,14 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Create an app",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name"
-                ],
+                "required": ["name"],
                 "properties": {
                   "name": {
                     "minLength": 1,
@@ -4344,50 +4576,32 @@
                   "icon": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "websiteUrl": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "termsOfServiceUrl": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "privacyPolicyUrl": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "payoutAsset": {
                     "minLength": 1,
                     "maxLength": 256,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "payoutAddress": {
                     "minLength": 1,
                     "maxLength": 256,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -4410,9 +4624,7 @@
       },
       "get": {
         "operationId": "apps.get",
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Get app",
         "responses": {
           "200": {
@@ -4429,9 +4641,7 @@
       },
       "patch": {
         "operationId": "apps.update",
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Update app",
         "requestBody": {
           "content": {
@@ -4448,50 +4658,32 @@
                   "icon": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "websiteUrl": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "termsOfServiceUrl": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "privacyPolicyUrl": {
                     "format": "uri",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "payoutAsset": {
                     "minLength": 1,
                     "maxLength": 256,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "payoutAddress": {
                     "minLength": 1,
                     "maxLength": 256,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -4514,9 +4706,7 @@
       },
       "delete": {
         "operationId": "apps.delete",
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Delete app",
         "responses": {
           "200": {
@@ -4535,9 +4725,7 @@
     "/api/apps/chains": {
       "get": {
         "operationId": "apps.listChains",
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Chains the app takes payments on",
         "responses": {
           "200": {
@@ -4556,9 +4744,7 @@
     "/api/apps/chains/{chainId}": {
       "put": {
         "operationId": "apps.setChain",
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Take payments on a chain, paid to an address there",
         "parameters": [
           {
@@ -4577,12 +4763,12 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "address"
-                ],
+                "required": ["address"],
                 "properties": {
                   "address": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -4606,9 +4792,7 @@
       },
       "delete": {
         "operationId": "apps.removeChain",
-        "tags": [
-          "Apps"
-        ],
+        "tags": ["Apps"],
         "summary": "Stop taking payments on a chain",
         "parameters": [
           {
@@ -4638,9 +4822,7 @@
     "/api/api-key": {
       "post": {
         "operationId": "apiKeys.create",
-        "tags": [
-          "API key"
-        ],
+        "tags": ["API key"],
         "summary": "Register an API key's public key",
         "requestBody": {
           "content": {
@@ -4648,11 +4830,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "label",
-                  "publicKey",
-                  "scopes"
-                ],
+                "required": ["label", "publicKey", "scopes"],
                 "properties": {
                   "label": {
                     "minLength": 1,
@@ -4688,6 +4866,7 @@
                         "quotes:write",
                         "Transfer:Read",
                         "Transfer:Write",
+                        "Transfer:Recover",
                         "Webhook:Read",
                         "Webhook:Write",
                         "Webhook:Delete",
@@ -4720,9 +4899,7 @@
       },
       "get": {
         "operationId": "apiKeys.list",
-        "tags": [
-          "API key"
-        ],
+        "tags": ["API key"],
         "summary": "List API keys",
         "parameters": [
           {
@@ -4792,9 +4969,7 @@
     "/api/api-key/{id}": {
       "get": {
         "operationId": "apiKeys.get",
-        "tags": [
-          "API key"
-        ],
+        "tags": ["API key"],
         "summary": "Get an API key",
         "parameters": [
           {
@@ -4822,9 +4997,7 @@
       },
       "patch": {
         "operationId": "apiKeys.update",
-        "tags": [
-          "API key"
-        ],
+        "tags": ["API key"],
         "summary": "Update an API key's label",
         "parameters": [
           {
@@ -4843,9 +5016,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "label"
-                ],
+                "required": ["label"],
                 "properties": {
                   "label": {
                     "minLength": 1,
@@ -4873,9 +5044,7 @@
       },
       "delete": {
         "operationId": "apiKeys.delete",
-        "tags": [
-          "API key"
-        ],
+        "tags": ["API key"],
         "summary": "Delete an API key",
         "parameters": [
           {
@@ -4905,9 +5074,7 @@
     "/api/api-key/{id}/revoke": {
       "post": {
         "operationId": "apiKeys.revoke",
-        "tags": [
-          "API key"
-        ],
+        "tags": ["API key"],
         "summary": "Revoke an API key",
         "parameters": [
           {
@@ -4937,9 +5104,7 @@
     "/api/chains": {
       "get": {
         "operationId": "chains.list",
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "List configured chains",
         "responses": {
           "200": {
@@ -4961,9 +5126,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "Add a chain",
         "requestBody": {
           "content": {
@@ -4971,12 +5134,10 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "caip2Id"
-                ],
+                "required": ["caip2Id"],
                 "properties": {
                   "caip2Id": {
-                    "pattern": "^eip155:[0-9]+$",
+                    "pattern": "^(eip155:[0-9]+|near:(mainnet|testnet))$",
                     "type": "string"
                   }
                 }
@@ -5007,9 +5168,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "List chains (with full metadata)",
         "responses": {
           "200": {
@@ -5033,9 +5192,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "Chains this server knows how to run on",
         "responses": {
           "200": {
@@ -5059,9 +5216,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "Update chain active status",
         "parameters": [
           {
@@ -5080,9 +5235,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "isActive"
-                ],
+                "required": ["isActive"],
                 "properties": {
                   "isActive": {
                     "type": "boolean"
@@ -5113,9 +5266,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "Delete a chain",
         "parameters": [
           {
@@ -5150,9 +5301,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Chains"
-        ],
+        "tags": ["Chains"],
         "summary": "Configure a chain",
         "parameters": [
           {
@@ -5182,10 +5331,7 @@
                 "properties": {
                   "rpcUrls": {
                     "maxItems": 10,
-                    "type": [
-                      "array",
-                      "null"
-                    ],
+                    "type": ["array", "null"],
                     "items": {
                       "format": "uri",
                       "pattern": "^https?://",
@@ -5209,7 +5355,9 @@
                     ]
                   },
                   "kiteFactoryAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "usdPeggedTokenId": {
@@ -5251,10 +5399,7 @@
                   "maxGasPrice": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -5279,9 +5424,7 @@
     "/api/tokens/{chainId}/{address}": {
       "get": {
         "operationId": "tokens.getByAddress",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "summary": "Get a token by its contract address",
         "parameters": [
           {
@@ -5298,7 +5441,9 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "minLength": 2,
+              "maxLength": 64,
+              "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
               "type": "string"
             }
           }
@@ -5320,9 +5465,7 @@
     "/api/tokens/payouts": {
       "get": {
         "operationId": "tokens.listPayouts",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "summary": "Tokens an app can be paid out in through NEAR Intents",
         "responses": {
           "200": {
@@ -5341,9 +5484,7 @@
     "/api/tokens": {
       "get": {
         "operationId": "tokens.list",
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "summary": "List tokens",
         "parameters": [
           {
@@ -5427,9 +5568,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "summary": "Change a token's icon",
         "parameters": [
           {
@@ -5448,18 +5587,13 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "icon"
-                ],
+                "required": ["icon"],
                 "properties": {
                   "icon": {
                     "format": "uri",
                     "pattern": "^https?://",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -5487,9 +5621,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Tokens"
-        ],
+        "tags": ["Tokens"],
         "summary": "Delete a token",
         "parameters": [
           {
@@ -5520,9 +5652,7 @@
       "get": {
         "operationId": "checkout.get",
         "security": [],
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "summary": "What a payment link charges and how it can be paid",
         "parameters": [
           {
@@ -5553,9 +5683,7 @@
       "post": {
         "operationId": "checkout.quote",
         "security": [],
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "summary": "Quote a payment link in a token",
         "parameters": [
           {
@@ -5574,17 +5702,16 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "chainId",
-                  "sourceTokenAddress"
-                ],
+                "required": ["chainId", "sourceTokenAddress"],
                 "properties": {
                   "chainId": {
                     "format": "uuid",
                     "type": "string"
                   },
                   "sourceTokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -5611,9 +5738,7 @@
       "post": {
         "operationId": "checkout.openTransfer",
         "security": [],
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "summary": "Open a transfer to be paid by sending tokens",
         "parameters": [
           {
@@ -5632,17 +5757,16 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "quoteId",
-                  "refundAddress"
-                ],
+                "required": ["quoteId", "refundAddress"],
                 "properties": {
                   "quoteId": {
                     "format": "uuid",
                     "type": "string"
                   },
                   "refundAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -5669,9 +5793,7 @@
       "get": {
         "operationId": "checkout.getTransfer",
         "security": [],
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "summary": "Track a transfer opened from a payment link",
         "parameters": [
           {
@@ -5711,9 +5833,7 @@
       "post": {
         "operationId": "checkout.cancelTransfer",
         "security": [],
-        "tags": [
-          "Checkout"
-        ],
+        "tags": ["Checkout"],
         "summary": "Cancel a transfer that hasn't been paid",
         "parameters": [
           {
@@ -5752,9 +5872,7 @@
     "/api/customers": {
       "post": {
         "operationId": "customers.upsert",
-        "tags": [
-          "Customers"
-        ],
+        "tags": ["Customers"],
         "summary": "Create a customer, or update the one with this externalId",
         "requestBody": {
           "content": {
@@ -5762,9 +5880,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "externalId"
-                ],
+                "required": ["externalId"],
                 "properties": {
                   "externalId": {
                     "minLength": 1,
@@ -5773,16 +5889,10 @@
                   },
                   "name": {
                     "maxLength": 255,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "traits": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
+                    "type": ["object", "null"],
                     "patternProperties": {
                       "^(.*)$": {}
                     }
@@ -5808,9 +5918,7 @@
       },
       "get": {
         "operationId": "customers.list",
-        "tags": [
-          "Customers"
-        ],
+        "tags": ["Customers"],
         "summary": "List customers",
         "parameters": [
           {
@@ -5889,9 +5997,7 @@
     "/api/customers/{id}": {
       "get": {
         "operationId": "customers.get",
-        "tags": [
-          "Customers"
-        ],
+        "tags": ["Customers"],
         "summary": "Get a customer",
         "parameters": [
           {
@@ -5919,9 +6025,7 @@
       },
       "delete": {
         "operationId": "customers.delete",
-        "tags": [
-          "Customers"
-        ],
+        "tags": ["Customers"],
         "summary": "Delete a customer",
         "parameters": [
           {
@@ -5951,9 +6055,7 @@
     "/api/fees": {
       "get": {
         "operationId": "fees.list",
-        "tags": [
-          "Fees"
-        ],
+        "tags": ["Fees"],
         "summary": "List fees",
         "parameters": [
           {
@@ -6030,9 +6132,7 @@
       },
       "post": {
         "operationId": "fees.create",
-        "tags": [
-          "Fees"
-        ],
+        "tags": ["Fees"],
         "summary": "Create a fee",
         "requestBody": {
           "content": {
@@ -6040,13 +6140,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "chainId",
-                  "label",
-                  "type",
-                  "value",
-                  "condition"
-                ],
+                "required": ["chainId", "label", "type", "value", "condition"],
                 "properties": {
                   "chainId": {
                     "format": "uuid",
@@ -6059,10 +6153,7 @@
                   },
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "Fixed",
-                      "Variable"
-                    ]
+                    "enum": ["Fixed", "Variable"]
                   },
                   "value": {
                     "pattern": "^[0-9]+$",
@@ -6072,18 +6163,12 @@
                   "minAmountToCharge": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "maxAmountToCharge": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "condition": {
                     "additionalProperties": false,
@@ -6138,13 +6223,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6161,13 +6250,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6209,11 +6302,10 @@
                     }
                   },
                   "feeAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -6238,9 +6330,7 @@
     "/api/fees/{id}": {
       "get": {
         "operationId": "fees.get",
-        "tags": [
-          "Fees"
-        ],
+        "tags": ["Fees"],
         "summary": "Get a fee",
         "parameters": [
           {
@@ -6268,9 +6358,7 @@
       },
       "patch": {
         "operationId": "fees.update",
-        "tags": [
-          "Fees"
-        ],
+        "tags": ["Fees"],
         "summary": "Update a fee",
         "parameters": [
           {
@@ -6297,10 +6385,7 @@
                   },
                   "type": {
                     "type": "string",
-                    "enum": [
-                      "Fixed",
-                      "Variable"
-                    ]
+                    "enum": ["Fixed", "Variable"]
                   },
                   "value": {
                     "pattern": "^[0-9]+$",
@@ -6310,18 +6395,12 @@
                   "minAmountToCharge": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "maxAmountToCharge": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   },
                   "condition": {
                     "additionalProperties": false,
@@ -6376,13 +6455,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6399,13 +6482,17 @@
                             "type": "object",
                             "properties": {
                               "_eq": {
-                                "pattern": "^0x[0-9a-fA-F]{40}$",
+                                "minLength": 2,
+                                "maxLength": 64,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
-                                  "pattern": "^0x[0-9a-fA-F]{40}$",
+                                  "minLength": 2,
+                                  "maxLength": 64,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                                   "type": "string"
                                 }
                               }
@@ -6447,11 +6534,10 @@
                     }
                   },
                   "feeAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -6474,9 +6560,7 @@
       },
       "delete": {
         "operationId": "fees.delete",
-        "tags": [
-          "Fees"
-        ],
+        "tags": ["Fees"],
         "summary": "Delete a fee",
         "parameters": [
           {
@@ -6511,9 +6595,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Kv"
-        ],
+        "tags": ["Kv"],
         "summary": "List configuration values",
         "responses": {
           "200": {
@@ -6537,9 +6619,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Kv"
-        ],
+        "tags": ["Kv"],
         "summary": "List providers secrets configuration status",
         "responses": {
           "200": {
@@ -6563,28 +6643,34 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Kv"
-        ],
-        "summary": "Set a provider key",
+        "tags": ["Kv"],
+        "summary": "Set a configuration value",
         "parameters": [
           {
             "name": "key",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string",
-              "enum": [
-                "AlchemyApiKey",
-                "AlchemyGasPolicyId",
-                "AlchemyAuthToken",
-                "QuickNodeApiKey",
-                "QuickNodeEvmWalletFilter_WalletsListName",
-                "QuickNodeEvmContractEvents_ContractsListName",
-                "QuickNodeEvmContractEvents_EventHashesListName",
-                "QuickNodeWebhookSecurityToken",
-                "ThirdwebSecretKey",
-                "NearIntentsApiKey"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "AlchemyApiKey",
+                    "AlchemyGasPolicyId",
+                    "AlchemyAuthToken",
+                    "QuickNodeApiKey",
+                    "QuickNodeEvmWalletFilter_WalletsListName",
+                    "QuickNodeEvmContractEvents_ContractsListName",
+                    "QuickNodeEvmContractEvents_EventHashesListName",
+                    "QuickNodeWebhookSecurityToken",
+                    "ThirdwebSecretKey",
+                    "NearIntentsApiKey"
+                  ]
+                },
+                {
+                  "pattern": "^(?:AlchemyAddressActivity_Webhook|AlchemyContractEvents_Webhook|QuickNodeEvmWalletFilter_WebhookId|QuickNodeEvmContractEvents_WebhookId):[A-Za-z0-9_-]+$",
+                  "type": "string"
+                }
               ]
             }
           }
@@ -6595,16 +6681,11 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "value"
-                ],
+                "required": ["value"],
                 "properties": {
                   "value": {
                     "minLength": 1,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -6624,6 +6705,46 @@
             }
           }
         }
+      },
+      "delete": {
+        "operationId": "kv.delete",
+        "security": [
+          {
+            "rootKey": []
+          }
+        ],
+        "tags": ["Kv"],
+        "summary": "Delete a configuration value",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response for status 200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": false,
+                  "type": "object",
+                  "required": ["key"],
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/overview/info": {
@@ -6634,9 +6755,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Overview"
-        ],
+        "tags": ["Overview"],
         "summary": "Service version & operator address",
         "responses": {
           "200": {
@@ -6660,9 +6779,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Overview"
-        ],
+        "tags": ["Overview"],
         "summary": "Basic dashboard statistics",
         "parameters": [
           {
@@ -6698,10 +6815,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "volume",
-                "value"
-              ]
+              "enum": ["volume", "value"]
             }
           }
         ],
@@ -6727,9 +6841,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Overview"
-        ],
+        "tags": ["Overview"],
         "summary": "Recent events",
         "parameters": [
           {
@@ -6738,12 +6850,7 @@
             "required": false,
             "schema": {
               "type": "string",
-              "enum": [
-                "Transfer",
-                "Deposit",
-                "Recovery",
-                "ExcessRefund"
-              ]
+              "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
             }
           },
           {
@@ -6804,9 +6911,7 @@
     "/api/payment-links/currencies": {
       "get": {
         "operationId": "paymentLinks.listCurrencies",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "Currencies a payment link can be priced in",
         "responses": {
           "200": {
@@ -6816,9 +6921,7 @@
                 "schema": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "data"
-                  ],
+                  "required": ["data"],
                   "properties": {
                     "data": {
                       "type": "array",
@@ -6837,9 +6940,7 @@
     "/api/payment-links": {
       "post": {
         "operationId": "paymentLinks.create",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "Create a payment link",
         "requestBody": {
           "content": {
@@ -6847,11 +6948,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "title",
-                  "currency",
-                  "amount"
-                ],
+                "required": ["title", "currency", "amount"],
                 "properties": {
                   "title": {
                     "minLength": 1,
@@ -6869,28 +6966,18 @@
                   },
                   "usage": {
                     "type": "string",
-                    "enum": [
-                      "OneTime",
-                      "Reusable"
-                    ]
+                    "enum": ["OneTime", "Reusable"]
                   },
                   "lineItems": {
                     "type": "array",
                     "items": {
                       "additionalProperties": false,
                       "type": "object",
-                      "required": [
-                        "name",
-                        "price",
-                        "quantity"
-                      ],
+                      "required": ["name", "price", "quantity"],
                       "properties": {
                         "image": {
                           "format": "uri",
-                          "type": [
-                            "string",
-                            "null"
-                          ]
+                          "type": ["string", "null"]
                         },
                         "name": {
                           "minLength": 1,
@@ -6923,10 +7010,7 @@
                     "format": "uri",
                     "pattern": "^https?://",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -6949,9 +7033,7 @@
       },
       "get": {
         "operationId": "paymentLinks.list",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "List payment links",
         "parameters": [
           {
@@ -7030,9 +7112,7 @@
     "/api/payment-links/{id}": {
       "get": {
         "operationId": "paymentLinks.get",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "Get a payment link",
         "parameters": [
           {
@@ -7060,9 +7140,7 @@
       },
       "patch": {
         "operationId": "paymentLinks.update",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "Update a payment link",
         "parameters": [
           {
@@ -7098,28 +7176,18 @@
                   },
                   "usage": {
                     "type": "string",
-                    "enum": [
-                      "OneTime",
-                      "Reusable"
-                    ]
+                    "enum": ["OneTime", "Reusable"]
                   },
                   "lineItems": {
                     "type": "array",
                     "items": {
                       "additionalProperties": false,
                       "type": "object",
-                      "required": [
-                        "name",
-                        "price",
-                        "quantity"
-                      ],
+                      "required": ["name", "price", "quantity"],
                       "properties": {
                         "image": {
                           "format": "uri",
-                          "type": [
-                            "string",
-                            "null"
-                          ]
+                          "type": ["string", "null"]
                         },
                         "name": {
                           "minLength": 1,
@@ -7152,10 +7220,7 @@
                     "format": "uri",
                     "pattern": "^https?://",
                     "maxLength": 2048,
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": ["string", "null"]
                   }
                 }
               }
@@ -7178,9 +7243,7 @@
       },
       "delete": {
         "operationId": "paymentLinks.delete",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "Delete a payment link",
         "parameters": [
           {
@@ -7210,9 +7273,7 @@
     "/api/payment-links/{id}/pay": {
       "post": {
         "operationId": "paymentLinks.quote",
-        "tags": [
-          "Payment links"
-        ],
+        "tags": ["Payment links"],
         "summary": "Create a quote for a payment link",
         "parameters": [
           {
@@ -7231,17 +7292,16 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "chainId",
-                  "sourceTokenAddress"
-                ],
+                "required": ["chainId", "sourceTokenAddress"],
                 "properties": {
                   "chainId": {
                     "format": "uuid",
                     "type": "string"
                   },
                   "sourceTokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "customerId": {
@@ -7282,9 +7342,7 @@
     "/api/rate": {
       "get": {
         "operationId": "rates.get",
-        "tags": [
-          "Rates"
-        ],
+        "tags": ["Rates"],
         "summary": "Get live currency rate",
         "parameters": [
           {
@@ -7315,18 +7373,12 @@
                 "schema": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "from",
-                    "to"
-                  ],
+                  "required": ["from", "to"],
                   "properties": {
                     "from": {
                       "additionalProperties": false,
                       "type": "object",
-                      "required": [
-                        "currency",
-                        "amount"
-                      ],
+                      "required": ["currency", "amount"],
                       "properties": {
                         "currency": {
                           "type": "string"
@@ -7339,10 +7391,7 @@
                     "to": {
                       "additionalProperties": false,
                       "type": "object",
-                      "required": [
-                        "currency",
-                        "amount"
-                      ],
+                      "required": ["currency", "amount"],
                       "properties": {
                         "currency": {
                           "type": "string"
@@ -7368,9 +7417,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Price feeds"
-        ],
+        "tags": ["Price feeds"],
         "summary": "List price feeds",
         "responses": {
           "200": {
@@ -7392,9 +7439,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Price feeds"
-        ],
+        "tags": ["Price feeds"],
         "summary": "Add a Chainlink price feed",
         "requestBody": {
           "content": {
@@ -7402,10 +7447,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "chainId",
-                  "address"
-                ],
+                "required": ["chainId", "address"],
                 "properties": {
                   "chainId": {
                     "format": "uuid",
@@ -7443,9 +7485,7 @@
             "rootKey": []
           }
         ],
-        "tags": [
-          "Price feeds"
-        ],
+        "tags": ["Price feeds"],
         "summary": "Delete a price feed",
         "parameters": [
           {
@@ -7466,9 +7506,7 @@
                 "schema": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "id"
-                  ],
+                  "required": ["id"],
                   "properties": {
                     "id": {
                       "format": "uuid",
@@ -7485,9 +7523,7 @@
     "/api/quotes": {
       "post": {
         "operationId": "quotes.create",
-        "tags": [
-          "Quotes"
-        ],
+        "tags": ["Quotes"],
         "summary": "Quote a payment of an exact amount in a token",
         "requestBody": {
           "content": {
@@ -7495,18 +7531,16 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "chainId",
-                  "sourceTokenAddress",
-                  "amount"
-                ],
+                "required": ["chainId", "sourceTokenAddress", "amount"],
                 "properties": {
                   "chainId": {
                     "format": "uuid",
                     "type": "string"
                   },
                   "sourceTokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "amount": {
@@ -7550,9 +7584,7 @@
       },
       "get": {
         "operationId": "quotes.list",
-        "tags": [
-          "Quotes"
-        ],
+        "tags": ["Quotes"],
         "summary": "List quotes",
         "parameters": [
           {
@@ -7640,9 +7672,7 @@
     "/api/quotes/{id}": {
       "get": {
         "operationId": "quotes.get",
-        "tags": [
-          "Quotes"
-        ],
+        "tags": ["Quotes"],
         "summary": "Get a quote",
         "parameters": [
           {
@@ -7672,9 +7702,7 @@
     "/api/transfers": {
       "post": {
         "operationId": "transfers.create",
-        "tags": [
-          "Transfers"
-        ],
+        "tags": ["Transfers"],
         "summary": "Create transfer for a quote",
         "requestBody": {
           "content": {
@@ -7682,17 +7710,16 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "quoteId",
-                  "refundAddress"
-                ],
+                "required": ["quoteId", "refundAddress"],
                 "properties": {
                   "quoteId": {
                     "format": "uuid",
                     "type": "string"
                   },
                   "refundAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -7716,9 +7743,7 @@
       },
       "get": {
         "operationId": "transfers.list",
-        "tags": [
-          "Transfers"
-        ],
+        "tags": ["Transfers"],
         "summary": "List transfers",
         "parameters": [
           {
@@ -7807,9 +7832,7 @@
     "/api/transfers/{id}": {
       "get": {
         "operationId": "transfers.get",
-        "tags": [
-          "Transfers"
-        ],
+        "tags": ["Transfers"],
         "summary": "Get a transfer",
         "parameters": [
           {
@@ -7839,9 +7862,7 @@
     "/api/transfers/{id}/refund": {
       "post": {
         "operationId": "transfers.refund",
-        "tags": [
-          "Transfers"
-        ],
+        "tags": ["Transfers"],
         "summary": "Refund a transfer",
         "parameters": [
           {
@@ -7889,9 +7910,7 @@
     "/api/transfers/{id}/recover/balance": {
       "post": {
         "operationId": "transfers.recoverBalance",
-        "tags": [
-          "Transfers"
-        ],
+        "tags": ["Transfers"],
         "summary": "Check a transfer pay-in token balance",
         "parameters": [
           {
@@ -7910,12 +7929,12 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "tokenAddress"
-                ],
+                "required": ["tokenAddress"],
                 "properties": {
                   "tokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   }
                 }
@@ -7932,9 +7951,7 @@
                 "schema": {
                   "additionalProperties": false,
                   "type": "object",
-                  "required": [
-                    "balance"
-                  ],
+                  "required": ["balance"],
                   "properties": {
                     "balance": {
                       "type": "string"
@@ -7950,9 +7967,7 @@
     "/api/transfers/{id}/recover": {
       "post": {
         "operationId": "transfers.recover",
-        "tags": [
-          "Transfers"
-        ],
+        "tags": ["Transfers"],
         "summary": "Recover transfer tokens",
         "parameters": [
           {
@@ -7971,17 +7986,18 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "tokenAddress",
-                  "destinationAddress"
-                ],
+                "required": ["tokenAddress", "destinationAddress"],
                 "properties": {
                   "tokenAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "destinationAddress": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
+                    "minLength": 2,
+                    "maxLength": 64,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
                   "useGasSponsor": {
@@ -8012,9 +8028,7 @@
     "/api/webhooks": {
       "post": {
         "operationId": "webhooks.create",
-        "tags": [
-          "Webhooks"
-        ],
+        "tags": ["Webhooks"],
         "summary": "Create a webhook",
         "requestBody": {
           "content": {
@@ -8022,11 +8036,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "url",
-                  "label",
-                  "categories"
-                ],
+                "required": ["url", "label", "categories"],
                 "properties": {
                   "url": {
                     "format": "uri",
@@ -8122,9 +8132,7 @@
       },
       "get": {
         "operationId": "webhooks.list",
-        "tags": [
-          "Webhooks"
-        ],
+        "tags": ["Webhooks"],
         "summary": "List webhooks",
         "parameters": [
           {
@@ -8194,9 +8202,7 @@
     "/api/webhooks/{id}/deliveries": {
       "get": {
         "operationId": "webhooks.listDeliveries",
-        "tags": [
-          "Webhooks"
-        ],
+        "tags": ["Webhooks"],
         "summary": "List a webhook's delivery attempts",
         "parameters": [
           {
@@ -8266,9 +8272,7 @@
     "/api/webhooks/{id}": {
       "delete": {
         "operationId": "webhooks.delete",
-        "tags": [
-          "Webhooks"
-        ],
+        "tags": ["Webhooks"],
         "summary": "Delete a webhook",
         "parameters": [
           {
@@ -8298,9 +8302,7 @@
     "/api/x402/supported": {
       "get": {
         "operationId": "x402.supported",
-        "tags": [
-          "x402"
-        ],
+        "tags": ["x402"],
         "summary": "Payment kinds this facilitator supports",
         "responses": {
           "200": {
@@ -8319,9 +8321,7 @@
     "/api/x402/pay": {
       "post": {
         "operationId": "x402.pay",
-        "tags": [
-          "x402"
-        ],
+        "tags": ["x402"],
         "summary": "Open a transfer to be paid with x402",
         "requestBody": {
           "content": {
@@ -8329,9 +8329,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "quoteId"
-                ],
+                "required": ["quoteId"],
                 "properties": {
                   "quoteId": {
                     "format": "uuid",
@@ -8360,9 +8358,7 @@
     "/api/x402/transfer/{id}/requirements": {
       "get": {
         "operationId": "x402.requirements",
-        "tags": [
-          "x402"
-        ],
+        "tags": ["x402"],
         "summary": "Payment requirements for a transfer",
         "parameters": [
           {
@@ -8392,9 +8388,7 @@
     "/api/x402/verify": {
       "post": {
         "operationId": "x402.verify",
-        "tags": [
-          "x402"
-        ],
+        "tags": ["x402"],
         "summary": "Verify an x402 payment",
         "requestBody": {
           "content": {
@@ -8402,10 +8396,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "paymentPayload",
-                  "paymentRequirements"
-                ],
+                "required": ["paymentPayload", "paymentRequirements"],
                 "properties": {
                   "x402Version": {
                     "type": "number"
@@ -8435,9 +8426,7 @@
     "/api/x402/settle": {
       "post": {
         "operationId": "x402.settle",
-        "tags": [
-          "x402"
-        ],
+        "tags": ["x402"],
         "summary": "Settle an x402 payment",
         "requestBody": {
           "content": {
@@ -8445,10 +8434,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "required": [
-                  "paymentPayload",
-                  "paymentRequirements"
-                ],
+                "required": ["paymentPayload", "paymentRequirements"],
                 "properties": {
                   "x402Version": {
                     "type": "number"
@@ -8475,24 +8461,5 @@
         }
       }
     }
-  },
-  "servers": [
-    {
-      "url": "https://testnet.usekite.site",
-      "description": "Hosted Kite, testnet"
-    },
-    {
-      "url": "https://mainnet.usekite.site",
-      "description": "Hosted Kite, mainnet"
-    },
-    {
-      "url": "{server}",
-      "description": "Your own Kite server",
-      "variables": {
-        "server": {
-          "default": "http://localhost:3000"
-        }
-      }
-    }
-  ]
+  }
 }
