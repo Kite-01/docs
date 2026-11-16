@@ -3775,10 +3775,13 @@
         "additionalProperties": false,
         "$id": "#/components/schemas/SystemInfo",
         "type": "object",
-        "required": ["version", "operators", "chains"],
+        "required": ["version", "demo", "operators", "chains"],
         "properties": {
           "version": {
             "type": "string"
+          },
+          "demo": {
+            "type": "boolean"
           },
           "operators": {
             "type": "array",

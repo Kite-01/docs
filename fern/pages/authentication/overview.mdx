@@ -3,12 +3,13 @@ title: Authentication
 description: The two ways to authenticate to a Kite server, and which routes need neither.
 ---
 
-Every request under `/api` authenticates in one of two ways, except checkout's.
+Every request under `/api` authenticates in one of two ways, except checkout's. A server can also offer a view-only [demo key](#the-demo-key).
 
-| Credential   | Who uses it                       | Can do                                      |
-| ------------ | --------------------------------- | ------------------------------------------- |
-| **API key**  | Your applications                 | What its scopes allow, for its own app only |
-| **Root key** | You, the dashboard, admin scripts | Everything, for any app                     |
+| Credential   | Who uses it                       | Can do                                         |
+| ------------ | --------------------------------- | ---------------------------------------------- |
+| **API key**  | Your applications                 | What its scopes allow, for its own app only    |
+| **Root key** | You, the dashboard, admin scripts | Everything, for any app                        |
+| **Demo key** | People you show the dashboard to  | View what the root key can, but change nothing |
 
 ## API keys
 
@@ -29,15 +30,27 @@ x-kite-app-id: <app id>
 
 Some routes take only the root key: creating and listing apps, adding and configuring chains, editing and removing tokens, price feeds, provider keys and the overview stats. Keep the root key on machines you control and out of applications.
 
+## The demo key
+
+Set `KITE_DEMO_KEY` in your [configuration](/server/configuration) to let people look around the dashboard without being able to change anything. They sign in with it where the root key goes, and the API takes it in the same header:
+
+```http
+x-kite-root-key: <the demo key>
+```
+
+It can make `GET` requests to every route the root key can, except the KV store under `/api/kv`, which holds provider keys. Any other request answers `403` with `The demo key can only view`. The dashboard hides **Providers** and **KV**, and shows **View only**.
+
+`GET /api/overview/info` returns `demo: true` for the demo key, so a client can tell which key it holds.
+
 ## No credentials
 
 The checkout routes under `/api/checkout/{payment link id}` need no credentials, so checkout can run in any browser. They can only read what's needed to pay a link, quote it, open a transfer for it and follow that transfer.
 
 ## Errors
 
-| Status | When                                                                                            |
-| ------ | ----------------------------------------------------------------------------------------------- |
-| `401`  | No credentials, an unknown or revoked key, a bad signature, an old timestamp or a reused nonce. |
-| `403`  | The key lacks the scope, or the route needs the root key.                                       |
+| Status | When                                                                                              |
+| ------ | ------------------------------------------------------------------------------------------------- |
+| `401`  | No credentials, an unknown or revoked key, a bad signature, an old timestamp or a reused nonce.   |
+| `403`  | The key lacks the scope, the route needs the root key, or the demo key tried to change something. |
 
 The body says which: `{ "error": { "code": "Unauthorized", "message": "Invalid signature" } }`.
