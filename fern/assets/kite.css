@@ -1,0 +1,16 @@
+/* Kite's look, as on usekite.site: tight headings, kite-yellow highlights. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+h1 {
+  letter-spacing: -0.045em;
+}
+
+::selection {
+  background: #fcc101;
+  color: #0a0a0a;
+}

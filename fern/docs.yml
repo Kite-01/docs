@@ -6,16 +6,46 @@ instances:
 title: Kite
 
 logo:
-  light: assets/icon.svg
-  dark: assets/icon-dark.svg
+  light: assets/logo.svg
+  dark: assets/logo-dark.svg
+  height: 28
 favicon: assets/favicon.svg
 
 colors:
   accent-primary:
-    light: "#2f9bde"
-    dark: "#2f9bde"
+    light: "#0A0A0A"
+    dark: "#FCC101"
   background:
-    light: "#ffffff"
+    light: "#F4F3EF"
+    dark: "#0A0A0A"
+  border:
+    light: "#E2E0DA"
+    dark: "#262626"
+  sidebar-background:
+    light: "#F4F3EF"
+    dark: "#0A0A0A"
+  header-background:
+    light: "#F4F3EF"
+    dark: "#0A0A0A"
+  card-background:
+    light: "#FFFFFF"
+    dark: "#161616"
+
+typography:
+  headingsFont:
+    name: Geist
+    path: assets/fonts/geist.woff2
+    weight: 100 900
+  bodyFont:
+    name: Geist
+    path: assets/fonts/geist.woff2
+    weight: 100 900
+  codeFont:
+    name: Geist Mono
+    path: assets/fonts/geist-mono.woff2
+    weight: 100 900
+
+css: assets/kite.css
 
 navbar-links:
   - type: github
