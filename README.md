@@ -12,6 +12,7 @@ Everything Fern reads is in `fern/`:
 - `fern.config.json`: the Fern organization and the CLI version that builds the site.
 - `pages/`: the pages, in MDX with Fern's components, such as `<Info>`, `<Steps>` and `<Tabs>`.
 - `assets/`: images and icons. Pages link them from the `fern` folder, so `fern/assets/screenshots/apps.png` is `/assets/screenshots/apps.png`.
+- `assets/kite.css` and `assets/fonts/`: Kite's look, matching usekite.site: Geist (SIL OFL, licence in `fonts/OFL.txt`), tight headings and kite-yellow highlights. The colours are in `docs.yml`.
 - `openapi/kite.json`: the server's OpenAPI spec, shown as the API Reference. Its introduction is `pages/api-reference.mdx`.
 
 ## Preview
