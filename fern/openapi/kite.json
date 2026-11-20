@@ -1,17 +1,10 @@
 {
   "info": {
     "title": "Kite",
-    "description": "Every endpoint of a Kite server, with its request and response. Choose a server to try requests against: the hosted testnet or mainnet, or your own.\n\nEvery endpoint needs [authentication](/authentication/overview), except checkout's. To try requests from here, choose **rootKey** and paste your root key. It can do anything on your server, so only do that on a server and browser you trust. Signed API-key requests are easier to make with [`@kite-01/sdk`](/integrate/sdk), which signs them for you.\n\nEach Kite server also serves this reference for its own version at `/openapi`, with the spec at `/openapi/json`, so it always matches what's running. `KITE_ENABLE_OPENAPI_UI_SPECS=false` turns both off, and `KITE_ENABLE_OPENAPI_UI_PROVIDER=swagger` serves Swagger UI instead.",
+    "description": "Development documentation",
     "version": "1.0.0"
   },
-  "security": [
-    {
-      "signature": []
-    },
-    {
-      "rootKey": []
-    }
-  ],
+  "security": [{ "signature": [] }, { "rootKey": [] }],
   "components": {
     "securitySchemes": {
       "signature": {
@@ -46,43 +39,17 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "icon": {
-            "type": ["string", "null"]
-          },
-          "websiteUrl": {
-            "type": ["string", "null"]
-          },
-          "termsOfServiceUrl": {
-            "type": ["string", "null"]
-          },
-          "privacyPolicyUrl": {
-            "type": ["string", "null"]
-          },
-          "payoutAsset": {
-            "type": ["string", "null"]
-          },
-          "payoutAddress": {
-            "type": ["string", "null"]
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "id": { "format": "uuid", "type": "string" },
+          "name": { "type": "string" },
+          "icon": { "type": ["string", "null"] },
+          "websiteUrl": { "type": ["string", "null"] },
+          "termsOfServiceUrl": { "type": ["string", "null"] },
+          "privacyPolicyUrl": { "type": ["string", "null"] },
+          "payoutAsset": { "type": ["string", "null"] },
+          "payoutAddress": { "type": ["string", "null"] },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "AppPage": {
@@ -93,19 +60,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/App"
-            }
+            "items": { "$ref": "#/components/schemas/App" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "AppChain": {
@@ -114,24 +73,15 @@
         "type": "object",
         "required": ["chainId", "address", "createdAt", "updatedAt"],
         "properties": {
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "chainId": { "format": "uuid", "type": "string" },
           "address": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "AppChainList": {
@@ -142,9 +92,7 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AppChain"
-            }
+            "items": { "$ref": "#/components/schemas/AppChain" }
           }
         }
       },
@@ -165,20 +113,10 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "publicKey": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "label": { "type": "string" },
+          "publicKey": { "type": "string" },
           "scopes": {
             "type": "array",
             "items": {
@@ -210,26 +148,11 @@
               ]
             }
           },
-          "lastUsedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "revokedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "expiresAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "lastUsedAt": { "format": "date-time", "type": ["string", "null"] },
+          "revokedAt": { "format": "date-time", "type": ["string", "null"] },
+          "expiresAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "ApiKeyPage": {
@@ -240,19 +163,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApiKey"
-            }
+            "items": { "$ref": "#/components/schemas/ApiKey" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "Chain": {
@@ -268,28 +183,12 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "caip2Id": {
-            "type": "string"
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "id": { "format": "uuid", "type": "string" },
+          "isActive": { "type": "boolean" },
+          "caip2Id": { "type": "string" },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "ChainConfig": {
@@ -312,33 +211,20 @@
           "usdPeggedToken"
         ],
         "properties": {
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "chainId": { "format": "uuid", "type": "string" },
           "rpcUrls": {
             "type": ["array", "null"],
-            "items": {
-              "type": "string"
-            }
+            "items": { "type": "string" }
           },
-          "slippageBps": {
-            "type": "integer"
-          },
+          "slippageBps": { "type": "integer" },
           "kiteFactoryAddress": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "usdPeggedTokenId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "settlementTokenId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "usdPeggedTokenId": { "format": "uuid", "type": "string" },
+          "settlementTokenId": { "format": "uuid", "type": "string" },
           "onchainNotifierProviders": {
             "type": "array",
             "items": {
@@ -370,20 +256,10 @@
             "maxLength": 78,
             "type": ["string", "null"]
           },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "settlementToken": {
-            "$ref": "#/components/schemas/Token"
-          },
-          "usdPeggedToken": {
-            "$ref": "#/components/schemas/Token"
-          }
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
+          "settlementToken": { "$ref": "#/components/schemas/Token" },
+          "usdPeggedToken": { "$ref": "#/components/schemas/Token" }
         }
       },
       "ChainWithConfig": {
@@ -400,36 +276,16 @@
           "config"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "caip2Id": {
-            "type": "string"
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "isActive": { "type": "boolean" },
+          "caip2Id": { "type": "string" },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
           "config": {
             "anyOf": [
-              {
-                "$ref": "#/components/schemas/ChainConfig"
-              },
-              {
-                "type": "null"
-              }
+              { "$ref": "#/components/schemas/ChainConfig" },
+              { "type": "null" }
             ]
           }
         }
@@ -437,9 +293,7 @@
       "ChainWithConfigList": {
         "$id": "#/components/schemas/ChainWithConfigList",
         "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ChainWithConfig"
-        }
+        "items": { "$ref": "#/components/schemas/ChainWithConfig" }
       },
       "ConfiguredChain": {
         "additionalProperties": false,
@@ -454,25 +308,12 @@
           "usdPeggedToken"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "caip2Id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "settlementToken": {
-            "$ref": "#/components/schemas/Token"
-          },
-          "usdPeggedToken": {
-            "$ref": "#/components/schemas/Token"
-          }
+          "id": { "format": "uuid", "type": "string" },
+          "caip2Id": { "type": "string" },
+          "name": { "type": "string" },
+          "icon": { "type": "string" },
+          "settlementToken": { "$ref": "#/components/schemas/Token" },
+          "usdPeggedToken": { "$ref": "#/components/schemas/Token" }
         }
       },
       "ConfiguredChainList": {
@@ -483,9 +324,7 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConfiguredChain"
-            }
+            "items": { "$ref": "#/components/schemas/ConfiguredChain" }
           }
         }
       },
@@ -496,6 +335,7 @@
         "required": [
           "caip2Id",
           "name",
+          "icon",
           "chainId",
           "testnet",
           "beta",
@@ -503,35 +343,20 @@
           "confirmations"
         ],
         "properties": {
-          "caip2Id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "chainId": {
-            "type": ["integer", "null"]
-          },
-          "testnet": {
-            "type": "boolean"
-          },
-          "beta": {
-            "type": "boolean"
-          },
+          "caip2Id": { "type": "string" },
+          "name": { "type": "string" },
+          "icon": { "type": "string" },
+          "chainId": { "type": ["integer", "null"] },
+          "testnet": { "type": "boolean" },
+          "beta": { "type": "boolean" },
           "nativeCurrency": {
             "additionalProperties": false,
             "type": "object",
             "required": ["name", "symbol", "decimals"],
             "properties": {
-              "name": {
-                "type": "string"
-              },
-              "symbol": {
-                "type": "string"
-              },
-              "decimals": {
-                "type": "integer"
-              }
+              "name": { "type": "string" },
+              "symbol": { "type": "string" },
+              "decimals": { "type": "integer" }
             }
           },
           "blockExplorer": {
@@ -539,25 +364,17 @@
             "type": "object",
             "required": ["name", "url"],
             "properties": {
-              "name": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string"
-              }
+              "name": { "type": "string" },
+              "url": { "type": "string" }
             }
           },
-          "confirmations": {
-            "type": "integer"
-          }
+          "confirmations": { "type": "integer" }
         }
       },
       "SupportedChainList": {
         "$id": "#/components/schemas/SupportedChainList",
         "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SupportedChain"
-        }
+        "items": { "$ref": "#/components/schemas/SupportedChain" }
       },
       "Token": {
         "additionalProperties": false,
@@ -580,56 +397,25 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "chainId": { "format": "uuid", "type": "string" },
           "address": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "symbol": {
-            "type": "string"
-          },
-          "decimals": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "version": {
-            "type": ["string", "null"]
-          },
-          "icon": {
-            "type": ["string", "null"]
-          },
-          "supportsEIP3009": {
-            "type": "boolean"
-          },
-          "nearIntentsAssetId": {
-            "type": ["string", "null"]
-          },
-          "listed": {
-            "type": "boolean"
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "symbol": { "type": "string" },
+          "decimals": { "type": "integer" },
+          "name": { "type": "string" },
+          "version": { "type": ["string", "null"] },
+          "icon": { "type": ["string", "null"] },
+          "supportsEIP3009": { "type": "boolean" },
+          "nearIntentsAssetId": { "type": ["string", "null"] },
+          "listed": { "type": "boolean" },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "TokenWithChain": {
@@ -654,59 +440,26 @@
           "chain"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "chainId": { "format": "uuid", "type": "string" },
           "address": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "symbol": {
-            "type": "string"
-          },
-          "decimals": {
-            "type": "integer"
-          },
-          "name": {
-            "type": "string"
-          },
-          "version": {
-            "type": ["string", "null"]
-          },
-          "icon": {
-            "type": ["string", "null"]
-          },
-          "supportsEIP3009": {
-            "type": "boolean"
-          },
-          "nearIntentsAssetId": {
-            "type": ["string", "null"]
-          },
-          "listed": {
-            "type": "boolean"
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "chain": {
-            "$ref": "#/components/schemas/Chain"
-          }
+          "symbol": { "type": "string" },
+          "decimals": { "type": "integer" },
+          "name": { "type": "string" },
+          "version": { "type": ["string", "null"] },
+          "icon": { "type": ["string", "null"] },
+          "supportsEIP3009": { "type": "boolean" },
+          "nearIntentsAssetId": { "type": ["string", "null"] },
+          "listed": { "type": "boolean" },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
+          "chain": { "$ref": "#/components/schemas/Chain" }
         }
       },
       "TokenPage": {
@@ -717,19 +470,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TokenWithChain"
-            }
+            "items": { "$ref": "#/components/schemas/TokenWithChain" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "Customer": {
@@ -746,34 +491,16 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "externalId": {
-            "type": "string"
-          },
-          "name": {
-            "type": ["string", "null"]
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "externalId": { "type": "string" },
+          "name": { "type": ["string", "null"] },
           "traits": {
             "type": ["object", "null"],
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "CustomerPage": {
@@ -784,19 +511,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Customer"
-            }
+            "items": { "$ref": "#/components/schemas/Customer" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "Fee": {
@@ -818,30 +537,12 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": ["Fixed", "Variable"]
-          },
-          "value": {
-            "pattern": "^[0-9]+$",
-            "maxLength": 78,
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": ["string", "null"] },
+          "chainId": { "format": "uuid", "type": "string" },
+          "label": { "type": "string" },
+          "type": { "type": "string", "enum": ["Fixed", "Variable"] },
+          "value": { "pattern": "^[0-9]+$", "maxLength": 78, "type": "string" },
           "minAmountToCharge": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
@@ -854,9 +555,7 @@
           },
           "condition": {
             "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
           "feeAddress": {
             "minLength": 2,
@@ -864,14 +563,8 @@
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": ["string", "null"]
           },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "FeeWithChain": {
@@ -894,30 +587,12 @@
           "chain"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": ["Fixed", "Variable"]
-          },
-          "value": {
-            "pattern": "^[0-9]+$",
-            "maxLength": 78,
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": ["string", "null"] },
+          "chainId": { "format": "uuid", "type": "string" },
+          "label": { "type": "string" },
+          "type": { "type": "string", "enum": ["Fixed", "Variable"] },
+          "value": { "pattern": "^[0-9]+$", "maxLength": 78, "type": "string" },
           "minAmountToCharge": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
@@ -930,9 +605,7 @@
           },
           "condition": {
             "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
           "feeAddress": {
             "minLength": 2,
@@ -940,17 +613,9 @@
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": ["string", "null"]
           },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "chain": {
-            "$ref": "#/components/schemas/Chain"
-          }
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
+          "chain": { "$ref": "#/components/schemas/Chain" }
         }
       },
       "FeePage": {
@@ -961,19 +626,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FeeWithChain"
-            }
+            "items": { "$ref": "#/components/schemas/FeeWithChain" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "PaymentLink": {
@@ -995,27 +652,12 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "currency": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "string"
-          },
-          "usage": {
-            "type": "string",
-            "enum": ["OneTime", "Reusable"]
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "title": { "type": "string" },
+          "currency": { "type": "string" },
+          "amount": { "type": "string" },
+          "usage": { "type": "string", "enum": ["OneTime", "Reusable"] },
           "lineItems": {
             "type": ["array", "null"],
             "items": {
@@ -1023,41 +665,21 @@
               "type": "object",
               "required": ["name", "price", "quantity"],
               "properties": {
-                "image": {
-                  "type": ["string", "null"]
-                },
-                "name": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "string"
-                },
-                "quantity": {
-                  "type": "number"
-                }
+                "image": { "type": ["string", "null"] },
+                "name": { "type": "string" },
+                "price": { "type": "string" },
+                "quantity": { "type": "number" }
               }
             }
           },
-          "reference": {
-            "type": ["string", "null"]
-          },
+          "reference": { "type": ["string", "null"] },
           "meta": {
             "type": ["object", "null"],
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
-          "returnUrl": {
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "returnUrl": { "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "PaymentLinkPage": {
@@ -1068,19 +690,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PaymentLink"
-            }
+            "items": { "$ref": "#/components/schemas/PaymentLink" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "PriceFeed": {
@@ -1098,37 +712,19 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "baseCurrency": {
-            "type": "string"
-          },
-          "quoteCurrency": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "chainId": { "format": "uuid", "type": "string" },
+          "baseCurrency": { "type": "string" },
+          "quoteCurrency": { "type": "string" },
           "address": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "decimals": {
-            "type": "integer"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "decimals": { "type": "integer" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "PriceFeedWithChain": {
@@ -1148,51 +744,27 @@
           "rate"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "baseCurrency": {
-            "type": "string"
-          },
-          "quoteCurrency": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "chainId": { "format": "uuid", "type": "string" },
+          "baseCurrency": { "type": "string" },
+          "quoteCurrency": { "type": "string" },
           "address": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "decimals": {
-            "type": "integer"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "chain": {
-            "$ref": "#/components/schemas/Chain"
-          },
-          "rate": {
-            "type": ["string", "null"]
-          }
+          "decimals": { "type": "integer" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
+          "chain": { "$ref": "#/components/schemas/Chain" },
+          "rate": { "type": ["string", "null"] }
         }
       },
       "PriceFeedWithChainList": {
         "$id": "#/components/schemas/PriceFeedWithChainList",
         "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/PriceFeedWithChain"
-        }
+        "items": { "$ref": "#/components/schemas/PriceFeedWithChain" }
       },
       "Quote": {
         "additionalProperties": false,
@@ -1220,37 +792,14 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "paymentLinkId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "customerId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "sourceTokenId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "targetTokenId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "sourceUsdAmount": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "chainId": { "format": "uuid", "type": "string" },
+          "paymentLinkId": { "format": "uuid", "type": ["string", "null"] },
+          "customerId": { "format": "uuid", "type": ["string", "null"] },
+          "sourceTokenId": { "format": "uuid", "type": "string" },
+          "targetTokenId": { "format": "uuid", "type": "string" },
+          "sourceUsdAmount": { "type": "string" },
           "sourceAmount": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
@@ -1261,39 +810,18 @@
             "maxLength": 78,
             "type": "string"
           },
-          "targetUsdAmount": {
-            "type": "string"
-          },
-          "rate": {
-            "type": "string"
-          },
-          "uniswapPoolFeeTier": {
-            "type": ["integer", "null"]
-          },
-          "swapPool": {
-            "type": ["string", "null"]
-          },
-          "reference": {
-            "type": ["string", "null"]
-          },
+          "targetUsdAmount": { "type": "string" },
+          "rate": { "type": "string" },
+          "uniswapPoolFeeTier": { "type": ["integer", "null"] },
+          "swapPool": { "type": ["string", "null"] },
+          "reference": { "type": ["string", "null"] },
           "meta": {
             "type": ["object", "null"],
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
-          "expiresAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "expiresAt": { "format": "date-time", "type": "string" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "QuoteFee": {
@@ -1311,21 +839,10 @@
           "createdAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "quoteId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "feeId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "label": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "quoteId": { "format": "uuid", "type": "string" },
+          "feeId": { "format": "uuid", "type": ["string", "null"] },
+          "label": { "type": "string" },
           "amount": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
@@ -1337,13 +854,8 @@
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "blockchainHash": {
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "blockchainHash": { "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" }
         }
       },
       "QuoteDetails": {
@@ -1378,37 +890,14 @@
           "fees"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "chainId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "paymentLinkId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "customerId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "sourceTokenId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "targetTokenId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "sourceUsdAmount": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "chainId": { "format": "uuid", "type": "string" },
+          "paymentLinkId": { "format": "uuid", "type": ["string", "null"] },
+          "customerId": { "format": "uuid", "type": ["string", "null"] },
+          "sourceTokenId": { "format": "uuid", "type": "string" },
+          "targetTokenId": { "format": "uuid", "type": "string" },
+          "sourceUsdAmount": { "type": "string" },
           "sourceAmount": {
             "pattern": "^[0-9]+$",
             "maxLength": 78,
@@ -1419,73 +908,36 @@
             "maxLength": 78,
             "type": "string"
           },
-          "targetUsdAmount": {
-            "type": "string"
-          },
-          "rate": {
-            "type": "string"
-          },
-          "uniswapPoolFeeTier": {
-            "type": ["integer", "null"]
-          },
-          "swapPool": {
-            "type": ["string", "null"]
-          },
-          "reference": {
-            "type": ["string", "null"]
-          },
+          "targetUsdAmount": { "type": "string" },
+          "rate": { "type": "string" },
+          "uniswapPoolFeeTier": { "type": ["integer", "null"] },
+          "swapPool": { "type": ["string", "null"] },
+          "reference": { "type": ["string", "null"] },
           "meta": {
             "type": ["object", "null"],
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
-          "expiresAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
+          "expiresAt": { "format": "date-time", "type": "string" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
           "customer": {
             "anyOf": [
-              {
-                "$ref": "#/components/schemas/Customer"
-              },
-              {
-                "type": "null"
-              }
+              { "$ref": "#/components/schemas/Customer" },
+              { "type": "null" }
             ]
           },
           "paymentLink": {
             "anyOf": [
-              {
-                "$ref": "#/components/schemas/PaymentLink"
-              },
-              {
-                "type": "null"
-              }
+              { "$ref": "#/components/schemas/PaymentLink" },
+              { "type": "null" }
             ]
           },
-          "chain": {
-            "$ref": "#/components/schemas/Chain"
-          },
-          "sourceToken": {
-            "$ref": "#/components/schemas/Token"
-          },
-          "targetToken": {
-            "$ref": "#/components/schemas/Token"
-          },
+          "chain": { "$ref": "#/components/schemas/Chain" },
+          "sourceToken": { "$ref": "#/components/schemas/Token" },
+          "targetToken": { "$ref": "#/components/schemas/Token" },
           "fees": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteFee"
-            }
+            "items": { "$ref": "#/components/schemas/QuoteFee" }
           }
         }
       },
@@ -1497,19 +949,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuoteDetails"
-            }
+            "items": { "$ref": "#/components/schemas/QuoteDetails" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "Transfer": {
@@ -1540,18 +984,9 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "quoteId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "quoteId": { "format": "uuid", "type": "string" },
           "settlementRecipient": {
             "minLength": 2,
             "maxLength": 64,
@@ -1596,9 +1031,7 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "payInTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -1634,9 +1067,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -1668,9 +1099,7 @@
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "poolFeeTier": {
-                    "type": "integer"
-                  },
+                  "poolFeeTier": { "type": "integer" },
                   "implementation": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -1697,15 +1126,10 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "pay_in": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -1728,10 +1152,7 @@
                   },
                   "settlement_token": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -1765,9 +1186,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -1810,11 +1229,7 @@
                             "additionalProperties": false,
                             "type": "object",
                             "required": ["Dcl"],
-                            "properties": {
-                              "Dcl": {
-                                "type": "string"
-                              }
-                            }
+                            "properties": { "Dcl": { "type": "string" } }
                           },
                           {
                             "additionalProperties": false,
@@ -1838,9 +1253,7 @@
                       }
                     }
                   },
-                  "implementation": {
-                    "type": "string"
-                  }
+                  "implementation": { "type": "string" }
                 }
               }
             ]
@@ -1859,27 +1272,13 @@
               "Settled"
             ]
           },
-          "settlementBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "refundBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "x402Payer": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationNonce": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationHash": {
-            "type": ["string", "null"]
-          },
-          "x402SettlementCallId": {
-            "type": ["string", "null"]
-          },
-          "x402BlockchainHash": {
-            "type": ["string", "null"]
-          },
+          "settlementBlockchainHash": { "type": ["string", "null"] },
+          "refundBlockchainHash": { "type": ["string", "null"] },
+          "x402Payer": { "type": ["string", "null"] },
+          "x402AuthorizationNonce": { "type": ["string", "null"] },
+          "x402AuthorizationHash": { "type": ["string", "null"] },
+          "x402SettlementCallId": { "type": ["string", "null"] },
+          "x402BlockchainHash": { "type": ["string", "null"] },
           "x402LeaseExpiresAt": {
             "format": "date-time",
             "type": ["string", "null"]
@@ -1888,17 +1287,9 @@
             "format": "date-time",
             "type": ["string", "null"]
           },
-          "x402Offer": {
-            "type": "boolean"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "x402Offer": { "type": "boolean" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "TransferTimelineEntry": {
@@ -1907,25 +1298,11 @@
         "type": "object",
         "required": ["id", "transferId", "eventId", "description", "createdAt"],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "transferId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "eventId": {
-            "format": "uuid",
-            "type": ["string", "null"]
-          },
-          "description": {
-            "type": "string"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "id": { "format": "uuid", "type": "string" },
+          "transferId": { "format": "uuid", "type": "string" },
+          "eventId": { "format": "uuid", "type": ["string", "null"] },
+          "description": { "type": "string" },
+          "createdAt": { "format": "date-time", "type": "string" }
         }
       },
       "Payout": {
@@ -1951,38 +1328,24 @@
           "updatedAt"
         ],
         "properties": {
-          "transferId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "transferId": { "format": "uuid", "type": "string" },
           "depositAddress": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "destinationAsset": {
-            "type": "string"
-          },
-          "destinationSymbol": {
-            "type": "string"
-          },
-          "destinationChain": {
-            "type": "string"
-          },
-          "recipient": {
-            "type": "string"
-          },
+          "destinationAsset": { "type": "string" },
+          "destinationSymbol": { "type": "string" },
+          "destinationChain": { "type": "string" },
+          "recipient": { "type": "string" },
           "refundTo": {
             "minLength": 2,
             "maxLength": 64,
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "deadline": {
-            "format": "date-time",
-            "type": "string"
-          },
+          "deadline": { "format": "date-time", "type": "string" },
           "status": {
             "type": "string",
             "enum": ["Pending", "Processing", "Delivered", "Refunded", "Failed"]
@@ -1997,23 +1360,11 @@
             "maxLength": 78,
             "type": ["string", "null"]
           },
-          "blockchainHash": {
-            "type": ["string", "null"]
-          },
-          "explorerUrl": {
-            "type": ["string", "null"]
-          },
-          "reason": {
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "blockchainHash": { "type": ["string", "null"] },
+          "explorerUrl": { "type": ["string", "null"] },
+          "reason": { "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "PayoutToken": {
@@ -2028,21 +1379,11 @@
           "contractAddress"
         ],
         "properties": {
-          "assetId": {
-            "type": "string"
-          },
-          "blockchain": {
-            "type": "string"
-          },
-          "symbol": {
-            "type": "string"
-          },
-          "decimals": {
-            "type": "integer"
-          },
-          "contractAddress": {
-            "type": ["string", "null"]
-          }
+          "assetId": { "type": "string" },
+          "blockchain": { "type": "string" },
+          "symbol": { "type": "string" },
+          "decimals": { "type": "integer" },
+          "contractAddress": { "type": ["string", "null"] }
         }
       },
       "PayoutTokenList": {
@@ -2053,9 +1394,7 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PayoutToken"
-            }
+            "items": { "$ref": "#/components/schemas/PayoutToken" }
           }
         }
       },
@@ -2090,18 +1429,9 @@
           "quote"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "quoteId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "quoteId": { "format": "uuid", "type": "string" },
           "settlementRecipient": {
             "minLength": 2,
             "maxLength": 64,
@@ -2146,9 +1476,7 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "payInTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -2184,9 +1512,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -2218,9 +1544,7 @@
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "poolFeeTier": {
-                    "type": "integer"
-                  },
+                  "poolFeeTier": { "type": "integer" },
                   "implementation": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -2247,15 +1571,10 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "pay_in": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -2278,10 +1597,7 @@
                   },
                   "settlement_token": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -2315,9 +1631,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -2360,11 +1674,7 @@
                             "additionalProperties": false,
                             "type": "object",
                             "required": ["Dcl"],
-                            "properties": {
-                              "Dcl": {
-                                "type": "string"
-                              }
-                            }
+                            "properties": { "Dcl": { "type": "string" } }
                           },
                           {
                             "additionalProperties": false,
@@ -2388,9 +1698,7 @@
                       }
                     }
                   },
-                  "implementation": {
-                    "type": "string"
-                  }
+                  "implementation": { "type": "string" }
                 }
               }
             ]
@@ -2409,27 +1717,13 @@
               "Settled"
             ]
           },
-          "settlementBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "refundBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "x402Payer": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationNonce": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationHash": {
-            "type": ["string", "null"]
-          },
-          "x402SettlementCallId": {
-            "type": ["string", "null"]
-          },
-          "x402BlockchainHash": {
-            "type": ["string", "null"]
-          },
+          "settlementBlockchainHash": { "type": ["string", "null"] },
+          "refundBlockchainHash": { "type": ["string", "null"] },
+          "x402Payer": { "type": ["string", "null"] },
+          "x402AuthorizationNonce": { "type": ["string", "null"] },
+          "x402AuthorizationHash": { "type": ["string", "null"] },
+          "x402SettlementCallId": { "type": ["string", "null"] },
+          "x402BlockchainHash": { "type": ["string", "null"] },
           "x402LeaseExpiresAt": {
             "format": "date-time",
             "type": ["string", "null"]
@@ -2438,36 +1732,20 @@
             "format": "date-time",
             "type": ["string", "null"]
           },
-          "x402Offer": {
-            "type": "boolean"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
+          "x402Offer": { "type": "boolean" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
           "timeline": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransferTimelineEntry"
-            }
+            "items": { "$ref": "#/components/schemas/TransferTimelineEntry" }
           },
           "payout": {
             "anyOf": [
-              {
-                "$ref": "#/components/schemas/Payout"
-              },
-              {
-                "type": "null"
-              }
+              { "$ref": "#/components/schemas/Payout" },
+              { "type": "null" }
             ]
           },
-          "quote": {
-            "$ref": "#/components/schemas/QuoteDetails"
-          }
+          "quote": { "$ref": "#/components/schemas/QuoteDetails" }
         }
       },
       "TransferListItem": {
@@ -2502,18 +1780,9 @@
           "app"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "quoteId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "quoteId": { "format": "uuid", "type": "string" },
           "settlementRecipient": {
             "minLength": 2,
             "maxLength": 64,
@@ -2558,9 +1827,7 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "payInTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -2596,9 +1863,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -2630,9 +1895,7 @@
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "poolFeeTier": {
-                    "type": "integer"
-                  },
+                  "poolFeeTier": { "type": "integer" },
                   "implementation": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -2659,15 +1922,10 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "pay_in": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -2690,10 +1948,7 @@
                   },
                   "settlement_token": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -2727,9 +1982,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -2772,11 +2025,7 @@
                             "additionalProperties": false,
                             "type": "object",
                             "required": ["Dcl"],
-                            "properties": {
-                              "Dcl": {
-                                "type": "string"
-                              }
-                            }
+                            "properties": { "Dcl": { "type": "string" } }
                           },
                           {
                             "additionalProperties": false,
@@ -2800,9 +2049,7 @@
                       }
                     }
                   },
-                  "implementation": {
-                    "type": "string"
-                  }
+                  "implementation": { "type": "string" }
                 }
               }
             ]
@@ -2821,27 +2068,13 @@
               "Settled"
             ]
           },
-          "settlementBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "refundBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "x402Payer": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationNonce": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationHash": {
-            "type": ["string", "null"]
-          },
-          "x402SettlementCallId": {
-            "type": ["string", "null"]
-          },
-          "x402BlockchainHash": {
-            "type": ["string", "null"]
-          },
+          "settlementBlockchainHash": { "type": ["string", "null"] },
+          "refundBlockchainHash": { "type": ["string", "null"] },
+          "x402Payer": { "type": ["string", "null"] },
+          "x402AuthorizationNonce": { "type": ["string", "null"] },
+          "x402AuthorizationHash": { "type": ["string", "null"] },
+          "x402SettlementCallId": { "type": ["string", "null"] },
+          "x402BlockchainHash": { "type": ["string", "null"] },
           "x402LeaseExpiresAt": {
             "format": "date-time",
             "type": ["string", "null"]
@@ -2850,51 +2083,28 @@
             "format": "date-time",
             "type": ["string", "null"]
           },
-          "x402Offer": {
-            "type": "boolean"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
+          "x402Offer": { "type": "boolean" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
           "timeline": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransferTimelineEntry"
-            }
+            "items": { "$ref": "#/components/schemas/TransferTimelineEntry" }
           },
           "payout": {
             "anyOf": [
-              {
-                "$ref": "#/components/schemas/Payout"
-              },
-              {
-                "type": "null"
-              }
+              { "$ref": "#/components/schemas/Payout" },
+              { "type": "null" }
             ]
           },
-          "quote": {
-            "$ref": "#/components/schemas/QuoteDetails"
-          },
+          "quote": { "$ref": "#/components/schemas/QuoteDetails" },
           "app": {
             "additionalProperties": false,
             "type": "object",
             "required": ["id", "icon", "name"],
             "properties": {
-              "id": {
-                "format": "uuid",
-                "type": "string"
-              },
-              "icon": {
-                "type": ["string", "null"]
-              },
-              "name": {
-                "type": "string"
-              }
+              "id": { "format": "uuid", "type": "string" },
+              "icon": { "type": ["string", "null"] },
+              "name": { "type": "string" }
             }
           }
         }
@@ -2907,19 +2117,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransferListItem"
-            }
+            "items": { "$ref": "#/components/schemas/TransferListItem" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "CreatedTransfer": {
@@ -2951,18 +2153,9 @@
           "paymentInstructions"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "quoteId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "quoteId": { "format": "uuid", "type": "string" },
           "settlementRecipient": {
             "minLength": 2,
             "maxLength": 64,
@@ -3007,9 +2200,7 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "payInTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -3045,9 +2236,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -3079,9 +2268,7 @@
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "poolFeeTier": {
-                    "type": "integer"
-                  },
+                  "poolFeeTier": { "type": "integer" },
                   "implementation": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -3108,15 +2295,10 @@
                   "implementation"
                 ],
                 "properties": {
-                  "id": {
-                    "type": "string"
-                  },
+                  "id": { "type": "string" },
                   "pay_in": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -3139,10 +2321,7 @@
                   },
                   "settlement_token": {
                     "anyOf": [
-                      {
-                        "const": "Native",
-                        "type": "string"
-                      },
+                      { "const": "Native", "type": "string" },
                       {
                         "additionalProperties": false,
                         "type": "object",
@@ -3176,9 +2355,7 @@
                       "type": "object",
                       "required": ["id", "recipient", "amount"],
                       "properties": {
-                        "id": {
-                          "type": "string"
-                        },
+                        "id": { "type": "string" },
                         "recipient": {
                           "minLength": 2,
                           "maxLength": 64,
@@ -3221,11 +2398,7 @@
                             "additionalProperties": false,
                             "type": "object",
                             "required": ["Dcl"],
-                            "properties": {
-                              "Dcl": {
-                                "type": "string"
-                              }
-                            }
+                            "properties": { "Dcl": { "type": "string" } }
                           },
                           {
                             "additionalProperties": false,
@@ -3249,9 +2422,7 @@
                       }
                     }
                   },
-                  "implementation": {
-                    "type": "string"
-                  }
+                  "implementation": { "type": "string" }
                 }
               }
             ]
@@ -3270,27 +2441,13 @@
               "Settled"
             ]
           },
-          "settlementBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "refundBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "x402Payer": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationNonce": {
-            "type": ["string", "null"]
-          },
-          "x402AuthorizationHash": {
-            "type": ["string", "null"]
-          },
-          "x402SettlementCallId": {
-            "type": ["string", "null"]
-          },
-          "x402BlockchainHash": {
-            "type": ["string", "null"]
-          },
+          "settlementBlockchainHash": { "type": ["string", "null"] },
+          "refundBlockchainHash": { "type": ["string", "null"] },
+          "x402Payer": { "type": ["string", "null"] },
+          "x402AuthorizationNonce": { "type": ["string", "null"] },
+          "x402AuthorizationHash": { "type": ["string", "null"] },
+          "x402SettlementCallId": { "type": ["string", "null"] },
+          "x402BlockchainHash": { "type": ["string", "null"] },
           "x402LeaseExpiresAt": {
             "format": "date-time",
             "type": ["string", "null"]
@@ -3299,17 +2456,9 @@
             "format": "date-time",
             "type": ["string", "null"]
           },
-          "x402Offer": {
-            "type": "boolean"
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
+          "x402Offer": { "type": "boolean" },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
           "paymentInstructions": {
             "additionalProperties": false,
             "type": "object",
@@ -3321,9 +2470,7 @@
               "expiresAt"
             ],
             "properties": {
-              "caip2Id": {
-                "type": "string"
-              },
+              "caip2Id": { "type": "string" },
               "address": {
                 "minLength": 2,
                 "maxLength": 64,
@@ -3341,10 +2488,7 @@
                 "maxLength": 78,
                 "type": "string"
               },
-              "expiresAt": {
-                "format": "date-time",
-                "type": "string"
-              }
+              "expiresAt": { "format": "date-time", "type": "string" }
             }
           }
         }
@@ -3368,20 +2512,10 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "url": { "type": "string" },
+          "label": { "type": "string" },
           "categories": {
             "type": "array",
             "items": {
@@ -3389,30 +2523,13 @@
               "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
             }
           },
-          "signingKeyHint": {
-            "type": "string"
-          },
-          "maxRetries": {
-            "type": "integer"
-          },
-          "retryIntervalInSeconds": {
-            "type": "integer"
-          },
-          "timeoutInSeconds": {
-            "type": "integer"
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "signingKeyHint": { "type": "string" },
+          "maxRetries": { "type": "integer" },
+          "retryIntervalInSeconds": { "type": "integer" },
+          "timeoutInSeconds": { "type": "integer" },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "WebhookPage": {
@@ -3423,19 +2540,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Webhook"
-            }
+            "items": { "$ref": "#/components/schemas/Webhook" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "CreatedWebhook": {
@@ -3458,20 +2567,10 @@
           "signingKey"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "label": {
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "appId": { "format": "uuid", "type": "string" },
+          "url": { "type": "string" },
+          "label": { "type": "string" },
           "categories": {
             "type": "array",
             "items": {
@@ -3479,33 +2578,14 @@
               "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
             }
           },
-          "signingKeyHint": {
-            "type": "string"
-          },
-          "maxRetries": {
-            "type": "integer"
-          },
-          "retryIntervalInSeconds": {
-            "type": "integer"
-          },
-          "timeoutInSeconds": {
-            "type": "integer"
-          },
-          "deletedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "signingKey": {
-            "type": "string"
-          }
+          "signingKeyHint": { "type": "string" },
+          "maxRetries": { "type": "integer" },
+          "retryIntervalInSeconds": { "type": "integer" },
+          "timeoutInSeconds": { "type": "integer" },
+          "deletedAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" },
+          "signingKey": { "type": "string" }
         }
       },
       "WebhookDelivery": {
@@ -3528,58 +2608,22 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "webhookId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "eventId": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "attempt": {
-            "type": "integer"
-          },
-          "error": {
-            "type": ["string", "null"]
-          },
-          "httpResponseCode": {
-            "type": ["integer", "null"]
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "webhookId": { "format": "uuid", "type": "string" },
+          "eventId": { "format": "uuid", "type": "string" },
+          "attempt": { "type": "integer" },
+          "error": { "type": ["string", "null"] },
+          "httpResponseCode": { "type": ["integer", "null"] },
           "httpResponseHeaders": {
             "type": ["object", "null"],
-            "patternProperties": {
-              "^(.*)$": {
-                "type": "string"
-              }
-            }
+            "patternProperties": { "^(.*)$": { "type": "string" } }
           },
-          "httpResponseBody": {
-            "type": ["string", "null"]
-          },
-          "startedAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "completedAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "nextRetryAt": {
-            "format": "date-time",
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "httpResponseBody": { "type": ["string", "null"] },
+          "startedAt": { "format": "date-time", "type": "string" },
+          "completedAt": { "format": "date-time", "type": ["string", "null"] },
+          "nextRetryAt": { "format": "date-time", "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "WebhookDeliveryPage": {
@@ -3590,19 +2634,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WebhookDelivery"
-            }
+            "items": { "$ref": "#/components/schemas/WebhookDelivery" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "Event": {
@@ -3620,32 +2656,17 @@
           "createdAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "sourceId": {
-            "type": ["string", "null"]
-          },
-          "appId": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
+          "sourceId": { "type": ["string", "null"] },
+          "appId": { "format": "uuid", "type": "string" },
           "category": {
             "type": "string",
             "enum": ["Transfer", "Deposit", "Recovery", "ExcessRefund"]
           },
-          "previousCategoryStatus": {
-            "type": ["string", "null"]
-          },
-          "currentCategoryStatus": {
-            "type": "string"
-          },
+          "previousCategoryStatus": { "type": ["string", "null"] },
+          "currentCategoryStatus": { "type": "string" },
           "data": {},
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "createdAt": { "format": "date-time", "type": "string" }
         }
       },
       "EventPage": {
@@ -3656,19 +2677,11 @@
         "properties": {
           "data": {
             "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Event"
-            }
+            "items": { "$ref": "#/components/schemas/Event" }
           },
-          "page": {
-            "type": "integer"
-          },
-          "pageSize": {
-            "type": "integer"
-          },
-          "total": {
-            "type": "integer"
-          }
+          "page": { "type": "integer" },
+          "pageSize": { "type": "integer" },
+          "total": { "type": "integer" }
         }
       },
       "KvEntry": {
@@ -3677,32 +2690,17 @@
         "type": "object",
         "required": ["key", "type", "value", "createdAt", "updatedAt"],
         "properties": {
-          "key": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": ["String", "SecureString"]
-          },
-          "value": {
-            "type": ["string", "null"]
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "key": { "type": "string" },
+          "type": { "type": "string", "enum": ["String", "SecureString"] },
+          "value": { "type": ["string", "null"] },
+          "createdAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       },
       "KvEntryList": {
         "$id": "#/components/schemas/KvEntryList",
         "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/KvEntry"
-        }
+        "items": { "$ref": "#/components/schemas/KvEntry" }
       },
       "ProviderStatus": {
         "additionalProperties": false,
@@ -3724,9 +2722,7 @@
             "type": "string",
             "enum": ["GasSponsor", "OnchainNotifier", "Payout"]
           },
-          "configured": {
-            "type": "boolean"
-          },
+          "configured": { "type": "boolean" },
           "keys": {
             "type": "array",
             "items": {
@@ -3753,12 +2749,8 @@
                   "type": "string",
                   "enum": ["String", "SecureString"]
                 },
-                "required": {
-                  "type": "boolean"
-                },
-                "set": {
-                  "type": "boolean"
-                }
+                "required": { "type": "boolean" },
+                "set": { "type": "boolean" }
               }
             }
           }
@@ -3767,9 +2759,7 @@
       "ProviderStatusList": {
         "$id": "#/components/schemas/ProviderStatusList",
         "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ProviderStatus"
-        }
+        "items": { "$ref": "#/components/schemas/ProviderStatus" }
       },
       "SystemInfo": {
         "additionalProperties": false,
@@ -3777,12 +2767,8 @@
         "type": "object",
         "required": ["version", "demo", "operators", "chains"],
         "properties": {
-          "version": {
-            "type": "string"
-          },
-          "demo": {
-            "type": "boolean"
-          },
+          "version": { "type": "string" },
+          "demo": { "type": "boolean" },
           "operators": {
             "type": "array",
             "items": {
@@ -3790,13 +2776,8 @@
               "type": "object",
               "required": ["chainType", "address"],
               "properties": {
-                "chainType": {
-                  "type": "string",
-                  "enum": ["Evm", "Near"]
-                },
-                "address": {
-                  "type": "string"
-                }
+                "chainType": { "type": "string", "enum": ["Evm", "Near"] },
+                "address": { "type": "string" }
               }
             }
           },
@@ -3815,31 +2796,18 @@
                 "explorerUrl"
               ],
               "properties": {
-                "id": {
-                  "format": "uuid",
-                  "type": "string"
-                },
-                "caip2Id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "isActive": {
-                  "type": "boolean"
-                },
-                "isConfigured": {
-                  "type": "boolean"
-                },
+                "id": { "format": "uuid", "type": "string" },
+                "caip2Id": { "type": "string" },
+                "name": { "type": "string" },
+                "isActive": { "type": "boolean" },
+                "isConfigured": { "type": "boolean" },
                 "operatorAddress": {
                   "minLength": 2,
                   "maxLength": 64,
                   "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 },
-                "explorerUrl": {
-                  "type": ["string", "null"]
-                }
+                "explorerUrl": { "type": ["string", "null"] }
               }
             }
           }
@@ -3859,28 +2827,16 @@
           "topTokens"
         ],
         "properties": {
-          "from": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "to": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "timeZone": {
-            "type": "string"
-          },
+          "from": { "format": "date-time", "type": "string" },
+          "to": { "format": "date-time", "type": "string" },
+          "timeZone": { "type": "string" },
           "customers": {
             "additionalProperties": false,
             "type": "object",
             "required": ["total", "change"],
             "properties": {
-              "total": {
-                "type": "integer"
-              },
-              "change": {
-                "type": ["number", "null"]
-              }
+              "total": { "type": "integer" },
+              "change": { "type": ["number", "null"] }
             }
           },
           "amountProcessed": {
@@ -3888,15 +2844,9 @@
             "type": "object",
             "required": ["amount", "count", "change"],
             "properties": {
-              "amount": {
-                "type": "string"
-              },
-              "count": {
-                "type": "integer"
-              },
-              "change": {
-                "type": ["number", "null"]
-              }
+              "amount": { "type": "string" },
+              "count": { "type": "integer" },
+              "change": { "type": ["number", "null"] }
             }
           },
           "series": {
@@ -3906,15 +2856,9 @@
               "type": "object",
               "required": ["bucket", "amount", "count"],
               "properties": {
-                "bucket": {
-                  "type": "string"
-                },
-                "amount": {
-                  "type": "string"
-                },
-                "count": {
-                  "type": "integer"
-                }
+                "bucket": { "type": "string" },
+                "amount": { "type": "string" },
+                "count": { "type": "integer" }
               }
             }
           },
@@ -3937,44 +2881,22 @@
                 "value"
               ],
               "properties": {
-                "id": {
-                  "format": "uuid",
-                  "type": "string"
-                },
-                "symbol": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "icon": {
-                  "type": ["string", "null"]
-                },
-                "decimals": {
-                  "type": "integer"
-                },
+                "id": { "format": "uuid", "type": "string" },
+                "symbol": { "type": "string" },
+                "name": { "type": "string" },
+                "icon": { "type": ["string", "null"] },
+                "decimals": { "type": "integer" },
                 "address": {
                   "minLength": 2,
                   "maxLength": 64,
                   "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                   "type": "string"
                 },
-                "chainId": {
-                  "format": "uuid",
-                  "type": "string"
-                },
-                "chainName": {
-                  "type": ["string", "null"]
-                },
-                "chainIcon": {
-                  "type": ["string", "null"]
-                },
-                "volume": {
-                  "type": "integer"
-                },
-                "value": {
-                  "type": "string"
-                }
+                "chainId": { "format": "uuid", "type": "string" },
+                "chainName": { "type": ["string", "null"] },
+                "chainIcon": { "type": ["string", "null"] },
+                "volume": { "type": "integer" },
+                "value": { "type": "string" }
               }
             }
           }
@@ -3993,28 +2915,17 @@
               "type": "object",
               "required": ["x402Version", "scheme", "network"],
               "properties": {
-                "x402Version": {
-                  "type": "integer"
-                },
-                "scheme": {
-                  "type": "string"
-                },
-                "network": {
-                  "type": "string"
-                },
+                "x402Version": { "type": "integer" },
+                "scheme": { "type": "string" },
+                "network": { "type": "string" },
                 "extra": {
                   "type": "object",
-                  "patternProperties": {
-                    "^(.*)$": {}
-                  }
+                  "patternProperties": { "^(.*)$": {} }
                 }
               }
             }
           },
-          "extensions": {
-            "type": "array",
-            "items": {}
-          },
+          "extensions": { "type": "array", "items": {} },
           "signers": {
             "type": "object",
             "patternProperties": {
@@ -4045,13 +2956,8 @@
           "extra"
         ],
         "properties": {
-          "scheme": {
-            "const": "exact",
-            "type": "string"
-          },
-          "network": {
-            "type": "string"
-          },
+          "scheme": { "const": "exact", "type": "string" },
+          "network": { "type": "string" },
           "asset": {
             "minLength": 2,
             "maxLength": 64,
@@ -4069,19 +2975,13 @@
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "maxTimeoutSeconds": {
-            "type": "integer"
-          },
+          "maxTimeoutSeconds": { "type": "integer" },
           "extra": {
             "additionalProperties": false,
             "type": "object",
             "properties": {
-              "name": {
-                "type": "string"
-              },
-              "version": {
-                "type": "string"
-              }
+              "name": { "type": "string" },
+              "version": { "type": "string" }
             }
           }
         }
@@ -4092,36 +2992,19 @@
         "type": "object",
         "required": ["isValid"],
         "properties": {
-          "isValid": {
-            "type": "boolean"
-          },
-          "invalidReason": {
-            "type": "string"
-          },
-          "invalidMessage": {
-            "type": "string"
-          },
-          "payer": {
-            "type": "string"
-          },
+          "isValid": { "type": "boolean" },
+          "invalidReason": { "type": "string" },
+          "invalidMessage": { "type": "string" },
+          "payer": { "type": "string" },
           "extensions": {
             "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
           "extensionResponses": {
             "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
-          "extra": {
-            "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
-          }
+          "extra": { "type": "object", "patternProperties": { "^(.*)$": {} } }
         }
       },
       "x402SettleResult": {
@@ -4130,45 +3013,22 @@
         "type": "object",
         "required": ["success", "transaction", "network"],
         "properties": {
-          "success": {
-            "type": "boolean"
-          },
-          "errorReason": {
-            "type": "string"
-          },
-          "errorMessage": {
-            "type": "string"
-          },
-          "payer": {
-            "type": "string"
-          },
-          "transaction": {
-            "type": "string"
-          },
-          "network": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "string"
-          },
+          "success": { "type": "boolean" },
+          "errorReason": { "type": "string" },
+          "errorMessage": { "type": "string" },
+          "payer": { "type": "string" },
+          "transaction": { "type": "string" },
+          "network": { "type": "string" },
+          "amount": { "type": "string" },
           "extensions": {
             "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
           "extensionResponses": {
             "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
+            "patternProperties": { "^(.*)$": {} }
           },
-          "extra": {
-            "type": "object",
-            "patternProperties": {
-              "^(.*)$": {}
-            }
-          }
+          "extra": { "type": "object", "patternProperties": { "^(.*)$": {} } }
         }
       },
       "Checkout": {
@@ -4190,23 +3050,11 @@
               "returnUrl"
             ],
             "properties": {
-              "id": {
-                "format": "uuid",
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "currency": {
-                "type": "string"
-              },
-              "amount": {
-                "type": "string"
-              },
-              "usage": {
-                "type": "string",
-                "enum": ["OneTime", "Reusable"]
-              },
+              "id": { "format": "uuid", "type": "string" },
+              "title": { "type": "string" },
+              "currency": { "type": "string" },
+              "amount": { "type": "string" },
+              "usage": { "type": "string", "enum": ["OneTime", "Reusable"] },
               "lineItems": {
                 "type": ["array", "null"],
                 "items": {
@@ -4214,24 +3062,14 @@
                   "type": "object",
                   "required": ["name", "price", "quantity"],
                   "properties": {
-                    "image": {
-                      "type": ["string", "null"]
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "string"
-                    },
-                    "quantity": {
-                      "type": "number"
-                    }
+                    "image": { "type": ["string", "null"] },
+                    "name": { "type": "string" },
+                    "price": { "type": "string" },
+                    "quantity": { "type": "number" }
                   }
                 }
               },
-              "returnUrl": {
-                "type": ["string", "null"]
-              }
+              "returnUrl": { "type": ["string", "null"] }
             }
           },
           "app": {
@@ -4245,21 +3083,11 @@
               "privacyPolicyUrl"
             ],
             "properties": {
-              "name": {
-                "type": "string"
-              },
-              "icon": {
-                "type": ["string", "null"]
-              },
-              "websiteUrl": {
-                "type": ["string", "null"]
-              },
-              "termsOfServiceUrl": {
-                "type": ["string", "null"]
-              },
-              "privacyPolicyUrl": {
-                "type": ["string", "null"]
-              }
+              "name": { "type": "string" },
+              "icon": { "type": ["string", "null"] },
+              "websiteUrl": { "type": ["string", "null"] },
+              "termsOfServiceUrl": { "type": ["string", "null"] },
+              "privacyPolicyUrl": { "type": ["string", "null"] }
             }
           },
           "chains": {
@@ -4281,43 +3109,21 @@
                 "tokens"
               ],
               "properties": {
-                "id": {
-                  "format": "uuid",
-                  "type": "string"
-                },
-                "caip2Id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "chainType": {
-                  "type": "string",
-                  "enum": ["Evm", "Near"]
-                },
-                "chainId": {
-                  "type": ["integer", "null"]
-                },
-                "testnet": {
-                  "type": "boolean"
-                },
-                "icon": {
-                  "type": "string"
-                },
+                "id": { "format": "uuid", "type": "string" },
+                "caip2Id": { "type": "string" },
+                "name": { "type": "string" },
+                "chainType": { "type": "string", "enum": ["Evm", "Near"] },
+                "chainId": { "type": ["integer", "null"] },
+                "testnet": { "type": "boolean" },
+                "icon": { "type": "string" },
                 "nativeCurrency": {
                   "additionalProperties": false,
                   "type": "object",
                   "required": ["name", "symbol", "decimals"],
                   "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "symbol": {
-                      "type": "string"
-                    },
-                    "decimals": {
-                      "type": "integer"
-                    }
+                    "name": { "type": "string" },
+                    "symbol": { "type": "string" },
+                    "decimals": { "type": "integer" }
                   }
                 },
                 "blockExplorer": {
@@ -4325,20 +3131,11 @@
                   "type": "object",
                   "required": ["name", "url"],
                   "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "url": {
-                      "type": "string"
-                    }
+                    "name": { "type": "string" },
+                    "url": { "type": "string" }
                   }
                 },
-                "rpcUrls": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
+                "rpcUrls": { "type": "array", "items": { "type": "string" } },
                 "settlementToken": {
                   "additionalProperties": false,
                   "type": "object",
@@ -4357,21 +3154,11 @@
                       "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                       "type": "string"
                     },
-                    "symbol": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "decimals": {
-                      "type": "integer"
-                    },
-                    "icon": {
-                      "type": ["string", "null"]
-                    },
-                    "x402": {
-                      "type": "boolean"
-                    }
+                    "symbol": { "type": "string" },
+                    "name": { "type": "string" },
+                    "decimals": { "type": "integer" },
+                    "icon": { "type": ["string", "null"] },
+                    "x402": { "type": "boolean" }
                   }
                 },
                 "tokens": {
@@ -4394,21 +3181,11 @@
                         "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                         "type": "string"
                       },
-                      "symbol": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "decimals": {
-                        "type": "integer"
-                      },
-                      "icon": {
-                        "type": ["string", "null"]
-                      },
-                      "x402": {
-                        "type": "boolean"
-                      }
+                      "symbol": { "type": "string" },
+                      "name": { "type": "string" },
+                      "decimals": { "type": "integer" },
+                      "icon": { "type": ["string", "null"] },
+                      "x402": { "type": "boolean" }
                     }
                   }
                 }
@@ -4432,10 +3209,7 @@
           "updatedAt"
         ],
         "properties": {
-          "id": {
-            "format": "uuid",
-            "type": "string"
-          },
+          "id": { "format": "uuid", "type": "string" },
           "status": {
             "type": "string",
             "enum": [
@@ -4456,23 +3230,11 @@
             "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
             "type": "string"
           },
-          "x402BlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "settlementBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "refundBlockchainHash": {
-            "type": ["string", "null"]
-          },
-          "expiresAt": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string"
-          }
+          "x402BlockchainHash": { "type": ["string", "null"] },
+          "settlementBlockchainHash": { "type": ["string", "null"] },
+          "refundBlockchainHash": { "type": ["string", "null"] },
+          "expiresAt": { "format": "date-time", "type": "string" },
+          "updatedAt": { "format": "date-time", "type": "string" }
         }
       }
     }
@@ -4482,11 +3244,7 @@
     "/api/apps/all": {
       "get": {
         "operationId": "apps.list",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Apps"],
         "summary": "List apps",
         "parameters": [
@@ -4494,10 +3252,7 @@
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -4506,15 +3261,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -4526,16 +3274,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -4545,9 +3285,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppPage"
-                }
+                "schema": { "$ref": "#/components/schemas/AppPage" }
               }
             }
           }
@@ -4557,11 +3295,7 @@
     "/api/apps": {
       "post": {
         "operationId": "apps.create",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Apps"],
         "summary": "Create an app",
         "requestBody": {
@@ -4617,9 +3351,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/App"
-                }
+                "schema": { "$ref": "#/components/schemas/App" }
               }
             }
           }
@@ -4634,9 +3366,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/App"
-                }
+                "schema": { "$ref": "#/components/schemas/App" }
               }
             }
           }
@@ -4699,9 +3429,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/App"
-                }
+                "schema": { "$ref": "#/components/schemas/App" }
               }
             }
           }
@@ -4716,9 +3444,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/App"
-                }
+                "schema": { "$ref": "#/components/schemas/App" }
               }
             }
           }
@@ -4735,9 +3461,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppChainList"
-                }
+                "schema": { "$ref": "#/components/schemas/AppChainList" }
               }
             }
           }
@@ -4754,10 +3478,7 @@
             "name": "chainId",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -4785,9 +3506,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppChain"
-                }
+                "schema": { "$ref": "#/components/schemas/AppChain" }
               }
             }
           }
@@ -4802,10 +3521,7 @@
             "name": "chainId",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -4813,9 +3529,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppChain"
-                }
+                "schema": { "$ref": "#/components/schemas/AppChain" }
               }
             }
           }
@@ -4877,10 +3591,7 @@
                       ]
                     }
                   },
-                  "expiresAt": {
-                    "format": "date-time",
-                    "type": "string"
-                  }
+                  "expiresAt": { "format": "date-time", "type": "string" }
                 }
               }
             }
@@ -4892,9 +3603,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKey"
-                }
+                "schema": { "$ref": "#/components/schemas/ApiKey" }
               }
             }
           }
@@ -4909,10 +3618,7 @@
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -4921,15 +3627,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -4941,16 +3640,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -4960,9 +3651,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKeyPage"
-                }
+                "schema": { "$ref": "#/components/schemas/ApiKeyPage" }
               }
             }
           }
@@ -4979,10 +3668,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -4990,9 +3676,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKey"
-                }
+                "schema": { "$ref": "#/components/schemas/ApiKey" }
               }
             }
           }
@@ -5007,10 +3691,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -5037,9 +3718,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKey"
-                }
+                "schema": { "$ref": "#/components/schemas/ApiKey" }
               }
             }
           }
@@ -5054,10 +3733,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5065,9 +3741,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKey"
-                }
+                "schema": { "$ref": "#/components/schemas/ApiKey" }
               }
             }
           }
@@ -5084,10 +3758,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5095,9 +3766,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiKey"
-                }
+                "schema": { "$ref": "#/components/schemas/ApiKey" }
               }
             }
           }
@@ -5114,9 +3783,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConfiguredChainList"
-                }
+                "schema": { "$ref": "#/components/schemas/ConfiguredChainList" }
               }
             }
           }
@@ -5124,11 +3791,7 @@
       },
       "post": {
         "operationId": "chains.create",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Chains"],
         "summary": "Add a chain",
         "requestBody": {
@@ -5154,9 +3817,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Chain"
-                }
+                "schema": { "$ref": "#/components/schemas/Chain" }
               }
             }
           }
@@ -5166,11 +3827,7 @@
     "/api/chains/full": {
       "get": {
         "operationId": "chains.listFull",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Chains"],
         "summary": "List chains (with full metadata)",
         "responses": {
@@ -5178,9 +3835,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChainWithConfigList"
-                }
+                "schema": { "$ref": "#/components/schemas/ChainWithConfigList" }
               }
             }
           }
@@ -5190,11 +3845,7 @@
     "/api/chains/supported": {
       "get": {
         "operationId": "chains.listSupported",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Chains"],
         "summary": "Chains this server knows how to run on",
         "responses": {
@@ -5202,9 +3853,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SupportedChainList"
-                }
+                "schema": { "$ref": "#/components/schemas/SupportedChainList" }
               }
             }
           }
@@ -5214,11 +3863,7 @@
     "/api/chains/{id}": {
       "patch": {
         "operationId": "chains.update",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Chains"],
         "summary": "Update chain active status",
         "parameters": [
@@ -5226,10 +3871,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -5239,11 +3881,7 @@
                 "additionalProperties": false,
                 "type": "object",
                 "required": ["isActive"],
-                "properties": {
-                  "isActive": {
-                    "type": "boolean"
-                  }
-                }
+                "properties": { "isActive": { "type": "boolean" } }
               }
             }
           },
@@ -5254,9 +3892,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Chain"
-                }
+                "schema": { "$ref": "#/components/schemas/Chain" }
               }
             }
           }
@@ -5264,11 +3900,7 @@
       },
       "delete": {
         "operationId": "chains.delete",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Chains"],
         "summary": "Delete a chain",
         "parameters": [
@@ -5276,10 +3908,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5287,9 +3916,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Chain"
-                }
+                "schema": { "$ref": "#/components/schemas/Chain" }
               }
             }
           }
@@ -5299,11 +3926,7 @@
     "/api/chains/{id}/config": {
       "put": {
         "operationId": "chains.configure",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Chains"],
         "summary": "Configure a chain",
         "parameters": [
@@ -5311,10 +3934,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -5345,16 +3965,8 @@
                     "minimum": 0,
                     "maximum": 9900,
                     "anyOf": [
-                      {
-                        "format": "integer",
-                        "default": 0,
-                        "type": "string"
-                      },
-                      {
-                        "minimum": 0,
-                        "maximum": 9900,
-                        "type": "integer"
-                      }
+                      { "format": "integer", "default": 0, "type": "string" },
+                      { "minimum": 0, "maximum": 9900, "type": "integer" }
                     ]
                   },
                   "kiteFactoryAddress": {
@@ -5363,14 +3975,8 @@
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "usdPeggedTokenId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
-                  "settlementTokenId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "usdPeggedTokenId": { "format": "uuid", "type": "string" },
+                  "settlementTokenId": { "format": "uuid", "type": "string" },
                   "onchainNotifierProviders": {
                     "uniqueItems": true,
                     "type": "array",
@@ -5415,9 +4021,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChainWithConfig"
-                }
+                "schema": { "$ref": "#/components/schemas/ChainWithConfig" }
               }
             }
           }
@@ -5434,10 +4038,7 @@
             "name": "chainId",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "address",
@@ -5456,9 +4057,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenWithChain"
-                }
+                "schema": { "$ref": "#/components/schemas/TokenWithChain" }
               }
             }
           }
@@ -5475,9 +4074,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PayoutTokenList"
-                }
+                "schema": { "$ref": "#/components/schemas/PayoutTokenList" }
               }
             }
           }
@@ -5494,19 +4091,13 @@
             "name": "chainId",
             "in": "query",
             "required": false,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -5515,15 +4106,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -5535,16 +4119,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -5554,9 +4130,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenPage"
-                }
+                "schema": { "$ref": "#/components/schemas/TokenPage" }
               }
             }
           }
@@ -5566,11 +4140,7 @@
     "/api/tokens/{id}": {
       "patch": {
         "operationId": "tokens.update",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Tokens"],
         "summary": "Change a token's icon",
         "parameters": [
@@ -5578,10 +4148,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -5609,9 +4176,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Token"
-                }
+                "schema": { "$ref": "#/components/schemas/Token" }
               }
             }
           }
@@ -5619,11 +4184,7 @@
       },
       "delete": {
         "operationId": "tokens.delete",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Tokens"],
         "summary": "Delete a token",
         "parameters": [
@@ -5631,10 +4192,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5642,9 +4200,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Token"
-                }
+                "schema": { "$ref": "#/components/schemas/Token" }
               }
             }
           }
@@ -5662,10 +4218,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5673,9 +4226,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Checkout"
-                }
+                "schema": { "$ref": "#/components/schemas/Checkout" }
               }
             }
           }
@@ -5693,10 +4244,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -5707,10 +4255,7 @@
                 "type": "object",
                 "required": ["chainId", "sourceTokenAddress"],
                 "properties": {
-                  "chainId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "chainId": { "format": "uuid", "type": "string" },
                   "sourceTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -5728,9 +4273,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Quote"
-                }
+                "schema": { "$ref": "#/components/schemas/Quote" }
               }
             }
           }
@@ -5748,10 +4291,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -5762,10 +4302,7 @@
                 "type": "object",
                 "required": ["quoteId", "refundAddress"],
                 "properties": {
-                  "quoteId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "quoteId": { "format": "uuid", "type": "string" },
                   "refundAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -5783,9 +4320,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreatedTransfer"
-                }
+                "schema": { "$ref": "#/components/schemas/CreatedTransfer" }
               }
             }
           }
@@ -5803,19 +4338,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "transferId",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5823,9 +4352,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CheckoutTransfer"
-                }
+                "schema": { "$ref": "#/components/schemas/CheckoutTransfer" }
               }
             }
           }
@@ -5843,19 +4370,13 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "transferId",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -5863,9 +4384,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CheckoutTransfer"
-                }
+                "schema": { "$ref": "#/components/schemas/CheckoutTransfer" }
               }
             }
           }
@@ -5890,15 +4409,10 @@
                     "maxLength": 255,
                     "type": "string"
                   },
-                  "name": {
-                    "maxLength": 255,
-                    "type": ["string", "null"]
-                  },
+                  "name": { "maxLength": 255, "type": ["string", "null"] },
                   "traits": {
                     "type": ["object", "null"],
-                    "patternProperties": {
-                      "^(.*)$": {}
-                    }
+                    "patternProperties": { "^(.*)$": {} }
                   }
                 }
               }
@@ -5911,9 +4425,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Customer"
-                }
+                "schema": { "$ref": "#/components/schemas/Customer" }
               }
             }
           }
@@ -5928,19 +4440,13 @@
             "name": "externalId",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 255,
-              "type": "string"
-            }
+            "schema": { "maxLength": 255, "type": "string" }
           },
           {
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -5949,15 +4455,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -5969,16 +4468,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -5988,9 +4479,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerPage"
-                }
+                "schema": { "$ref": "#/components/schemas/CustomerPage" }
               }
             }
           }
@@ -6007,10 +4496,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -6018,9 +4504,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Customer"
-                }
+                "schema": { "$ref": "#/components/schemas/Customer" }
               }
             }
           }
@@ -6035,10 +4519,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -6046,9 +4527,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Customer"
-                }
+                "schema": { "$ref": "#/components/schemas/Customer" }
               }
             }
           }
@@ -6065,19 +4544,13 @@
             "name": "chainId",
             "in": "query",
             "required": false,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -6086,15 +4559,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -6106,16 +4572,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -6125,9 +4583,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeePage"
-                }
+                "schema": { "$ref": "#/components/schemas/FeePage" }
               }
             }
           }
@@ -6145,19 +4601,13 @@
                 "type": "object",
                 "required": ["chainId", "label", "type", "value", "condition"],
                 "properties": {
-                  "chainId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "chainId": { "format": "uuid", "type": "string" },
                   "label": {
                     "minLength": 1,
                     "maxLength": 120,
                     "type": "string"
                   },
-                  "type": {
-                    "type": "string",
-                    "enum": ["Fixed", "Variable"]
-                  },
+                  "type": { "type": "string", "enum": ["Fixed", "Variable"] },
                   "value": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
@@ -6186,30 +4636,18 @@
                             "properties": {
                               "_eq": {
                                 "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "number"
-                                  },
-                                  {
-                                    "type": "boolean"
-                                  }
+                                  { "type": "string" },
+                                  { "type": "number" },
+                                  { "type": "boolean" }
                                 ]
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
                                   "anyOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "type": "number"
-                                    },
-                                    {
-                                      "type": "boolean"
-                                    }
+                                    { "type": "string" },
+                                    { "type": "number" },
+                                    { "type": "boolean" }
                                   ]
                                 }
                               }
@@ -6321,9 +4759,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Fee"
-                }
+                "schema": { "$ref": "#/components/schemas/Fee" }
               }
             }
           }
@@ -6340,10 +4776,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -6351,9 +4784,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FeeWithChain"
-                }
+                "schema": { "$ref": "#/components/schemas/FeeWithChain" }
               }
             }
           }
@@ -6368,10 +4799,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -6386,10 +4814,7 @@
                     "maxLength": 120,
                     "type": "string"
                   },
-                  "type": {
-                    "type": "string",
-                    "enum": ["Fixed", "Variable"]
-                  },
+                  "type": { "type": "string", "enum": ["Fixed", "Variable"] },
                   "value": {
                     "pattern": "^[0-9]+$",
                     "maxLength": 78,
@@ -6418,30 +4843,18 @@
                             "properties": {
                               "_eq": {
                                 "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "number"
-                                  },
-                                  {
-                                    "type": "boolean"
-                                  }
+                                  { "type": "string" },
+                                  { "type": "number" },
+                                  { "type": "boolean" }
                                 ]
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
                                   "anyOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "type": "number"
-                                    },
-                                    {
-                                      "type": "boolean"
-                                    }
+                                    { "type": "string" },
+                                    { "type": "number" },
+                                    { "type": "boolean" }
                                   ]
                                 }
                               }
@@ -6553,9 +4966,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Fee"
-                }
+                "schema": { "$ref": "#/components/schemas/Fee" }
               }
             }
           }
@@ -6570,10 +4981,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -6581,9 +4989,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Fee"
-                }
+                "schema": { "$ref": "#/components/schemas/Fee" }
               }
             }
           }
@@ -6593,11 +4999,7 @@
     "/api/kv": {
       "get": {
         "operationId": "kv.list",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Kv"],
         "summary": "List configuration values",
         "responses": {
@@ -6605,9 +5007,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/KvEntryList"
-                }
+                "schema": { "$ref": "#/components/schemas/KvEntryList" }
               }
             }
           }
@@ -6617,11 +5017,7 @@
     "/api/kv/providers": {
       "get": {
         "operationId": "kv.listProviders",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Kv"],
         "summary": "List providers secrets configuration status",
         "responses": {
@@ -6629,9 +5025,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProviderStatusList"
-                }
+                "schema": { "$ref": "#/components/schemas/ProviderStatusList" }
               }
             }
           }
@@ -6641,11 +5035,7 @@
     "/api/kv/{key}": {
       "put": {
         "operationId": "kv.set",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Kv"],
         "summary": "Set a configuration value",
         "parameters": [
@@ -6686,10 +5076,7 @@
                 "type": "object",
                 "required": ["value"],
                 "properties": {
-                  "value": {
-                    "minLength": 1,
-                    "type": ["string", "null"]
-                  }
+                  "value": { "minLength": 1, "type": ["string", "null"] }
                 }
               }
             }
@@ -6701,9 +5088,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/KvEntry"
-                }
+                "schema": { "$ref": "#/components/schemas/KvEntry" }
               }
             }
           }
@@ -6711,11 +5096,7 @@
       },
       "delete": {
         "operationId": "kv.delete",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Kv"],
         "summary": "Delete a configuration value",
         "parameters": [
@@ -6723,10 +5104,7 @@
             "name": "key",
             "in": "path",
             "required": true,
-            "schema": {
-              "minLength": 1,
-              "type": "string"
-            }
+            "schema": { "minLength": 1, "type": "string" }
           }
         ],
         "responses": {
@@ -6738,11 +5116,7 @@
                   "additionalProperties": false,
                   "type": "object",
                   "required": ["key"],
-                  "properties": {
-                    "key": {
-                      "type": "string"
-                    }
-                  }
+                  "properties": { "key": { "type": "string" } }
                 }
               }
             }
@@ -6753,11 +5127,7 @@
     "/api/overview/info": {
       "get": {
         "operationId": "overview.info",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Overview"],
         "summary": "Service version & operator address",
         "responses": {
@@ -6765,9 +5135,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SystemInfo"
-                }
+                "schema": { "$ref": "#/components/schemas/SystemInfo" }
               }
             }
           }
@@ -6777,11 +5145,7 @@
     "/api/overview/stats": {
       "get": {
         "operationId": "overview.stats",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Overview"],
         "summary": "Basic dashboard statistics",
         "parameters": [
@@ -6789,37 +5153,25 @@
             "name": "from",
             "in": "query",
             "required": true,
-            "schema": {
-              "format": "date-time",
-              "type": "string"
-            }
+            "schema": { "format": "date-time", "type": "string" }
           },
           {
             "name": "to",
             "in": "query",
             "required": true,
-            "schema": {
-              "format": "date-time",
-              "type": "string"
-            }
+            "schema": { "format": "date-time", "type": "string" }
           },
           {
             "name": "timeZone",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 64,
-              "type": "string"
-            }
+            "schema": { "maxLength": 64, "type": "string" }
           },
           {
             "name": "rank",
             "in": "query",
             "required": false,
-            "schema": {
-              "type": "string",
-              "enum": ["volume", "value"]
-            }
+            "schema": { "type": "string", "enum": ["volume", "value"] }
           }
         ],
         "responses": {
@@ -6827,9 +5179,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Stats"
-                }
+                "schema": { "$ref": "#/components/schemas/Stats" }
               }
             }
           }
@@ -6839,11 +5189,7 @@
     "/api/overview/events": {
       "get": {
         "operationId": "overview.events",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Overview"],
         "summary": "Recent events",
         "parameters": [
@@ -6863,15 +5209,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -6883,16 +5222,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -6902,9 +5233,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EventPage"
-                }
+                "schema": { "$ref": "#/components/schemas/EventPage" }
               }
             }
           }
@@ -6926,12 +5255,7 @@
                   "type": "object",
                   "required": ["data"],
                   "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
+                    "data": { "type": "array", "items": { "type": "string" } }
                   }
                 }
               }
@@ -6991,10 +5315,7 @@
                           "pattern": "^(?:0|[1-9][0-9]{0,19})(?:\\.[0-9]{1,18})?$",
                           "type": "string"
                         },
-                        "quantity": {
-                          "minimum": 1,
-                          "type": "number"
-                        }
+                        "quantity": { "minimum": 1, "type": "number" }
                       }
                     }
                   },
@@ -7005,9 +5326,7 @@
                   },
                   "meta": {
                     "type": "object",
-                    "patternProperties": {
-                      "^(.*)$": {}
-                    }
+                    "patternProperties": { "^(.*)$": {} }
                   },
                   "returnUrl": {
                     "format": "uri",
@@ -7026,9 +5345,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentLink"
-                }
+                "schema": { "$ref": "#/components/schemas/PaymentLink" }
               }
             }
           }
@@ -7043,19 +5360,13 @@
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "reference",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 255,
-              "type": "string"
-            }
+            "schema": { "maxLength": 255, "type": "string" }
           },
           {
             "name": "page",
@@ -7064,15 +5375,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -7084,16 +5388,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -7103,9 +5399,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentLinkPage"
-                }
+                "schema": { "$ref": "#/components/schemas/PaymentLinkPage" }
               }
             }
           }
@@ -7122,10 +5416,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -7133,9 +5424,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentLink"
-                }
+                "schema": { "$ref": "#/components/schemas/PaymentLink" }
               }
             }
           }
@@ -7150,10 +5439,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -7201,10 +5487,7 @@
                           "pattern": "^(?:0|[1-9][0-9]{0,19})(?:\\.[0-9]{1,18})?$",
                           "type": "string"
                         },
-                        "quantity": {
-                          "minimum": 1,
-                          "type": "number"
-                        }
+                        "quantity": { "minimum": 1, "type": "number" }
                       }
                     }
                   },
@@ -7215,9 +5498,7 @@
                   },
                   "meta": {
                     "type": "object",
-                    "patternProperties": {
-                      "^(.*)$": {}
-                    }
+                    "patternProperties": { "^(.*)$": {} }
                   },
                   "returnUrl": {
                     "format": "uri",
@@ -7236,9 +5517,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentLink"
-                }
+                "schema": { "$ref": "#/components/schemas/PaymentLink" }
               }
             }
           }
@@ -7253,10 +5532,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -7264,9 +5540,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaymentLink"
-                }
+                "schema": { "$ref": "#/components/schemas/PaymentLink" }
               }
             }
           }
@@ -7283,10 +5557,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -7297,20 +5568,14 @@
                 "type": "object",
                 "required": ["chainId", "sourceTokenAddress"],
                 "properties": {
-                  "chainId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "chainId": { "format": "uuid", "type": "string" },
                   "sourceTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "customerId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "customerId": { "format": "uuid", "type": "string" },
                   "reference": {
                     "minLength": 1,
                     "maxLength": 255,
@@ -7318,9 +5583,7 @@
                   },
                   "meta": {
                     "type": "object",
-                    "patternProperties": {
-                      "^(.*)$": {}
-                    }
+                    "patternProperties": { "^(.*)$": {} }
                   }
                 }
               }
@@ -7333,9 +5596,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Quote"
-                }
+                "schema": { "$ref": "#/components/schemas/Quote" }
               }
             }
           }
@@ -7352,11 +5613,7 @@
             "name": "currency",
             "in": "query",
             "required": true,
-            "schema": {
-              "minLength": 2,
-              "maxLength": 10,
-              "type": "string"
-            }
+            "schema": { "minLength": 2, "maxLength": 10, "type": "string" }
           },
           {
             "name": "amount",
@@ -7383,12 +5640,8 @@
                       "type": "object",
                       "required": ["currency", "amount"],
                       "properties": {
-                        "currency": {
-                          "type": "string"
-                        },
-                        "amount": {
-                          "type": "string"
-                        }
+                        "currency": { "type": "string" },
+                        "amount": { "type": "string" }
                       }
                     },
                     "to": {
@@ -7396,12 +5649,8 @@
                       "type": "object",
                       "required": ["currency", "amount"],
                       "properties": {
-                        "currency": {
-                          "type": "string"
-                        },
-                        "amount": {
-                          "type": "string"
-                        }
+                        "currency": { "type": "string" },
+                        "amount": { "type": "string" }
                       }
                     }
                   }
@@ -7415,11 +5664,7 @@
     "/api/price-feeds": {
       "get": {
         "operationId": "priceFeeds.list",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Price feeds"],
         "summary": "List price feeds",
         "responses": {
@@ -7437,11 +5682,7 @@
       },
       "post": {
         "operationId": "priceFeeds.create",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Price feeds"],
         "summary": "Add a Chainlink price feed",
         "requestBody": {
@@ -7452,10 +5693,7 @@
                 "type": "object",
                 "required": ["chainId", "address"],
                 "properties": {
-                  "chainId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "chainId": { "format": "uuid", "type": "string" },
                   "address": {
                     "pattern": "^0x[0-9a-fA-F]{40}$",
                     "type": "string"
@@ -7471,9 +5709,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PriceFeed"
-                }
+                "schema": { "$ref": "#/components/schemas/PriceFeed" }
               }
             }
           }
@@ -7483,11 +5719,7 @@
     "/api/price-feeds/{id}": {
       "delete": {
         "operationId": "priceFeeds.delete",
-        "security": [
-          {
-            "rootKey": []
-          }
-        ],
+        "security": [{ "rootKey": [] }],
         "tags": ["Price feeds"],
         "summary": "Delete a price feed",
         "parameters": [
@@ -7495,10 +5727,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -7510,12 +5739,7 @@
                   "additionalProperties": false,
                   "type": "object",
                   "required": ["id"],
-                  "properties": {
-                    "id": {
-                      "format": "uuid",
-                      "type": "string"
-                    }
-                  }
+                  "properties": { "id": { "format": "uuid", "type": "string" } }
                 }
               }
             }
@@ -7536,10 +5760,7 @@
                 "type": "object",
                 "required": ["chainId", "sourceTokenAddress", "amount"],
                 "properties": {
-                  "chainId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "chainId": { "format": "uuid", "type": "string" },
                   "sourceTokenAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -7551,10 +5772,7 @@
                     "maxLength": 78,
                     "type": "string"
                   },
-                  "customerId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "customerId": { "format": "uuid", "type": "string" },
                   "reference": {
                     "minLength": 1,
                     "maxLength": 255,
@@ -7562,9 +5780,7 @@
                   },
                   "meta": {
                     "type": "object",
-                    "patternProperties": {
-                      "^(.*)$": {}
-                    }
+                    "patternProperties": { "^(.*)$": {} }
                   }
                 }
               }
@@ -7577,9 +5793,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Quote"
-                }
+                "schema": { "$ref": "#/components/schemas/Quote" }
               }
             }
           }
@@ -7594,28 +5808,19 @@
             "name": "customerId",
             "in": "query",
             "required": false,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "paymentLinkId",
             "in": "query",
             "required": false,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -7624,15 +5829,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -7644,16 +5842,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -7663,9 +5853,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/QuotePage"
-                }
+                "schema": { "$ref": "#/components/schemas/QuotePage" }
               }
             }
           }
@@ -7682,10 +5870,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -7693,9 +5878,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/QuoteDetails"
-                }
+                "schema": { "$ref": "#/components/schemas/QuoteDetails" }
               }
             }
           }
@@ -7715,10 +5898,7 @@
                 "type": "object",
                 "required": ["quoteId", "refundAddress"],
                 "properties": {
-                  "quoteId": {
-                    "format": "uuid",
-                    "type": "string"
-                  },
+                  "quoteId": { "format": "uuid", "type": "string" },
                   "refundAddress": {
                     "minLength": 2,
                     "maxLength": 64,
@@ -7736,9 +5916,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreatedTransfer"
-                }
+                "schema": { "$ref": "#/components/schemas/CreatedTransfer" }
               }
             }
           }
@@ -7772,10 +5950,7 @@
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -7784,15 +5959,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -7804,16 +5972,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -7823,9 +5983,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransferPage"
-                }
+                "schema": { "$ref": "#/components/schemas/TransferPage" }
               }
             }
           }
@@ -7842,10 +6000,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -7853,9 +6008,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TransferDetails"
-                }
+                "schema": { "$ref": "#/components/schemas/TransferDetails" }
               }
             }
           }
@@ -7872,10 +6025,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -7884,11 +6034,7 @@
               "schema": {
                 "additionalProperties": false,
                 "type": "object",
-                "properties": {
-                  "useGasSponsor": {
-                    "type": "boolean"
-                  }
-                }
+                "properties": { "useGasSponsor": { "type": "boolean" } }
               }
             }
           },
@@ -7920,10 +6066,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -7955,11 +6098,7 @@
                   "additionalProperties": false,
                   "type": "object",
                   "required": ["balance"],
-                  "properties": {
-                    "balance": {
-                      "type": "string"
-                    }
-                  }
+                  "properties": { "balance": { "type": "string" } }
                 }
               }
             }
@@ -7977,10 +6116,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "requestBody": {
@@ -8003,9 +6139,7 @@
                     "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+)$",
                     "type": "string"
                   },
-                  "useGasSponsor": {
-                    "type": "boolean"
-                  }
+                  "useGasSponsor": { "type": "boolean" }
                 }
               }
             }
@@ -8070,48 +6204,24 @@
                     "minimum": 0,
                     "maximum": 20,
                     "anyOf": [
-                      {
-                        "format": "integer",
-                        "default": 0,
-                        "type": "string"
-                      },
-                      {
-                        "minimum": 0,
-                        "maximum": 20,
-                        "type": "integer"
-                      }
+                      { "format": "integer", "default": 0, "type": "string" },
+                      { "minimum": 0, "maximum": 20, "type": "integer" }
                     ]
                   },
                   "retryIntervalInSeconds": {
                     "minimum": 1,
                     "maximum": 86400,
                     "anyOf": [
-                      {
-                        "format": "integer",
-                        "default": 0,
-                        "type": "string"
-                      },
-                      {
-                        "minimum": 1,
-                        "maximum": 86400,
-                        "type": "integer"
-                      }
+                      { "format": "integer", "default": 0, "type": "string" },
+                      { "minimum": 1, "maximum": 86400, "type": "integer" }
                     ]
                   },
                   "timeoutInSeconds": {
                     "minimum": 1,
                     "maximum": 120,
                     "anyOf": [
-                      {
-                        "format": "integer",
-                        "default": 0,
-                        "type": "string"
-                      },
-                      {
-                        "minimum": 1,
-                        "maximum": 120,
-                        "type": "integer"
-                      }
+                      { "format": "integer", "default": 0, "type": "string" },
+                      { "minimum": 1, "maximum": 120, "type": "integer" }
                     ]
                   }
                 }
@@ -8125,9 +6235,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreatedWebhook"
-                }
+                "schema": { "$ref": "#/components/schemas/CreatedWebhook" }
               }
             }
           }
@@ -8142,10 +6250,7 @@
             "name": "q",
             "in": "query",
             "required": false,
-            "schema": {
-              "maxLength": 100,
-              "type": "string"
-            }
+            "schema": { "maxLength": 100, "type": "string" }
           },
           {
             "name": "page",
@@ -8154,15 +6259,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -8174,16 +6272,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -8193,9 +6283,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebhookPage"
-                }
+                "schema": { "$ref": "#/components/schemas/WebhookPage" }
               }
             }
           }
@@ -8212,10 +6300,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           },
           {
             "name": "page",
@@ -8224,15 +6309,8 @@
             "schema": {
               "minimum": 1,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "type": "number" }
               ]
             }
           },
@@ -8244,16 +6322,8 @@
               "minimum": 1,
               "maximum": 100,
               "anyOf": [
-                {
-                  "format": "numeric",
-                  "default": 0,
-                  "type": "string"
-                },
-                {
-                  "minimum": 1,
-                  "maximum": 100,
-                  "type": "number"
-                }
+                { "format": "numeric", "default": 0, "type": "string" },
+                { "minimum": 1, "maximum": 100, "type": "number" }
               ]
             }
           }
@@ -8263,9 +6333,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebhookDeliveryPage"
-                }
+                "schema": { "$ref": "#/components/schemas/WebhookDeliveryPage" }
               }
             }
           }
@@ -8282,10 +6350,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -8293,9 +6358,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Webhook"
-                }
+                "schema": { "$ref": "#/components/schemas/Webhook" }
               }
             }
           }
@@ -8312,9 +6375,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/x402Supported"
-                }
+                "schema": { "$ref": "#/components/schemas/x402Supported" }
               }
             }
           }
@@ -8334,10 +6395,7 @@
                 "type": "object",
                 "required": ["quoteId"],
                 "properties": {
-                  "quoteId": {
-                    "format": "uuid",
-                    "type": "string"
-                  }
+                  "quoteId": { "format": "uuid", "type": "string" }
                 }
               }
             }
@@ -8349,9 +6407,7 @@
             "description": "Response for status 201",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreatedTransfer"
-                }
+                "schema": { "$ref": "#/components/schemas/CreatedTransfer" }
               }
             }
           }
@@ -8368,10 +6424,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
+            "schema": { "format": "uuid", "type": "string" }
           }
         ],
         "responses": {
@@ -8401,9 +6454,7 @@
                 "type": "object",
                 "required": ["paymentPayload", "paymentRequirements"],
                 "properties": {
-                  "x402Version": {
-                    "type": "number"
-                  },
+                  "x402Version": { "type": "number" },
                   "paymentPayload": {},
                   "paymentRequirements": {}
                 }
@@ -8417,9 +6468,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/x402VerifyResult"
-                }
+                "schema": { "$ref": "#/components/schemas/x402VerifyResult" }
               }
             }
           }
@@ -8439,9 +6488,7 @@
                 "type": "object",
                 "required": ["paymentPayload", "paymentRequirements"],
                 "properties": {
-                  "x402Version": {
-                    "type": "number"
-                  },
+                  "x402Version": { "type": "number" },
                   "paymentPayload": {},
                   "paymentRequirements": {}
                 }
@@ -8455,9 +6502,7 @@
             "description": "Response for status 200",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/x402SettleResult"
-                }
+                "schema": { "$ref": "#/components/schemas/x402SettleResult" }
               }
             }
           }
