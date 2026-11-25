@@ -52,8 +52,7 @@ STELLAR_ACCOUNT=kite-deployer ADMIN=<admin G…> OPERATOR=<operator G…> IMPLEM
 A Stellar account (`G…`) can only hold an issued asset, such as USDC, through a trustline to it. Native XLM needs none, and neither does a contract address.
 
 - **The operator** gets a trustline for the settlement token when you save the chain's configuration, since payments can settle or be refunded to it.
-- **An app's address** is refused if it has no trustline for the settlement token, so it can always receive its payments.
-- **Fee addresses** need one too. A payout that can't be delivered fails the settlement, and the payment is refunded.
+- **An app's address**, and **a fee's address**, are refused if they have no trustline for the settlement token, so they can always be paid.
 - **A customer's refund** that can't be delivered closes the transfer, and the amount stays for you to [recover](/payments/refunds-and-recovery#recovery).
 
 ## Paying and refunds
