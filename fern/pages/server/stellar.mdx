@@ -1,0 +1,66 @@
+---
+title: Stellar
+description: Taking payments on Stellar, in beta on testnet.
+---
+
+Kite takes payments on Stellar the same way as on other chains: every payment gets its own contract, at an address known before anyone pays. Stellar is in beta, and only offered on testnet servers for now.
+
+## How it differs
+
+- **The pay-in address is a contract.** It's a Soroban contract address, starting with `C`, deployed by your Kite factory once the payment arrives.
+- **Tokens are contracts too.** USDC and XLM are paid through their Stellar Asset Contracts (SACs). You add a token by its `C…` contract address, not by its `CODE:ISSUER` name.
+- **Deposits are found by a balance check** every minute; there are no deposit notifiers or deposit webhooks.
+- **The operator pays every fee itself.** There are no gas sponsors.
+- **Swaps go through Soroswap**, where the network has a router. Quotes use Soroswap's spot price, since its pools keep no time-weighted average; the contract still enforces the minimum it settles for. Testnet has a router with an XLM/USDC pool. Without one, customers can only pay in the settlement token.
+
+## Adding tokens
+
+In the chain's **Tokens** tab, paste the token's `C…` contract address. To find the contract of a `CODE:ISSUER` asset, use the stellar CLI:
+
+```sh
+stellar contract id asset --asset EURC:GDHU6WRG4IEQXM5NZ4BMPKOXHW76MZM4Y2IEMFDVXBSDP6SJY4ITNPP2 --network testnet
+```
+
+On testnet, USDC is `CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA` and XLM is `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC`. A token customers pay in, other than the settlement token, needs a Soroswap pool with it, directly or through USDC or XLM.
+
+## Your server's accounts
+
+Your server derives two Stellar accounts from `KITE_OPERATOR_MNEMONIC`, on [SEP-5](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md) paths:
+
+| Account     | Path            | What it does                                                                 |
+| ----------- | --------------- | ---------------------------------------------------------------------------- |
+| Operator    | `m/44'/148'/0'` | Settles, refunds and recovers, and pays every fee. Shown under the settings button. |
+| Facilitator | `m/44'/148'/1'` | Signs [x402](/payments/x402) settlements, which the operator pays for.      |
+
+Both must exist on the network before they're used, so fund them first. On testnet, Friendbot does it: `https://friendbot.stellar.org?addr=<address>`.
+
+## Deploying a factory
+
+Stellar's contracts are in [Kite-01/stellar-contracts](https://github.com/Kite-01/stellar-contracts). With the stellar CLI and Rust installed:
+
+```sh
+git clone https://github.com/Kite-01/stellar-contracts && cd stellar-contracts
+stellar keys generate kite-deployer --network testnet --fund
+STELLAR_ACCOUNT=kite-deployer ./sh_scripts/upload-kite.sh
+STELLAR_ACCOUNT=kite-deployer ADMIN=<admin G…> OPERATOR=<operator G…> IMPLEMENTATION=<hash> ./sh_scripts/deploy-factory.sh
+```
+
+`upload-kite.sh` prints the hash for `IMPLEMENTATION`, and `deploy-factory.sh` the factory's `C…` address, which goes in the chain's configuration. Use an admin the server never holds. The [repository's README](https://github.com/Kite-01/stellar-contracts#deploying-on-testnet) has the details. Testnet is reset every few months, which removes every contract on it: deploy again after a reset.
+
+## Trustlines
+
+A Stellar account (`G…`) can only hold an issued asset, such as USDC, through a trustline to it. Native XLM needs none, and neither does a contract address.
+
+- **The operator** gets a trustline for the settlement token when you save the chain's configuration, since payments can settle or be refunded to it.
+- **An app's address**, and **a fee's address**, are refused if they have no trustline for the settlement token, so they can always be paid.
+- **A customer's refund** that can't be delivered closes the transfer, and the amount stays for you to [recover](/payments/refunds-and-recovery#recovery).
+
+## Paying and refunds
+
+Customers pay with the token's own `transfer` to the `C…` address. The checkout's wallet button builds it for them, with Freighter, xBull, Lobstr, Albedo, Rabet, Hana and other Stellar wallets. Classic payments, and most exchanges, can't send to a contract address, and the checkout says so.
+
+A refund can't carry a memo, so a refund to an exchange needs the exchange's muxed address (`M…`). Kite accepts `M…` addresses only for Stellar Asset Contract tokens, since another token may not support them.
+
+## x402
+
+Agents pay with x402 on Stellar by signing a Soroban authorization for one token `transfer` to the payment's address. Kite's facilitator account submits it and the operator pays the fee, so the agent needs no XLM. Every token on the chain can be paid this way, and the requirements carry `extra.areFeesSponsored: true`.
