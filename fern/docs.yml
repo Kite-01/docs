@@ -100,6 +100,9 @@ navigation:
           - page: Chains and tokens
             icon: fa-regular fa-link
             path: pages/server/chains-and-tokens.mdx
+          - page: Stellar
+            icon: fa-regular fa-star
+            path: pages/server/stellar.mdx
           - page: Testnets
             icon: fa-regular fa-flask
             path: pages/server/testnets.mdx

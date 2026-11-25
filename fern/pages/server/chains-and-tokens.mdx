@@ -11,7 +11,7 @@ In the chain's **Tokens** tab, add each token customers may pay with by its cont
 
 ![The Tokens tab of a chain, listing USDC and WETH](/assets/screenshots/chain-tokens.png)
 
-Customers can pay with any listed token. Tokens other than the settlement token are swapped when the payment settles, so each needs a Uniswap pool with the settlement token: V3 where the chain has Uniswap V3, or a V2 pair where it doesn't. A customer can also paste in any other token's address at checkout; it's priced the same way, if a pool exists.
+Customers can pay with any listed token. Tokens other than the settlement token are swapped when the payment settles, so each needs a Uniswap pool with the settlement token: V3 where the chain has Uniswap V3, or a V2 pair where it doesn't. Stellar works differently: see [Stellar](/server/stellar). A customer can also paste in any other token's address at checkout; it's priced the same way, if a pool exists.
 
 ## Configuration
 
@@ -37,7 +37,8 @@ What Kite can do on a chain depends on the providers that support it:
 - **On chains without a deposit notifier**, deposits are found by a balance check every minute, and deposit webhooks aren't sent.
 - **On chains without a gas sponsor**, the operator wallet pays the gas.
 - **On chains NEAR Intents doesn't support**, payments settle to the app's address on that chain, even when the app has a [payout](/payments/payouts) set.
-- **On chains whose settlement token doesn't support EIP-3009**, there's no [x402](/payments/x402), so agents can't pay there.
+- **On EVM chains whose settlement token doesn't support EIP-3009**, there's no [x402](/payments/x402), so agents can't pay there.
+- **On NEAR and Stellar**, deposits are found by the balance check, swaps use the spot price of Rhea or Soroswap, and the operator pays the fees. Both are in beta: NEAR on mainnet and testnet, [Stellar](/server/stellar) on testnet only.
 
 ## Pricing
 
