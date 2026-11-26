@@ -44,6 +44,6 @@ After a transfer expires, anyone can call the realm's `Refund`, so a customer ne
 
 ## x402
 
-Agents pay with x402 on Gno.land with [`@gnolang/x402`](https://github.com/gnolang/x402)'s `ExactGnoScheme`: they sign a bank send of GNOT to the payment's address, which Kite verifies and broadcasts itself. Only GNOT can be paid this way, and the agent pays its own gas: the requirements carry `extra.areFeesSponsored: false`. Payments signed with a session key aren't accepted.
+Agents pay with x402 on Gno.land with [`@gnolang/x402`](https://github.com/gnolang/x402)'s `ExactGnoScheme`: they sign a bank send of GNOT to the payment's address, which Kite verifies and broadcasts itself. Only GNOT can be paid this way, and the agent pays its own gas: the requirements carry `extra.areFeesSponsored: false`. An agent can also pay with a session key its account registered: Kite checks the session's expiry, that it may send coins, and that the payment and its gas fit its spend limit, as the chain does.
 
 As gnolang/x402 documents, a signed payment doesn't expire: until the payer spends its sequence on another transaction, whoever holds it can broadcast it. And a payer can spend that sequence between verification and settlement, so the settlement fails.
