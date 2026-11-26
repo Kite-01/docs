@@ -1,0 +1,59 @@
+---
+title: EVM
+description: Taking payments on Ethereum and EVM networks.
+---
+
+On EVM networks, every payment runs through its own contract, deployed by your **KiteFactory** at an address computed before anyone pays. The customer sends tokens to it from any wallet or exchange; the operator then has the factory settle it in one transaction: swap if needed, pay the fees, send the rest to the merchant, and return any overpayment. [Contracts](/contracts/overview) describes them, and how to deploy a factory.
+
+## How it works
+
+- **The pay-in address is a contract**, deployed only when the payment settles. A transfer that's never paid costs nothing.
+- **Swaps go through Uniswap**: V3 where the network has it, a V2 pair where it doesn't. Quotes use the pool's [time-weighted average](/server/chains-and-tokens#pricing), so a single trade can't move them.
+- **Deposits are found** by a deposit notifier, QuickNode or Alchemy, the moment they land, with a deposit webhook. Without one, by the balance check every minute.
+- **Gas** is paid by a gas sponsor, Alchemy or thirdweb, or else by the operator wallet.
+- **Agents pay with [x402](/payments/x402)** by signing an EIP-3009 authorization, which Kite submits, so they need no gas. Only settlement tokens that support EIP-3009, such as USDC, can take x402.
+- **NEAR Intents** can deliver payments from most mainnets as one token on another chain: see [Payouts](/payments/payouts).
+
+## Your server's address
+
+The operator is the first account of `KITE_OPERATOR_MNEMONIC`, `m/44'/60'/0'/0/0`, the same address on every EVM network. It's shown under the settings button. Make it the operator of your factory on each network, and fund it with the native token where no gas sponsor is set.
+
+## Mainnets
+
+| Network         | Network id          | Native token | Swaps      | Deposit notifiers  | NEAR Intents payouts |
+| --------------- | ------------------- | ------------ | ---------- | ------------------ | -------------------- |
+| Ethereum        | `eip155:1`          | ETH          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| OP Mainnet      | `eip155:10`         | ETH          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| BNB Smart Chain | `eip155:56`         | BNB          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| Polygon         | `eip155:137`        | POL          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| Robinhood Chain | `eip155:4663`       | ETH          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| Base            | `eip155:8453`       | ETH          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| Arbitrum One    | `eip155:42161`      | ETH          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| Monad           | `eip155:143`        | MON          | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+| Zora            | `eip155:7777777`    | ETH          | Uniswap V3 | QuickNode, Alchemy | No                   |
+| Unichain        | `eip155:130`        | ETH          | Uniswap V3 | QuickNode, Alchemy | No                   |
+| Arc             | `eip155:5042`       | USDC         | Uniswap V3 | QuickNode, Alchemy | No                   |
+| Aurora          | `eip155:1313161554` | ETH          | Uniswap V2 | None               | No                   |
+| Avalanche       | `eip155:43114`      | AVAX         | Uniswap V3 | QuickNode, Alchemy | Yes                  |
+
+## Testnets
+
+| Network                 | Network id          | Native token | Swaps      | Deposit notifiers  |
+| ----------------------- | ------------------- | ------------ | ---------- | ------------------ |
+| Sepolia                 | `eip155:11155111`   | ETH          | Uniswap V3 | QuickNode, Alchemy |
+| Monad Testnet           | `eip155:10143`      | MON          | Uniswap V2 | QuickNode, Alchemy |
+| Base Sepolia            | `eip155:84532`      | ETH          | Uniswap V3 | QuickNode, Alchemy |
+| Arbitrum Sepolia        | `eip155:421614`     | ETH          | Uniswap V3 | QuickNode, Alchemy |
+| OP Sepolia              | `eip155:11155420`   | ETH          | Uniswap V3 | QuickNode, Alchemy |
+| Robinhood Chain Testnet | `eip155:46630`      | ETH          | Uniswap V2 | QuickNode, Alchemy |
+| Polygon Amoy            | `eip155:80002`      | POL          | Uniswap V2 | Alchemy            |
+| Zora Sepolia            | `eip155:999999999`  | ETH          | Uniswap V3 | Alchemy            |
+| Arc Testnet             | `eip155:5042002`    | USDC         | Uniswap V2 | QuickNode, Alchemy |
+| BNB Smart Chain Testnet | `eip155:97`         | tBNB         | Uniswap V2 | Alchemy            |
+| Unichain Sepolia        | `eip155:1301`       | ETH          | Uniswap V3 | QuickNode, Alchemy |
+| Aurora Testnet          | `eip155:1313161555` | ETH          | Uniswap V2 | None               |
+| Avalanche Fuji          | `eip155:43113`      | AVAX         | Uniswap V2 | QuickNode, Alchemy |
+| QDay Aevum Testnet      | `eip155:44005`      | tQDAY        | None       | None               |
+| HashKey Chain Testnet   | `eip155:133`        | HSK          | Uniswap V3 | None               |
+
+A network that isn't listed can be added to the server's [chain registry](https://github.com/Kite-01/server/blob/main/src/shared/chains/registry.ts), with the providers that support it.

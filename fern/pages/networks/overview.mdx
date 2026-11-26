@@ -1,0 +1,29 @@
+---
+title: Supported networks
+description: Every network a Kite server can take payments on, by kind of chain, and which are in beta.
+---
+
+Kite takes payments on four kinds of chain. On each, every payment gets its own address, known before anyone pays, and Kite's own contract on that chain settles it to the merchant, with fees, or refunds it. What differs is how that address is made, how customers pay it, and what the chain's providers offer.
+
+A server offers mainnets by default, and testnets when it runs with `KITE_IS_TESTNET=true` (see [Testnets](/server/testnets)). A network in **beta** works end to end, but is newer and has the limits its page lists.
+
+| Kind of chain                | Mainnets    | Testnets                     |
+| ---------------------------- | ----------- | ---------------------------- |
+| [EVM](/networks/evm)         | 13 networks | 15 networks                  |
+| [NEAR](/networks/near)       | NEAR (beta) | NEAR Testnet (beta)          |
+| [Stellar](/networks/stellar) | none yet    | Stellar Testnet (beta)       |
+| [Gno.land](/networks/gno)    | none yet    | Gno.land Onyx Testnet (beta) |
+
+## How they compare
+
+|                          | EVM                                        | NEAR                                | Stellar                              | Gno.land                                 |
+| ------------------------ | ------------------------------------------ | ----------------------------------- | ------------------------------------ | ---------------------------------------- |
+| **Pay-in address**       | A contract, deployed when it settles       | An account, created when it settles | A contract, deployed when it settles | A sub-realm address; nothing is deployed |
+| **Customers pay with**   | Any wallet or exchange                     | Any wallet or exchange              | Wallets that can send to a contract  | Adena, any wallet, or an exchange        |
+| **Swaps**                | Uniswap V3, or V2                          | Rhea                                | Soroswap                             | GnoSwap, between GRC20s                  |
+| **Deposits found by**    | QuickNode or Alchemy, or the balance check | The balance check                   | The balance check                    | The balance check                        |
+| **Gas**                  | Alchemy or thirdweb, or the operator       | The operator                        | The operator                         | The operator; the customer pays to send  |
+| **x402**                 | EIP-3009 tokens                            | NEP-141 tokens                      | Every token                          | GNOT; the agent pays its gas             |
+| **NEAR Intents payouts** | On most mainnets                           | On mainnet                          | Not yet                              | No                                       |
+
+The balance check looks at every open transfer's address once a minute. The server's [chain registry](https://github.com/Kite-01/server/blob/main/src/shared/chains/registry.ts) is the source for every network listed in these pages.

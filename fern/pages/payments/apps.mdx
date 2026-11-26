@@ -29,7 +29,7 @@ An app takes payments only on the chains it has turned on, each with the address
 - New chains start off for every app.
 - Quotes, checkout and x402 only offer the chains an app accepts.
 - The address also receives NEAR Intents refunds of the app's payouts, and the app's fees that have no address of their own.
-- On Stellar, an account (`G…`) must have a trustline for the chain's settlement token, or Kite refuses it; see [Stellar](/server/stellar#trustlines).
+- On Stellar, an account (`G…`) must have a trustline for the chain's settlement token, or Kite refuses it; see [Stellar](/networks/stellar#trustlines).
 
 <Warning>
 
@@ -39,11 +39,11 @@ These addresses receive real funds. Use wallets you control and can sign from, n
 
 Through the API, any key of the app can list its chains; changing them needs `App:Write`:
 
-| Request                             | What it does                                                    |
-| ----------------------------------- | --------------------------------------------------------------- |
-| `GET /api/apps/chains`              | The chains the app accepts, with its address on each.           |
+| Request                             | What it does                                                   |
+| ----------------------------------- | -------------------------------------------------------------- |
+| `GET /api/apps/chains`              | The chains the app accepts, with its address on each.          |
 | `PUT /api/apps/chains/{chainId}`    | Accept a chain, or change the address: `{ "address": "0x…" }`. |
-| `DELETE /api/apps/chains/{chainId}` | Stop accepting a chain.                                         |
+| `DELETE /api/apps/chains/{chainId}` | Stop accepting a chain.                                        |
 
 ## Inside an app
 

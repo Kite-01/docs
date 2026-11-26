@@ -27,10 +27,10 @@ On testnet, USDC is `CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA` a
 
 Your server derives two Stellar accounts from `KITE_OPERATOR_MNEMONIC`, on [SEP-5](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md) paths:
 
-| Account     | Path            | What it does                                                                 |
-| ----------- | --------------- | ---------------------------------------------------------------------------- |
+| Account     | Path            | What it does                                                                        |
+| ----------- | --------------- | ----------------------------------------------------------------------------------- |
 | Operator    | `m/44'/148'/0'` | Settles, refunds and recovers, and pays every fee. Shown under the settings button. |
-| Facilitator | `m/44'/148'/1'` | Signs [x402](/payments/x402) settlements, which the operator pays for.      |
+| Facilitator | `m/44'/148'/1'` | Signs [x402](/payments/x402) settlements, which the operator pays for.              |
 
 Both must exist on the network before they're used, so fund them first. On testnet, Friendbot does it: `https://friendbot.stellar.org?addr=<address>`.
 
@@ -64,3 +64,11 @@ A refund can't carry a memo, so a refund to an exchange needs the exchange's mux
 ## x402
 
 Agents pay with x402 on Stellar by signing a Soroban authorization for one token `transfer` to the payment's address. Kite's facilitator account submits it and the operator pays the fee, so the agent needs no XLM. Every token on the chain can be paid this way, and the requirements carry `extra.areFeesSponsored: true`.
+
+## Supported networks
+
+| Network         | Network id        | Native token | Swaps    | NEAR Intents payouts | Status |
+| --------------- | ----------------- | ------------ | -------- | -------------------- | ------ |
+| Stellar Testnet | `stellar:testnet` | XLM          | Soroswap | No                   | Beta   |
+
+There's no mainnet yet: Stellar mainnet will be added later.

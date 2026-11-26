@@ -1,0 +1,34 @@
+---
+title: NEAR
+description: Taking payments on NEAR, in beta on mainnet and testnet.
+---
+
+Kite takes payments on NEAR the same way as on other chains: every payment gets its own deposit account, at an id known before it exists. NEAR is in beta, on mainnet and testnet.
+
+## How it works
+
+- **The pay-in address is an account.** Its id is derived from the transfer (a [NEP-616](https://github.com/near/NEPs/pull/616) `0s…` account running the `kite-deposit` global contract), and it's only created once there's a payment to settle or refund. Customers pay it with any NEAR wallet or exchange, in NEAR or an NEP-141 token.
+- **Swaps go through Rhea Finance.** Quotes use Rhea's spot price, as its pools keep no time-weighted average; the deposit contract still enforces the minimum it settles for.
+- **Deposits are found by the balance check** every minute; there are no deposit notifiers or deposit webhooks.
+- **The operator pays every fee itself.** There are no gas sponsors.
+- **Agents pay with [x402](/payments/x402)** by signing a delegated `ft_transfer`, which Kite relays as a meta transaction, so they need no NEAR. Any NEP-141 token works; native NEAR doesn't.
+- **NEAR Intents** can deliver NEAR mainnet payments as one token on another chain: see [Payouts](/payments/payouts). It has no testnet.
+
+## Costs
+
+A payment in a token costs one storage registration on that token, about 0.00125 NEAR, when the transfer opens. A payment in native NEAR costs nothing until it settles. The deposit account's reserve and registration deposits come back once it's finished.
+
+## Your server's account
+
+The operator is the implicit account of the `m/44'/397'/0'` key of `KITE_OPERATOR_MNEMONIC`, a 64-character hex account id. It's shown under the settings button. Fund it with NEAR: it pays the gas and storage of every settlement.
+
+## Deploying a factory
+
+NEAR's contracts are in [Kite-01/near-contracts](https://github.com/Kite-01/near-contracts): a `factory` and the per-transfer `kite` contract, deployed as a global contract. [Its README](https://github.com/Kite-01/near-contracts#deploying-from-scratch) explains how to deploy one with your operator as its operator. The factory's account id, such as `kite-factory.near`, goes in the chain's configuration.
+
+## Supported networks
+
+| Network      | Network id     | Native token | Swaps | NEAR Intents payouts | Status |
+| ------------ | -------------- | ------------ | ----- | -------------------- | ------ |
+| NEAR         | `near:mainnet` | NEAR         | Rhea  | Yes                  | Beta   |
+| NEAR Testnet | `near:testnet` | NEAR         | Rhea  | No                   | Beta   |
