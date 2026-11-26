@@ -49,7 +49,7 @@ Through the API, any key of the app can list its chains; changing them needs `Ap
 
 Open an app to work inside it. A banner across the top shows which app you're changing, and the sidebar switches to the app's pages.
 
-![An app's transfers, with the banner showing the app being viewed](/assets/screenshots/transfers.png)
+![An app's transfers, with the app being viewed at the top of the sidebar](/assets/screenshots/transfers.png)
 
 An API key belongs to exactly one app, and can only see and change that app's data. With the root key, add an `x-kite-app-id` header to act as an app.
 
@@ -57,4 +57,4 @@ An API key belongs to exactly one app, and can only see and change that app's da
 
 Customers are optional. Create or update one by your own `externalId` with `POST /api/customers`, then attach it to a quote, and its name and traits show on the transfer. Fees can be conditioned on a customer or their traits.
 
-![The Customers page, with each customer's external ID, name and traits](/assets/screenshots/customers.png)
+![The Customers page, with each customer's name, external ID and ID](/assets/screenshots/customers.png)
