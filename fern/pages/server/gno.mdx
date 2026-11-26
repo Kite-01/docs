@@ -1,0 +1,49 @@
+---
+title: Gno.land
+description: Taking payments on Gno.land, in beta on the Onyx testnet.
+---
+
+Kite takes payments on Gno.land the same way as on other chains: every payment gets its own address, known before anyone pays. Gno.land is in beta, and only offered on testnet servers, on Onyx (`gno:onyx-1`).
+
+## How it differs
+
+- **The pay-in address is a sub-realm.** It's `chain.DerivePkgSubAddr(realm, "t/" + sha256(transfer))`, an address of your Kite realm that commits to every field of the transfer. Nothing is deployed per payment.
+- **Customers pay in the settlement token.** Nothing is swapped on-chain; the checkout only offers the settlement token.
+- **Prices come from GnoSwap.** A link priced in fiat is converted through the chain's USD-pegged token and a GnoSwap pool with the settlement token. Quotes use `DrySwapRoute`, held to the pool's time-weighted price from `Observe`, as on Uniswap.
+- **Deposits are found by a balance check** every minute; there are no deposit notifiers or deposit webhooks.
+- **The customer pays the payment's gas**, in GNOT. The operator pays for settling and refunding. There are no gas sponsors.
+- **No NEAR Intents.** 1Click has no Gno.land, so payments settle to the app's Gno.land address even when the app has a payout set.
+
+## Adding tokens
+
+In the chain's **Tokens** tab, add GNOT as `ugnot`, and a GRC20 by its key in `gno.land/r/nt/grc20reg/v0`: its realm path and symbol, such as `gno.land/r/<deployer>/tusd.tUSD`.
+
+Gno.land has no USD-pegged token with a GnoSwap pool yet, so Onyx uses tUSD, a test dollar with a faucet of 1,000 a day, and a GNOT/tUSD pool. Set tUSD as the chain's USD-pegged token, and GNOT, or tUSD, as its settlement token.
+
+## Your server's address
+
+The operator is the `m/44'/118'/0'/0/0` key of `KITE_OPERATOR_MNEMONIC`, the path gnokey uses. It's shown under the settings button. Fund it from [faucet.gno.land](https://faucet.gno.land): it pays the gas of every settlement.
+
+## Deploying the realm
+
+The realm is in [Kite-01/gno-contracts](https://github.com/Kite-01/gno-contracts). With gnokey, jq and Python installed, and a key funded from the faucet:
+
+```sh
+git clone https://github.com/Kite-01/gno-contracts && cd gno-contracts
+GNO_KEY=kite-deployer OPERATOR=<operator g1…> ./sh_scripts/deploy.sh
+GNO_KEY=kite-deployer GNOT_USD=<price> ./sh_scripts/pool.sh
+```
+
+`deploy.sh` submits the package, tUSD and the realm under the deployer's namespace, waits for each to be enabled, and grants your operator. `pool.sh` creates the GNOT/tUSD pool on GnoSwap. Put `gno.land/r/<deployer>/kite` in the chain's configuration as the Kite realm: Kite refuses a realm where its operator isn't one. The testnet can be reset: run both again after one. The [repository's README](https://github.com/Kite-01/gno-contracts#deploying-on-testnet) has the details.
+
+## Paying and refunds
+
+The checkout's wallet button pays with [Adena](https://www.adena.app): GNOT as a bank send, a GRC20 with its realm's `Transfer`. Paying by instructions shows the `g1…` address and its QR code; any wallet or exchange that sends GNOT can pay it.
+
+After a transfer expires, anyone can call the realm's `Refund`, so a customer never waits on the server. Each transfer's status is in gnoweb, at `gno.land/r/<deployer>/kite:t/<hash>`.
+
+## x402
+
+Agents pay with x402 on Gno.land with [`@gnolang/x402`](https://github.com/gnolang/x402)'s `ExactGnoScheme`: they sign a bank send of GNOT to the payment's address, which Kite verifies and broadcasts itself. Only GNOT can be paid this way, and the agent pays its own gas: the requirements carry `extra.areFeesSponsored: false`. Payments signed with a session key aren't accepted.
+
+As gnolang/x402 documents, a signed payment doesn't expire: until the payer spends its sequence on another transaction, whoever holds it can broadcast it. And a payer can spend that sequence between verification and settlement, so the settlement fails.

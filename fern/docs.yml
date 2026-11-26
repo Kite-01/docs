@@ -103,6 +103,9 @@ navigation:
           - page: Stellar
             icon: fa-regular fa-star
             path: pages/server/stellar.mdx
+          - page: Gno.land
+            icon: fa-regular fa-cube
+            path: pages/server/gno.mdx
           - page: Testnets
             icon: fa-regular fa-flask
             path: pages/server/testnets.mdx
