@@ -8,7 +8,7 @@ Kite takes payments on Gno.land the same way as on other chains: every payment g
 ## How it differs
 
 - **The pay-in address is a sub-realm.** It's `chain.DerivePkgSubAddr(realm, "t/" + sha256(transfer))`, an address of your Kite realm that commits to every field of the transfer. Nothing is deployed per payment.
-- **Customers pay in the settlement token.** Nothing is swapped on-chain; the checkout only offers the settlement token.
+- **Swaps go through GnoSwap, between GRC20s.** A customer can pay in another GRC20 than the settlement token, and `Settle` swaps it as the deposit address, with a minimum output. A realm can't wrap or unwrap GNOT, so a link that settles in GNOT is paid in GNOT, and GNOT can't pay a link that settles in a GRC20.
 - **Prices come from GnoSwap.** A link priced in fiat is converted through the chain's USD-pegged token and a GnoSwap pool with the settlement token. Quotes use `DrySwapRoute`, held to the pool's time-weighted price from `Observe`, as on Uniswap.
 - **Deposits are found by a balance check** every minute; there are no deposit notifiers or deposit webhooks.
 - **The customer pays the payment's gas**, in GNOT. The operator pays for settling and refunding. There are no gas sponsors.
