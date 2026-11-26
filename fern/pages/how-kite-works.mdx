@@ -7,15 +7,15 @@ Kite is a single server. It holds your configuration and history in Postgres, wa
 
 ## The pieces
 
-| Piece               | What it does                                                                                                           |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **API**             | Everything Kite does, over REST under `/api`. Documented in the [API Reference](/api-reference).                      |
-| **Dashboard**       | A web app for running the server: chains, tokens, apps, keys, payment links, transfers. Sign in with the root key.     |
-| **Checkout**        | The page customers pay on, at `/pay/<payment link id>`. Agents pay the same link over [x402](/payments/x402).          |
-| **Operator wallet** | A wallet derived from your mnemonic. It sends the transactions that settle and refund payments.                        |
-| **Kite contracts**  | A factory and one contract per payment. See [Contracts](/contracts/overview).                                         |
+| Piece               | What it does                                                                                                            |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **API**             | Everything Kite does, over REST under `/api`. Documented in the [API Reference](/api-reference).                        |
+| **Dashboard**       | A web app for running the server: chains, tokens, apps, keys, payment links, transfers. Sign in with the root key.      |
+| **Checkout**        | The page customers pay on, at `/pay/<payment link id>`. Agents pay the same link over [x402](/payments/x402).           |
+| **Operator wallet** | A wallet derived from your mnemonic. It sends the transactions that settle and refund payments.                         |
+| **Kite contracts**  | A factory and one contract per payment. See [Contracts](/contracts/overview).                                           |
 | **Providers**       | Optional services that report deposits, pay the operator's gas and deliver payouts. See [Providers](/server/providers). |
-| **Postgres**        | Configuration, apps, payment links, quotes, transfers, events and webhook deliveries.                                  |
+| **Postgres**        | Configuration, apps, payment links, quotes, transfers, events and webhook deliveries.                                   |
 
 ## Apps
 

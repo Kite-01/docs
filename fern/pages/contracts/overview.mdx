@@ -3,7 +3,7 @@ title: Contracts
 description: The on-chain side of Kite, and deploying your own factory.
 ---
 
-Every Kite payment runs through its own contract. A **KiteFactory** on each network deploys them; Kite's server only ever asks the factory to act, through the operator wallet. The source is at [Kite-01/contracts](https://github.com/Kite-01/contracts); this page describes those EVM contracts. NEAR and Stellar have their own, in [Kite-01/near-contracts](https://github.com/Kite-01/near-contracts) and [Kite-01/stellar-contracts](https://github.com/Kite-01/stellar-contracts), with the same design; see [Stellar](/server/stellar#deploying-a-factory) for deploying one there.
+Every Kite payment runs through its own contract. A **KiteFactory** on each network deploys them; Kite's server only ever asks the factory to act, through the operator wallet. The source is at [Kite-01/contracts](https://github.com/Kite-01/contracts); this page describes those EVM contracts. NEAR and Stellar have their own, in [Kite-01/near-contracts](https://github.com/Kite-01/near-contracts) and [Kite-01/stellar-contracts](https://github.com/Kite-01/stellar-contracts), with the same design; see [Stellar](/networks/stellar#deploying-a-factory) for deploying one there. On Gno.land, one realm takes every payment, at its own sub-realm address: see [Gno.land](/networks/gno#deploying-the-realm).
 
 ## How a transfer's contract works
 

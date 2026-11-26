@@ -120,8 +120,8 @@
           },
           "address": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "createdAt": {
@@ -327,8 +327,8 @@
           },
           "kiteFactoryAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "usdPeggedTokenId": {
@@ -594,8 +594,8 @@
           },
           "address": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "symbol": {
@@ -668,8 +668,8 @@
           },
           "address": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "symbol": {
@@ -864,8 +864,8 @@
           },
           "feeAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": ["string", "null"]
           },
           "createdAt": {
@@ -940,8 +940,8 @@
           },
           "feeAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": ["string", "null"]
           },
           "createdAt": {
@@ -1118,8 +1118,8 @@
           },
           "address": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "decimals": {
@@ -1168,8 +1168,8 @@
           },
           "address": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "decimals": {
@@ -1337,8 +1337,8 @@
           },
           "feeAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "blockchainHash": {
@@ -1558,8 +1558,8 @@
           },
           "settlementRecipient": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -1569,14 +1569,14 @@
           },
           "refundAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "payinAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "kiteTransferInput": {
@@ -1605,8 +1605,8 @@
                   },
                   "payInTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amountIn": {
@@ -1616,14 +1616,14 @@
                   },
                   "settlementTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlementRecipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "minAmountOut": {
@@ -1643,8 +1643,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -1657,8 +1657,8 @@
                   },
                   "refundAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expiresAt": {
@@ -1668,8 +1668,8 @@
                   },
                   "routerAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "poolFeeTier": {
@@ -1677,8 +1677,8 @@
                   },
                   "implementation": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -1717,8 +1717,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -1743,8 +1743,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -1753,8 +1753,8 @@
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -1774,8 +1774,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -1788,8 +1788,8 @@
                   },
                   "refund_account": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -1804,8 +1804,8 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "pool": {
@@ -1836,8 +1836,8 @@
                       },
                       "wrap": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       }
                     }
@@ -1870,8 +1870,8 @@
                   },
                   "pay_in": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amount_in": {
@@ -1881,14 +1881,14 @@
                   },
                   "settlement_token": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -1905,8 +1905,8 @@
                       "properties": {
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -1919,8 +1919,8 @@
                   },
                   "refund_address": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -1935,22 +1935,107 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "path": {
                         "type": "array",
                         "items": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         }
                       }
                     }
                   },
                   "implementation": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/GnoKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "token",
+                  "amount",
+                  "settle",
+                  "min_out",
+                  "route",
+                  "recipient",
+                  "fees",
+                  "refund",
+                  "expires_at"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "token": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settle": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "min_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "route": {
+                    "type": "string"
+                  },
+                  "recipient": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["recipient", "amount"],
+                      "properties": {
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
                     "type": "string"
                   }
                 }
@@ -2069,8 +2154,8 @@
           },
           "depositAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "destinationAsset": {
@@ -2087,8 +2172,8 @@
           },
           "refundTo": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "deadline": {
@@ -2216,8 +2301,8 @@
           },
           "settlementRecipient": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2227,14 +2312,14 @@
           },
           "refundAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "payinAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "kiteTransferInput": {
@@ -2263,8 +2348,8 @@
                   },
                   "payInTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amountIn": {
@@ -2274,14 +2359,14 @@
                   },
                   "settlementTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlementRecipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "minAmountOut": {
@@ -2301,8 +2386,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -2315,8 +2400,8 @@
                   },
                   "refundAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expiresAt": {
@@ -2326,8 +2411,8 @@
                   },
                   "routerAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "poolFeeTier": {
@@ -2335,8 +2420,8 @@
                   },
                   "implementation": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -2375,8 +2460,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -2401,8 +2486,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -2411,8 +2496,8 @@
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -2432,8 +2517,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -2446,8 +2531,8 @@
                   },
                   "refund_account": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -2462,8 +2547,8 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "pool": {
@@ -2494,8 +2579,8 @@
                       },
                       "wrap": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       }
                     }
@@ -2528,8 +2613,8 @@
                   },
                   "pay_in": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amount_in": {
@@ -2539,14 +2624,14 @@
                   },
                   "settlement_token": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -2563,8 +2648,8 @@
                       "properties": {
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -2577,8 +2662,8 @@
                   },
                   "refund_address": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -2593,22 +2678,107 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "path": {
                         "type": "array",
                         "items": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         }
                       }
                     }
                   },
                   "implementation": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/GnoKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "token",
+                  "amount",
+                  "settle",
+                  "min_out",
+                  "route",
+                  "recipient",
+                  "fees",
+                  "refund",
+                  "expires_at"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "token": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settle": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "min_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "route": {
+                    "type": "string"
+                  },
+                  "recipient": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["recipient", "amount"],
+                      "properties": {
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
                     "type": "string"
                   }
                 }
@@ -2736,8 +2906,8 @@
           },
           "settlementRecipient": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -2747,14 +2917,14 @@
           },
           "refundAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "payinAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "kiteTransferInput": {
@@ -2783,8 +2953,8 @@
                   },
                   "payInTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amountIn": {
@@ -2794,14 +2964,14 @@
                   },
                   "settlementTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlementRecipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "minAmountOut": {
@@ -2821,8 +2991,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -2835,8 +3005,8 @@
                   },
                   "refundAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expiresAt": {
@@ -2846,8 +3016,8 @@
                   },
                   "routerAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "poolFeeTier": {
@@ -2855,8 +3025,8 @@
                   },
                   "implementation": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -2895,8 +3065,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -2921,8 +3091,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -2931,8 +3101,8 @@
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -2952,8 +3122,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -2966,8 +3136,8 @@
                   },
                   "refund_account": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -2982,8 +3152,8 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "pool": {
@@ -3014,8 +3184,8 @@
                       },
                       "wrap": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       }
                     }
@@ -3048,8 +3218,8 @@
                   },
                   "pay_in": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amount_in": {
@@ -3059,14 +3229,14 @@
                   },
                   "settlement_token": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -3083,8 +3253,8 @@
                       "properties": {
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -3097,8 +3267,8 @@
                   },
                   "refund_address": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -3113,22 +3283,107 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "path": {
                         "type": "array",
                         "items": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         }
                       }
                     }
                   },
                   "implementation": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/GnoKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "token",
+                  "amount",
+                  "settle",
+                  "min_out",
+                  "route",
+                  "recipient",
+                  "fees",
+                  "refund",
+                  "expires_at"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "token": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settle": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "min_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "route": {
+                    "type": "string"
+                  },
+                  "recipient": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["recipient", "amount"],
+                      "properties": {
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
                     "type": "string"
                   }
                 }
@@ -3293,8 +3548,8 @@
           },
           "settlementRecipient": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "minAmountOut": {
@@ -3304,14 +3559,14 @@
           },
           "refundAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "payinAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "kiteTransferInput": {
@@ -3340,8 +3595,8 @@
                   },
                   "payInTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amountIn": {
@@ -3351,14 +3606,14 @@
                   },
                   "settlementTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlementRecipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "minAmountOut": {
@@ -3378,8 +3633,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -3392,8 +3647,8 @@
                   },
                   "refundAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expiresAt": {
@@ -3403,8 +3658,8 @@
                   },
                   "routerAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "poolFeeTier": {
@@ -3412,8 +3667,8 @@
                   },
                   "implementation": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -3452,8 +3707,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -3478,8 +3733,8 @@
                         "properties": {
                           "Token": {
                             "minLength": 2,
-                            "maxLength": 69,
-                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                            "maxLength": 256,
+                            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                             "type": "string"
                           }
                         }
@@ -3488,8 +3743,8 @@
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -3509,8 +3764,8 @@
                         },
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -3523,8 +3778,8 @@
                   },
                   "refund_account": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -3539,8 +3794,8 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "pool": {
@@ -3571,8 +3826,8 @@
                       },
                       "wrap": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       }
                     }
@@ -3605,8 +3860,8 @@
                   },
                   "pay_in": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amount_in": {
@@ -3616,14 +3871,14 @@
                   },
                   "settlement_token": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "settlement_recipient": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "min_amount_out": {
@@ -3640,8 +3895,8 @@
                       "properties": {
                         "recipient": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         },
                         "amount": {
@@ -3654,8 +3909,8 @@
                   },
                   "refund_address": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "expires_at": {
@@ -3670,22 +3925,107 @@
                     "properties": {
                       "router": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "path": {
                         "type": "array",
                         "items": {
                           "minLength": 2,
-                          "maxLength": 69,
-                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                           "type": "string"
                         }
                       }
                     }
                   },
                   "implementation": {
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "additionalProperties": false,
+                "$id": "#/components/schemas/GnoKiteTransferInput",
+                "type": "object",
+                "required": [
+                  "id",
+                  "token",
+                  "amount",
+                  "settle",
+                  "min_out",
+                  "route",
+                  "recipient",
+                  "fees",
+                  "refund",
+                  "expires_at"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "token": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "settle": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "min_out": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
+                    "type": "string"
+                  },
+                  "route": {
+                    "type": "string"
+                  },
+                  "recipient": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "fees": {
+                    "type": "array",
+                    "items": {
+                      "additionalProperties": false,
+                      "type": "object",
+                      "required": ["recipient", "amount"],
+                      "properties": {
+                        "recipient": {
+                          "minLength": 2,
+                          "maxLength": 256,
+                          "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                          "type": "string"
+                        },
+                        "amount": {
+                          "pattern": "^[0-9]+$",
+                          "maxLength": 78,
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "refund": {
+                    "minLength": 2,
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
+                    "type": "string"
+                  },
+                  "expires_at": {
+                    "pattern": "^[0-9]+$",
+                    "maxLength": 78,
                     "type": "string"
                   }
                 }
@@ -3762,14 +4102,14 @@
               },
               "address": {
                 "minLength": 2,
-                "maxLength": 69,
-                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                "maxLength": 256,
+                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                 "type": "string"
               },
               "tokenAddress": {
                 "minLength": 2,
-                "maxLength": 69,
-                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                "maxLength": 256,
+                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                 "type": "string"
               },
               "amount": {
@@ -4228,7 +4568,7 @@
               "properties": {
                 "chainType": {
                   "type": "string",
-                  "enum": ["Evm", "Near", "Stellar"]
+                  "enum": ["Evm", "Near", "Stellar", "Gno"]
                 },
                 "address": {
                   "type": "string"
@@ -4269,8 +4609,8 @@
                 },
                 "operatorAddress": {
                   "minLength": 2,
-                  "maxLength": 69,
-                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                  "maxLength": 256,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                   "type": "string"
                 },
                 "explorerUrl": {
@@ -4391,8 +4731,8 @@
                 },
                 "address": {
                   "minLength": 2,
-                  "maxLength": 69,
-                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                  "maxLength": 256,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                   "type": "string"
                 },
                 "chainId": {
@@ -4458,8 +4798,8 @@
                 "type": "array",
                 "items": {
                   "minLength": 2,
-                  "maxLength": 69,
-                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                  "maxLength": 256,
+                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                   "type": "string"
                 }
               }
@@ -4490,8 +4830,8 @@
           },
           "asset": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "amount": {
@@ -4501,8 +4841,8 @@
           },
           "payTo": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "maxTimeoutSeconds": {
@@ -4713,6 +5053,7 @@
                 "chainType",
                 "chainId",
                 "testnet",
+                "beta",
                 "icon",
                 "nativeCurrency",
                 "rpcUrls",
@@ -4732,12 +5073,15 @@
                 },
                 "chainType": {
                   "type": "string",
-                  "enum": ["Evm", "Near", "Stellar"]
+                  "enum": ["Evm", "Near", "Stellar", "Gno"]
                 },
                 "chainId": {
                   "type": ["integer", "null"]
                 },
                 "testnet": {
+                  "type": "boolean"
+                },
+                "beta": {
                   "type": "boolean"
                 },
                 "icon": {
@@ -4792,8 +5136,8 @@
                   "properties": {
                     "address": {
                       "minLength": 2,
-                      "maxLength": 69,
-                      "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                      "maxLength": 256,
+                      "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                       "type": "string"
                     },
                     "symbol": {
@@ -4829,8 +5173,8 @@
                     "properties": {
                       "address": {
                         "minLength": 2,
-                        "maxLength": 69,
-                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                        "maxLength": 256,
+                        "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                         "type": "string"
                       },
                       "symbol": {
@@ -4891,8 +5235,8 @@
           },
           "payinAddress": {
             "minLength": 2,
-            "maxLength": 69,
-            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+            "maxLength": 256,
+            "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
             "type": "string"
           },
           "x402BlockchainHash": {
@@ -5209,8 +5553,8 @@
                 "properties": {
                   "address": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -5798,8 +6142,8 @@
                   },
                   "kiteFactoryAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "usdPeggedTokenId": {
@@ -5884,8 +6228,8 @@
             "required": true,
             "schema": {
               "minLength": 2,
-              "maxLength": 69,
-              "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+              "maxLength": 256,
+              "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
               "type": "string"
             }
           }
@@ -6152,8 +6496,8 @@
                   },
                   "sourceTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -6207,8 +6551,8 @@
                   },
                   "refundAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -6666,16 +7010,16 @@
                             "properties": {
                               "_eq": {
                                 "minLength": 2,
-                                "maxLength": 69,
-                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                "maxLength": 256,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
                                   "minLength": 2,
-                                  "maxLength": 69,
-                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                  "maxLength": 256,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                   "type": "string"
                                 }
                               }
@@ -6693,16 +7037,16 @@
                             "properties": {
                               "_eq": {
                                 "minLength": 2,
-                                "maxLength": 69,
-                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                "maxLength": 256,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
                                   "minLength": 2,
-                                  "maxLength": 69,
-                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                  "maxLength": 256,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                   "type": "string"
                                 }
                               }
@@ -6745,8 +7089,8 @@
                   },
                   "feeAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": ["string", "null"]
                   }
                 }
@@ -6898,16 +7242,16 @@
                             "properties": {
                               "_eq": {
                                 "minLength": 2,
-                                "maxLength": 69,
-                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                "maxLength": 256,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
                                   "minLength": 2,
-                                  "maxLength": 69,
-                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                  "maxLength": 256,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                   "type": "string"
                                 }
                               }
@@ -6925,16 +7269,16 @@
                             "properties": {
                               "_eq": {
                                 "minLength": 2,
-                                "maxLength": 69,
-                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                "maxLength": 256,
+                                "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                 "type": "string"
                               },
                               "_in": {
                                 "type": "array",
                                 "items": {
                                   "minLength": 2,
-                                  "maxLength": 69,
-                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                                  "maxLength": 256,
+                                  "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                                   "type": "string"
                                 }
                               }
@@ -6977,8 +7321,8 @@
                   },
                   "feeAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": ["string", "null"]
                   }
                 }
@@ -7742,8 +8086,8 @@
                   },
                   "sourceTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "customerId": {
@@ -7981,8 +8325,8 @@
                   },
                   "sourceTokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "amount": {
@@ -8160,8 +8504,8 @@
                   },
                   "refundAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -8375,8 +8719,8 @@
                 "properties": {
                   "tokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   }
                 }
@@ -8432,14 +8776,14 @@
                 "properties": {
                   "tokenAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "destinationAddress": {
                     "minLength": 2,
-                    "maxLength": 69,
-                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68})$",
+                    "maxLength": 256,
+                    "pattern": "^(0x[0-9a-fA-F]{40}|(?!0x)(([a-z\\d]+[-_])*[a-z\\d]+\\.)*([a-z\\d]+[-_])*[a-z\\d]+|[GC][A-Z2-7]{55}|M[A-Z2-7]{68}|gno\\.land/r/([a-z\\d_-]+/)*[a-z\\d_-]+(\\.[A-Za-z\\d_-]+)?)$",
                     "type": "string"
                   },
                   "useGasSponsor": {
@@ -8903,5 +9247,6 @@
         }
       }
     }
-  }
+  },
+  "servers": null
 }

@@ -41,13 +41,13 @@ A paid-out transfer shows its payout on the transfer's page: the destination, th
 
 ![A settled transfer paid out as USDC on NEAR, with the delivery transaction](/assets/screenshots/transfer-payout.png)
 
-| Status       | Meaning                                                               |
-| ------------ | --------------------------------------------------------------------- |
-| `Pending`    | NEAR Intents hasn't seen the deposit yet.                             |
-| `Processing` | NEAR Intents has the deposit and is converting it.                    |
-| `Delivered`  | The payout token reached the payout address.                          |
+| Status       | Meaning                                                                    |
+| ------------ | -------------------------------------------------------------------------- |
+| `Pending`    | NEAR Intents hasn't seen the deposit yet.                                  |
+| `Processing` | NEAR Intents has the deposit and is converting it.                         |
+| `Delivered`  | The payout token reached the payout address.                               |
 | `Refunded`   | NEAR Intents sent the funds back to the app's address on the paying chain. |
-| `Failed`     | NEAR Intents couldn't deliver.                                        |
+| `Failed`     | NEAR Intents couldn't deliver.                                             |
 
 Payout steps are written to the transfer's timeline, but they don't send webhook events. Your webhooks hear about the transfer settling, as for any payment.
 

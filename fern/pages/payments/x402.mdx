@@ -33,7 +33,7 @@ PAYMENT-REQUIRED: eyJ4NDAyVmVyc2lvbiI6Mi…
 }
 ```
 
-`accepts` lists one requirement for every chain the app accepts whose settlement token supports EIP-3009, which x402 needs on EVM chains. On NEAR the agent signs a delegated `ft_transfer`, and on [Stellar](/server/stellar#x402) a Soroban authorization for the token's `transfer`. The client picks one, signs an authorisation for that amount, and repeats the request with a `PAYMENT-SIGNATURE` header. Kite submits it and settles the payment, so the payer needs no gas. The response carries `PAYMENT-RESPONSE` and `X-Kite-Transfer-Id`. From then on the payment is an ordinary transfer: it shows in the dashboard and fires the same webhooks.
+`accepts` lists one requirement for every chain the app accepts whose settlement token supports EIP-3009, which x402 needs on EVM chains. On NEAR the agent signs a delegated `ft_transfer`, on [Stellar](/networks/stellar#x402) a Soroban authorization for the token's `transfer`, and on [Gno.land](/networks/gno#x402) a bank send of GNOT, for which the agent pays the gas. The client picks one, signs an authorisation for that amount, and repeats the request with a `PAYMENT-SIGNATURE` header. Kite submits it and settles the payment, so the payer needs no gas. The response carries `PAYMENT-RESPONSE` and `X-Kite-Transfer-Id`. From then on the payment is an ordinary transfer: it shows in the dashboard and fires the same webhooks.
 
 The checkout page itself doesn't use x402. Customers paying from a connected wallet send an ordinary token transfer; see [Checkout](/payments/checkout).
 
@@ -41,12 +41,12 @@ The checkout page itself doesn't use x402. Customers paying from a connected wal
 
 Your own API can charge per request with x402 and use Kite as its facilitator. Every endpoint needs an API key with the `x402` scope:
 
-| Endpoint                                   | Use                                                       |
-| ------------------------------------------ | --------------------------------------------------------- |
+| Endpoint                                   | Use                                                         |
+| ------------------------------------------ | ----------------------------------------------------------- |
 | `GET /api/x402/supported`                  | The networks and schemes Kite can settle for the key's app. |
-| `POST /api/x402/pay`                       | Open a transfer for a quote, to be paid with x402.        |
-| `GET /api/x402/transfer/{id}/requirements` | The payment requirements to send in your `402` response.  |
-| `POST /api/x402/verify`                    | Check a client's payment before doing the work.           |
-| `POST /api/x402/settle`                    | Settle it.                                                |
+| `POST /api/x402/pay`                       | Open a transfer for a quote, to be paid with x402.          |
+| `GET /api/x402/transfer/{id}/requirements` | The payment requirements to send in your `402` response.    |
+| `POST /api/x402/verify`                    | Check a client's payment before doing the work.             |
+| `POST /api/x402/settle`                    | Settle it.                                                  |
 
 See the [API Reference](/api-reference) for the request and response shapes.

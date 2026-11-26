@@ -14,15 +14,15 @@ A fee is taken from a payment when it settles, and sent to the fee's address. Th
 
 ## Fields
 
-| Field           | Description                                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Label**       | Your name for it, such as "Platform fee".                                                                                    |
-| **Chain**       | Fees are per chain, and in its settlement token.                                                                             |
-| **Type**        | `Fixed`: an amount of the settlement token. `Variable`: a share of the payment in basis points, `100` being 1%.              |
-| **Value**       | The amount or the basis points.                                                                                              |
-| **Minimum**     | Optional. The fee is never less than this.                                                                                   |
-| **Maximum**     | Optional. The fee is never more than this.                                                                                   |
-| **Conditions**  | Optional. When the fee applies; empty means always.                                                                          |
+| Field           | Description                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Label**       | Your name for it, such as "Platform fee".                                                                                      |
+| **Chain**       | Fees are per chain, and in its settlement token.                                                                               |
+| **Type**        | `Fixed`: an amount of the settlement token. `Variable`: a share of the payment in basis points, `100` being 1%.                |
+| **Value**       | The amount or the basis points.                                                                                                |
+| **Minimum**     | Optional. The fee is never less than this.                                                                                     |
+| **Maximum**     | Optional. The fee is never more than this.                                                                                     |
+| **Conditions**  | Optional. When the fee applies; empty means always.                                                                            |
 | **Fee address** | Where the fee goes. If it's empty, an app fee goes to the app's address on the chain, and a server fee to the operator wallet. |
 
 Fixed amounts, minimums and maximums are in the settlement token's smallest unit through the API, and in whole tokens in the dashboard.

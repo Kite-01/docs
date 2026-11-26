@@ -9,12 +9,13 @@ A server with `KITE_IS_TESTNET` unset or `false` offers the mainnets in the serv
 
 ## Deploying
 
-Kite is one process and a Postgres database. The Docker image is the simplest way to run it:
+Kite is one process and a Postgres database. The published image is the simplest way to run it:
 
 ```sh
-docker build -t kite-server .
-docker run -d --restart unless-stopped -p 3000:3000 --env-file .env kite-server
+docker run -d --restart unless-stopped -p 3000:3000 --env-file .env ghcr.io/kite-01/server:latest
 ```
+
+Pin a `sha-<sha>` tag rather than `latest` to choose when you upgrade. To build the image yourself, `docker build -t kite-server .` in the [server repository](https://github.com/Kite-01/server).
 
 Put it behind a reverse proxy or load balancer that terminates HTTPS, and set `KITE_PUBLIC_BASE_URL` to the public HTTPS URL. Use a managed Postgres, or one you back up. A managed one usually needs [TLS and smaller connection pools](/server/configuration#managed-postgres).
 
@@ -34,7 +35,13 @@ Background work, such as settling transfers and delivering webhooks, runs in the
 
 ## Upgrading
 
-Pull the new version and restart. The Docker image applies migrations as it starts; from source, run them yourself first:
+With Docker, pull the new image and restart: it applies migrations as it starts.
+
+```sh
+docker compose pull && docker compose up -d
+```
+
+From source, pull the code and run the migrations yourself first:
 
 ```sh
 git pull

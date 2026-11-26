@@ -9,17 +9,17 @@ A transfer is one payment of a quote. It has its own pay-in address, which is th
 
 ## Statuses
 
-| Status            | Meaning                                                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `Created`         | Being set up. Rarely seen.                                                                                                               |
-| `AwaitingDeposit` | Open, waiting for the customer to pay.                                                                                                   |
-| `DepositReceived` | The full amount arrived at the pay-in address.                                                                                           |
-| `x402Settled`     | An x402 payment was accepted, and the funds are at the pay-in address.                                                                   |
-| `Processing`      | The settlement transaction was sent.                                                                                                     |
+| Status            | Meaning                                                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Created`         | Being set up. Rarely seen.                                                                                                                            |
+| `AwaitingDeposit` | Open, waiting for the customer to pay.                                                                                                                |
+| `DepositReceived` | The full amount arrived at the pay-in address.                                                                                                        |
+| `x402Settled`     | An x402 payment was accepted, and the funds are at the pay-in address.                                                                                |
+| `Processing`      | The settlement transaction was sent.                                                                                                                  |
 | `Settled`         | **Paid.** Swapped if needed, fees paid, and the rest sent to the app's address on that chain, or into NEAR Intents for a [payout](/payments/payouts). |
-| `Cancelled`       | Expired without payment.                                                                                                                 |
-| `Failed`          | Settlement couldn't complete. The funds are refunded automatically, unless the payment came through x402 (see below).                    |
-| `Refunded`        | The funds went back to the refund address.                                                                                               |
+| `Cancelled`       | Expired without payment.                                                                                                                              |
+| `Failed`          | Settlement couldn't complete. The funds are refunded automatically, unless the payment came through x402 (see below).                                 |
+| `Refunded`        | The funds went back to the refund address.                                                                                                            |
 
 `Settled` is the only status that means you've been paid. Fulfil orders on it.
 

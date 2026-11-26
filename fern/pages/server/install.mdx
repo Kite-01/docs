@@ -3,15 +3,73 @@ title: Install
 description: Get a Kite server running locally or on a machine of your own.
 ---
 
-You can run Kite from source with Bun, or as a Docker image. Either way you need a Postgres database.
+The quickest way is the published Docker image, `ghcr.io/kite-01/server`, with a Postgres of its own. You can also run Kite from source with Bun.
 
 ## Requirements
 
-- [Bun](https://bun.sh) 1.4 or newer, if you run from source
+- [Docker](https://docs.docker.com/get-docker/) with Compose, or [Bun](https://bun.sh) 1.4 or newer to run from source
 - PostgreSQL (Kite is tested against Postgres 18)
 - A public URL for the server, so providers can tell it about deposits (`http://localhost:3000` is fine while you try it)
 - A wallet mnemonic for the operator
 - Optionally, keys for a [deposit notifier and a gas sponsor](/server/providers)
+
+## With Docker
+
+<Steps>
+
+<Step title="Get the compose file and the example configuration">
+
+```sh
+mkdir kite && cd kite
+curl -fsSLO https://raw.githubusercontent.com/Kite-01/server/main/docker-compose.yml
+curl -fsSL -o .env https://raw.githubusercontent.com/Kite-01/server/main/.env.example
+```
+
+`docker-compose.yml` runs the image and a Postgres for it, with its data in a Docker volume.
+
+</Step>
+
+<Step title="Configure it">
+
+In `.env`, replace `KITE_ENCRYPTION_KEY` (`openssl rand -base64 32`), `KITE_OPERATOR_MNEMONIC` and `KITE_ROOT_KEY` with your own values. [Configuration](/server/configuration) explains every variable. The compose file sets the database URL itself.
+
+</Step>
+
+<Step title="Run it">
+
+```sh
+docker compose up -d
+```
+
+The image runs its migrations, then serves the API, the dashboard and the checkout on port 3000.
+
+</Step>
+
+<Step title="Open the dashboard">
+
+Open `http://localhost:3000` and sign in with your root key. Then follow [First run](/server/first-run).
+
+</Step>
+
+</Steps>
+
+### Image tags
+
+| Tag         | Follows    | Use it for                                                    |
+| ----------- | ---------- | ------------------------------------------------------------- |
+| `latest`    | `main`     | mainnets                                                      |
+| `testnet`   | `testnet`  | [testnets](/server/testnets): also set `KITE_IS_TESTNET=true` |
+| `sha-<sha>` | one commit | pinning an exact build                                        |
+
+Choose one with `KITE_IMAGE`, for example `KITE_IMAGE=testnet docker compose up -d`. To update, `docker compose pull && docker compose up -d`. The image is built for `linux/amd64` and `linux/arm64`.
+
+To run the image against a database you already have, without the compose file:
+
+```sh
+docker run -d --name kite -p 3000:3000 --env-file .env ghcr.io/kite-01/server:latest
+```
+
+From inside a container, `localhost` is the container itself: point `KITE_PG_DB_URL` at your database's real host.
 
 ## From source
 
@@ -95,17 +153,6 @@ Open the URL it prints, usually `http://localhost:3000`, and sign in with your r
 </Step>
 
 </Steps>
-
-## With Docker
-
-The repository's Dockerfile builds the dashboard and the server into one image. It runs migrations every time it starts.
-
-```sh
-docker build -t kite-server .
-docker run -d --name kite -p 3000:3000 --env-file .env kite-server
-```
-
-From inside a container, `localhost` is the container itself: point `KITE_PG_DB_URL` at your database's real host, or run both on one Docker network.
 
 ## Check it's up
 
