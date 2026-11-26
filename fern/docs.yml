@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
 instances:
   - url: kite.docs.buildwithfern.com
-    custom-domain: docs.usekite.site
+    custom-domain:
+      - docs.usekite.site
+      - docs.usekite.tech
 
 title: Kite
 
