@@ -17,7 +17,7 @@ This works with any token on any chain the app accepts, from any wallet or excha
 
 <Step title="Pick a network and token">
 
-After **Payment instructions**, customers pick a network and token. They can search, or paste a token's address to pay with one that isn't listed.
+After **Payment instructions**, customers pick a network and token. The first network in the list is selected to start with. They can search, or paste a token's address to pay with one that isn't listed. The browser remembers imported tokens under their network, and marks them with a warning, since anyone can create a token, including copies of real ones.
 
 ![Choosing the token to pay with](/assets/screenshots/checkout-token.png)
 
@@ -35,6 +35,8 @@ The review shows the amount in that token, and the quote holds for 5 minutes. Th
 
 The customer sends exactly the amount shown to the address, using the QR code or the address as text. The QR code fills in the token, network and amount in wallets that support payment requests ([EIP-681](https://eips.ethereum.org/EIPS/eip-681)); the address tab is there for everything else.
 
+Once they've sent it, **I've sent the payment** tells Kite to look for it straight away. Without it, on a chain with no [deposit notifier](/server/providers#deposit-notifiers), Kite only checks once a minute. The page waits for the payment from then on, and **Show payment details** brings the address back.
+
 ![Payment instructions with a QR code for the address](/assets/screenshots/checkout-instructions.png)
 
 </Step>
@@ -42,6 +44,8 @@ The customer sends exactly the amount shown to the address, using the QR code or
 <Step title="See the result">
 
 The page follows the transfer, and shows the result once it settles.
+
+![Looking for the payment after the customer says they've sent it](/assets/screenshots/checkout-looking.png)
 
 ![Payment complete, with a link to the settlement transaction](/assets/screenshots/checkout-complete.png)
 

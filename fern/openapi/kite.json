@@ -5923,7 +5923,7 @@
                 "required": ["caip2Id"],
                 "properties": {
                   "caip2Id": {
-                    "pattern": "^(eip155:[0-9]+|near:(mainnet|testnet)|stellar:(pubnet|testnet))$",
+                    "pattern": "^(eip155:[0-9]+|near:(mainnet|testnet)|stellar:(pubnet|testnet)|gno:[a-z0-9-]+)$",
                     "type": "string"
                   }
                 }
@@ -6581,6 +6581,46 @@
         "security": [],
         "tags": ["Checkout"],
         "summary": "Track a transfer opened from a payment link",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "transferId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response for status 200",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckoutTransfer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/checkout/{id}/transfer/{transferId}/paid": {
+      "post": {
+        "operationId": "checkout.reportPaid",
+        "security": [],
+        "tags": ["Checkout"],
+        "summary": "Look for the payment now, after the payer says they've sent it",
         "parameters": [
           {
             "name": "id",
