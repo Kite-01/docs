@@ -45,8 +45,6 @@ location / {
 
 16 KB is room for about 40 chains. `proxy_busy_buffers_size` must be at least `proxy_buffer_size`, or nginx won't start.
 
-On CapRover, add the three lines to the app's **HTTP Settings → Edit Default Nginx Configurations**, inside `location / { … }` after the `proxy_set_header` lines, and save. Each app has its own configuration.
-
 </Tab>
 
 <Tab title="Apache">
