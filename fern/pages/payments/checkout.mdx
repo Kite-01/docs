@@ -35,7 +35,7 @@ The review shows the amount in that token, and the quote holds for 5 minutes. Th
 
 The customer sends exactly the amount shown to the address, using the QR code or the address as text. The QR code fills in the token, network and amount in wallets that support payment requests ([EIP-681](https://eips.ethereum.org/EIPS/eip-681)); the address tab is there for everything else.
 
-Once they've sent it, **I've sent the payment** tells Kite to look for it straight away. Without it, on a chain with no [deposit notifier](/server/providers), Kite only checks once a minute. The page waits for the payment from then on, and **Show payment details** brings the address back.
+Once they've sent it, **I've sent the payment** tells Kite to look for it straight away. Without it, on a chain with no [deposit notifier](/server/providers#deposit-notifiers), Kite only checks once a minute. The page waits for the payment from then on, and **Show payment details** brings the address back.
 
 ![Payment instructions with a QR code for the address](/assets/screenshots/checkout-instructions.png)
 
