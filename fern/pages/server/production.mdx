@@ -21,9 +21,59 @@ Put it behind a reverse proxy or load balancer that terminates HTTPS, and set `K
 
 Background work, such as settling transfers and delivering webhooks, runs in the same process on a queue kept in Postgres, so there's nothing else to run.
 
+### Reverse proxy
+
+A payment link's [x402](/payments/x402) response carries every offer in its `PAYMENT-REQUIRED` header, base64-encoded: about 300 bytes for each chain the app accepts. Proxies cap the size of a response's headers, and past that cap they answer `502 Bad Gateway` in place of the `402`, while the checkout page and the rest of the API keep working.
+
+<Tabs>
+
+<Tab title="nginx">
+
+nginx reads a response's headers into a 4 KB buffer by default, which a payment link outgrows at about 11 chains. nginx then logs `upstream sent too big header while reading response header from upstream`. Raise the buffer where you proxy to Kite:
+
+```nginx
+location / {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_buffer_size 16k;
+    proxy_buffers 8 16k;
+    proxy_busy_buffers_size 32k;
+}
+```
+
+16 KB is room for about 40 chains. `proxy_busy_buffers_size` must be at least `proxy_buffer_size`, or nginx won't start.
+
+On CapRover, add the three lines to the app's **HTTP Settings → Edit Default Nginx Configurations**, inside `location / { … }` after the `proxy_set_header` lines, and save. Each app has its own configuration.
+
+</Tab>
+
+<Tab title="Apache">
+
+Apache's `mod_proxy` caps each response header line at 8,192 bytes, which a payment link outgrows at about 22 chains. Apache then logs `AH10124: header size is over the limit allowed by ResponseFieldSize`. Raise it on the `ProxyPass` line, with Apache 2.4.53 or newer:
+
+```apache
+ProxyPass        / http://127.0.0.1:3000/ responsefieldsize=65536
+ProxyPassReverse / http://127.0.0.1:3000/
+```
+
+</Tab>
+
+</Tabs>
+
+To check, request a payment link as JSON: it should answer `402`, not `502`.
+
+```sh
+curl -s -o /dev/null -w "%{http_code}\n" -H "Accept: application/json" https://your-server.example/pay/<payment-link-id>
+```
+
+If you redirect another domain to Kite, redirect straight to its `https://` URL, so a client never repeats a request carrying a signed payment over plain HTTP.
+
 ## Checklist
 
 - [ ] Strong, unique `KITE_ROOT_KEY` and `KITE_ENCRYPTION_KEY`, kept in a secret manager.
+- [ ] A reverse proxy whose header limits fit a payment link's [x402 response](#reverse-proxy).
 - [ ] A dedicated operator mnemonic, set as the operator of your Kite factory on each chain.
 - [ ] Your own RPC URLs on each chain.
 - [ ] A deposit notifier on each chain that has one, and `KITE_PUBLIC_BASE_URL` reachable from the internet.

@@ -35,6 +35,8 @@ PAYMENT-REQUIRED: eyJ4NDAyVmVyc2lvbiI6Mi…
 
 `accepts` lists one requirement for every chain the app accepts whose settlement token supports EIP-3009, which x402 needs on EVM chains. On NEAR the agent signs a delegated `ft_transfer`, on [Stellar](/networks/stellar#x402) a Soroban authorization for the token's `transfer`, and on [Gno.land](/networks/gno#x402) a bank send of GNOT, for which the agent pays the gas. The client picks one, signs an authorisation for that amount, and repeats the request with a `PAYMENT-SIGNATURE` header. Kite submits it and settles the payment, so the payer needs no gas. The response carries `PAYMENT-RESPONSE` and `X-Kite-Transfer-Id`. From then on the payment is an ordinary transfer: it shows in the dashboard and fires the same webhooks.
 
+The `PAYMENT-REQUIRED` header grows with every chain the app accepts. If you run your own server behind nginx or Apache, [raise their header limits](/server/production#reverse-proxy), or the response becomes a `502`.
+
 The checkout page itself doesn't use x402. Customers paying from a connected wallet send an ordinary token transfer; see [Checkout](/payments/checkout).
 
 ## As a facilitator for your services
